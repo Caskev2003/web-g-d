@@ -166,51 +166,7 @@ nav ul li a:hover{
   z-index:1;
 }
 
-/* ACCESOS RAPIDOS */
-.quick-actions{
-  width:min(1100px,92%);
-  margin:35px auto 0;
-  display:grid;
-  grid-template-columns:repeat(4, 1fr);
-  gap:18px;
-  position:relative;
-  z-index:1;
-}
-
-.quick-card{
-  background:#fff;
-  border-radius:22px;
-  padding:24px 18px;
-  text-decoration:none;
-  color:#1d1d1d;
-  box-shadow:0 12px 30px rgba(0,0,0,.10);
-  transition:.3s ease;
-  border:1px solid rgba(31,94,168,.08);
-}
-
-.quick-card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 18px 36px rgba(0,0,0,.16);
-}
-
-.quick-card .quick-icon{
-  font-size:34px;
-  margin-bottom:10px;
-}
-
-.quick-card h3{
-  color:#1f5ea8;
-  font-size:20px;
-  margin-bottom:8px;
-}
-
-.quick-card p{
-  color:#4b607f;
-  font-size:14px;
-  line-height:1.5;
-}
-
-/* SUCURSAL DESTACADA */
+/* BLOQUE DE SUCURSALES CERCANAS */
 .branch-highlight{
   width:min(1100px,92%);
   margin:35px auto 0;
@@ -222,6 +178,8 @@ nav ul li a:hover{
   grid-template-columns:1.1fr .9fr;
   gap:24px;
   align-items:center;
+  position:relative;
+  z-index:1;
 }
 
 .branch-highlight-left{
@@ -249,47 +207,6 @@ nav ul li a:hover{
   color:#4b607f;
   line-height:1.7;
   margin-bottom:16px;
-}
-
-.branch-meta{
-  display:grid;
-  grid-template-columns:repeat(2, minmax(140px, 1fr));
-  gap:12px;
-  margin-bottom:16px;
-}
-
-.branch-meta div{
-  background:#f8fbff;
-  border-radius:16px;
-  padding:14px;
-  color:#1f4f91;
-  font-size:14px;
-  box-shadow:inset 0 0 0 1px rgba(31,94,168,.08);
-}
-
-.branch-actions{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-}
-
-.branch-actions a,
-.branch-actions button{
-  text-decoration:none;
-  border:none;
-  cursor:pointer;
-  background:#1f5ea8;
-  color:#fff;
-  padding:12px 18px;
-  border-radius:12px;
-  font-weight:600;
-  transition:.3s ease;
-}
-
-.branch-actions a:hover,
-.branch-actions button:hover{
-  background:#ff2222;
-  transform:translateY(-2px);
 }
 
 .branch-highlight-right{
@@ -334,6 +251,80 @@ nav ul li a:hover{
 .status-closed{
   background:#ffe0e0;
   color:#c62828;
+}
+
+.nearest-branches{
+  display:grid;
+  gap:16px;
+  margin-top:18px;
+}
+
+.nearest-card{
+  background:#f8fbff;
+  border-radius:20px;
+  padding:18px;
+  box-shadow:inset 0 0 0 1px rgba(31,94,168,.08);
+  transition:.3s ease;
+}
+
+.nearest-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 24px rgba(0,0,0,.10);
+}
+
+.nearest-card h4{
+  color:#1f5ea8;
+  font-size:24px;
+  margin-bottom:8px;
+}
+
+.nearest-card p{
+  color:#4b607f;
+  font-size:15px;
+  line-height:1.6;
+  margin-bottom:10px;
+}
+
+.nearest-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:12px;
+}
+
+.nearest-meta span{
+  background:#fff;
+  color:#1f4f91;
+  padding:8px 12px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:600;
+  box-shadow:0 4px 10px rgba(0,0,0,.06);
+}
+
+.nearest-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.nearest-actions button,
+.nearest-actions a{
+  border:none;
+  text-decoration:none;
+  cursor:pointer;
+  background:#1f5ea8;
+  color:#fff;
+  padding:10px 14px;
+  border-radius:12px;
+  font-weight:600;
+  transition:.3s ease;
+}
+
+.nearest-actions button:hover,
+.nearest-actions a:hover{
+  background:#ff2222;
+  transform:translateY(-2px);
 }
 
 /* SECCIONES */
@@ -778,10 +769,6 @@ button:hover{
     max-width:700px;
   }
 
-  .quick-actions{
-    grid-template-columns:repeat(2,1fr);
-  }
-
   .branch-highlight{
     grid-template-columns:1fr;
   }
@@ -942,11 +929,6 @@ button:hover{
     padding:0 6px;
   }
 
-  .quick-actions{
-    grid-template-columns:1fr;
-    gap:14px;
-  }
-
   .branch-highlight{
     padding:20px 16px;
   }
@@ -955,16 +937,16 @@ button:hover{
     font-size:26px;
   }
 
-  .branch-meta{
-    grid-template-columns:1fr;
+  .nearest-card h4{
+    font-size:20px;
   }
 
-  .branch-actions{
+  .nearest-actions{
     flex-direction:column;
   }
 
-  .branch-actions a,
-  .branch-actions button{
+  .nearest-actions button,
+  .nearest-actions a{
     width:100%;
     text-align:center;
   }
@@ -1164,25 +1146,16 @@ button:hover{
 
   <div class="branch-highlight">
     <div class="branch-highlight-left">
-      <span class="branch-badge">Sucursal sugerida</span>
-      <h3 id="highlightBranchName">Sucursal Tapachula</h3>
-      <p id="highlightBranchAddress">Carr. a Puerto Madero km 4, Los Naranjos, Canta Ranas, 30797 Tapachula de Córdova y Ordóñez, Chis.</p>
-      <p id="highlightBranchDistance" style="color:#1f5ea8;font-weight:600;margin-bottom:16px;"></p>
+      <span class="branch-badge">Sucursales más cercanas a ti</span>
+      <h3>Te sugerimos estas opciones</h3>
+      <p>Activa tu ubicación para mostrar las sucursales más cercanas y elige la que prefieras.</p>
 
-      <div class="branch-meta">
-        <div><strong>Horario:</strong><br><span id="highlightBranchHours">Lun a sáb · 8:00 am a 6:00 pm</span></div>
-        <div><strong>Estado:</strong><br><span id="highlightBranchStatusText">Abierto ahora</span></div>
-      </div>
-
-      <div class="branch-actions">
-        <button onclick="abrirSucursal('tapachula')" id="highlightMapBtn">Ver ubicación</button>
-        <a id="highlightMapsLink" href="https://maps.app.goo.gl/iCP9EMFZsKTdKKQ9A" target="_blank">Cómo llegar</a>
-      </div>
+      <div class="nearest-branches" id="nearestBranches"></div>
     </div>
 
     <div class="branch-highlight-right">
       <h4 id="highlightRightTitle">Servicio disponible hoy</h4>
-      <p id="highlightRightText">Consulta sucursal, horario y ubicación exacta para comprar con mayor rapidez.</p>
+      <p id="highlightRightText">Selecciona una sucursal cercana para ver su ubicación completa, horario y mapa.</p>
       <span class="status-pill status-open" id="highlightStatusPill">Disponible</span>
     </div>
   </div>
@@ -1469,24 +1442,22 @@ function calcularDistanciaKm(lat1, lng1, lat2, lng2){
   return radioTierra * c;
 }
 
-function encontrarSucursalMasCercana(latUsuario, lngUsuario){
-  let sucursalMasCercana = null;
-  let menorDistancia = Infinity;
+function encontrarSucursalesMasCercanas(latUsuario, lngUsuario){
+  let sucursalesOrdenadas = [];
 
   for(const key in sucursalesData){
     const sucursal = sucursalesData[key];
     const distancia = calcularDistanciaKm(latUsuario, lngUsuario, sucursal.lat, sucursal.lng);
 
-    if(distancia < menorDistancia){
-      menorDistancia = distancia;
-      sucursalMasCercana = key;
-    }
+    sucursalesOrdenadas.push({
+      key,
+      distancia
+    });
   }
 
-  return {
-    key: sucursalMasCercana,
-    distancia: menorDistancia
-  };
+  sucursalesOrdenadas.sort((a, b) => a.distancia - b.distancia);
+
+  return sucursalesOrdenadas.slice(0, 2);
 }
 
 function abrirModal(tipo){
@@ -1552,44 +1523,60 @@ function cerrarSucursal(){
   mapa.src = '';
 }
 
-function actualizarSucursalDestacada(key = 'tapachula', distanciaKm = null){
+function seleccionarSucursal(key){
   const sucursal = sucursalesData[key];
   const estadoActual = obtenerEstadoSucursal(sucursal.abre, sucursal.cierra);
 
-  document.getElementById('highlightBranchName').textContent = sucursal.nombre;
-  document.getElementById('highlightBranchAddress').textContent = sucursal.direccion;
-  document.getElementById('highlightBranchHours').textContent = sucursal.horarioTexto;
-  document.getElementById('highlightBranchStatusText').textContent = estadoActual;
-  document.getElementById('highlightMapsLink').href = sucursal.link;
-  document.getElementById('highlightMapBtn').onclick = () => abrirSucursal(key);
-
-  const distanciaEl = document.getElementById('highlightBranchDistance');
-  if(distanciaKm !== null){
-    distanciaEl.textContent = `Sucursal más cercana a ${distanciaKm.toFixed(1)} km de tu ubicación.`;
-  } else {
-    distanciaEl.textContent = 'Activa tu ubicación para sugerirte la sucursal más cercana.';
-  }
+  document.getElementById('highlightRightTitle').textContent = sucursal.nombre;
+  document.getElementById('highlightRightText').textContent = `${sucursal.direccion} · ${sucursal.horarioTexto}`;
 
   const pill = document.getElementById('highlightStatusPill');
-  const rightTitle = document.getElementById('highlightRightTitle');
-  const rightText = document.getElementById('highlightRightText');
-
   pill.textContent = estadoActual;
 
   if(estadoActual === 'Abierto ahora'){
     pill.className = 'status-pill status-open';
-    rightTitle.textContent = 'Servicio disponible hoy';
-    rightText.textContent = 'Esta sucursal se encuentra disponible en este momento para brindarte atención dentro de su horario.';
   } else {
     pill.className = 'status-pill status-closed';
-    rightTitle.textContent = 'Consulta tu sucursal';
-    rightText.textContent = 'Revisa ubicación, horario y planea tu visita a la sucursal que mejor se adapte a tu horario.';
   }
+
+  abrirSucursal(key);
+}
+
+function renderizarSucursalesCercanas(sucursalesCercanas){
+  const contenedor = document.getElementById('nearestBranches');
+  contenedor.innerHTML = '';
+
+  sucursalesCercanas.forEach(item => {
+    const sucursal = sucursalesData[item.key];
+    const estadoActual = obtenerEstadoSucursal(sucursal.abre, sucursal.cierra);
+
+    const card = document.createElement('div');
+    card.className = 'nearest-card';
+
+    card.innerHTML = `
+      <h4>${sucursal.nombre}</h4>
+      <p>${sucursal.direccion}</p>
+      <div class="nearest-meta">
+        <span>📍 ${item.distancia.toFixed(1)} km</span>
+        <span>🕒 ${sucursal.horarioTexto}</span>
+        <span>${estadoActual === 'Abierto ahora' ? '✅ Abierto ahora' : '⏳ ' + estadoActual}</span>
+      </div>
+      <div class="nearest-actions">
+        <button onclick="seleccionarSucursal('${item.key}')">Elegir sucursal</button>
+        <a href="${sucursal.link}" target="_blank">Cómo llegar</a>
+      </div>
+    `;
+
+    contenedor.appendChild(card);
+  });
 }
 
 function sugerirSucursalPorUbicacion(){
   if(!navigator.geolocation){
-    actualizarSucursalDestacada('tapachula');
+    renderizarSucursalesCercanas([
+      { key: 'tapachula', distancia: 0 },
+      { key: 'toscana', distancia: 0 }
+    ]);
     return;
   }
 
@@ -1598,11 +1585,14 @@ function sugerirSucursalPorUbicacion(){
       const latUsuario = posicion.coords.latitude;
       const lngUsuario = posicion.coords.longitude;
 
-      const resultado = encontrarSucursalMasCercana(latUsuario, lngUsuario);
-      actualizarSucursalDestacada(resultado.key, resultado.distancia);
+      const sucursalesCercanas = encontrarSucursalesMasCercanas(latUsuario, lngUsuario);
+      renderizarSucursalesCercanas(sucursalesCercanas);
     },
     function(){
-      actualizarSucursalDestacada('tapachula');
+      renderizarSucursalesCercanas([
+        { key: 'tapachula', distancia: 0 },
+        { key: 'toscana', distancia: 0 }
+      ]);
     },
     {
       enableHighAccuracy: true,
