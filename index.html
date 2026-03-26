@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Distribución G&D</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 *{
   margin:0;
@@ -292,7 +292,7 @@ nav ul li a:hover{
 }
 
 .branch-highlight-right{
-  background:linear-gradient(135deg,#1f5ea8,#2d6fc0);
+  background:linear-gradient(135deg,#2e7d32,#4caf50);
   border-radius:24px;
   padding:24px;
   color:#fff;
@@ -312,6 +312,7 @@ nav ul li a:hover{
   line-height:1.7;
   opacity:.95;
   margin-bottom:10px;
+  color:#ffffff;
 }
 
 .status-pill{
@@ -536,6 +537,7 @@ nav ul li a:hover{
   to{opacity:1;}
 }
 
+
 @keyframes zoomIn{
   from{opacity:0; transform:scale(.92) translateY(20px);}
   to{opacity:1; transform:scale(1) translateY(0);}
@@ -732,8 +734,13 @@ button:hover{
   box-shadow:0 12px 24px rgba(0,0,0,.22);
   z-index:6000;
   transition:.3s ease;
+  animation:float 2s ease-in-out infinite;
 }
-
+@keyframes float{
+  0%{ transform:translateY(0);}
+  50%{ transform:translateY(-6px);}
+  100%{ transform:translateY(0);}
+}
 .whatsapp-float:hover{
   transform:scale(1.08);
 }
@@ -1082,7 +1089,7 @@ button:hover{
   .whatsapp-float{
     width:58px;
     height:58px;
-    font-size:28px;
+    font-size:32px;
     right:16px;
     bottom:16px;
   }
@@ -1151,32 +1158,6 @@ button:hover{
   <div class="hero-linea"></div>
 
   <p>Tienda Especializada en Distribución de Farmacéuticos, Perfumería, Abarrotes y más.</p>
-
-  <div class="quick-actions">
-    <a class="quick-card" href="https://wa.me/529621874692?text=Hola,%20quiero%20hacer%20un%20pedido%20en%20Farmacias%20G%26D" target="_blank">
-      <div class="quick-icon">💬</div>
-      <h3>Pedir por WhatsApp</h3>
-      <p>Envía tu lista o receta y recibe atención rápida.</p>
-    </a>
-
-    <a class="quick-card" href="#sucursales">
-      <div class="quick-icon">📍</div>
-      <h3>Ver sucursales</h3>
-      <p>Consulta ubicaciones, horarios y cómo llegar.</p>
-    </a>
-
-    <a class="quick-card" href="#farmacia">
-      <div class="quick-icon">💊</div>
-      <h3>Ir a farmacia</h3>
-      <p>Encuentra productos de salud y cuidado diario.</p>
-    </a>
-
-    <a class="quick-card" href="#contacto">
-      <div class="quick-icon">📞</div>
-      <h3>Contacto rápido</h3>
-      <p>Habla con nosotros para compras o información.</p>
-    </a>
-  </div>
 
   <div class="branch-highlight">
     <div class="branch-highlight-left">
@@ -1391,7 +1372,8 @@ button:hover{
 </section>
 
 <a class="whatsapp-float" href="https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20Farmacias%20G%26D" target="_blank" aria-label="WhatsApp">
-  💬
+  <i class="fa-brands fa-whatsapp"></i>
+  
 </a>
 
 <script>
