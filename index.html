@@ -704,17 +704,56 @@ button{
 }
 
 button:hover{
-  background:#ff2222;
+  background:#25D366;
   transform:scale(1.05);
 }
 
-/* WHATSAPP FLOTANTE */
-.whatsapp-float{
+.whatsapp-container{
   position:fixed;
   right:20px;
   bottom:20px;
+  z-index:6000;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:12px;
+}
+
+.whatsapp-options{
+  display:none;
+  flex-direction:column;
+  gap:10px;
+  margin-bottom:4px;
+}
+
+.whatsapp-options.show{
+  display:flex;
+  animation:fadeUp .25s ease;
+}
+
+.whatsapp-options a{
+  background:#ffffff;
+  color:#1f5ea8;
+  text-decoration:none;
+  padding:12px 16px;
+  border-radius:14px;
+  font-weight:600;
+  box-shadow:0 10px 24px rgba(0,0,0,.14);
+  min-width:240px;
+  text-align:left;
+  transition:.25s ease;
+}
+
+.whatsapp-options a:hover{
+  background:#25D366;
+  color:#ffffff;
+  transform:translateX(-4px);
+}
+
+.whatsapp-float{
   width:64px;
   height:64px;
+  border:none;
   border-radius:50%;
   background:#25D366;
   color:#fff;
@@ -722,9 +761,8 @@ button:hover{
   align-items:center;
   justify-content:center;
   font-size:32px;
-  text-decoration:none;
+  cursor:pointer;
   box-shadow:0 12px 24px rgba(0,0,0,.22);
-  z-index:6000;
   transition:.3s ease;
   animation:float 2s ease-in-out infinite;
 }
@@ -733,6 +771,17 @@ button:hover{
   0%{ transform:translateY(0);}
   50%{ transform:translateY(-6px);}
   100%{ transform:translateY(0);}
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(10px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
 .whatsapp-float:hover{
@@ -1071,13 +1120,22 @@ button:hover{
     width:100%;
   }
 
-  .whatsapp-float{
-    width:58px;
-    height:58px;
-    font-size:32px;
-    right:16px;
-    bottom:16px;
-  }
+.whatsapp-container{
+  right:16px;
+  bottom:16px;
+}
+
+.whatsapp-float{
+  width:58px;
+  height:58px;
+  font-size:30px;
+}
+
+.whatsapp-options a{
+  min-width:210px;
+  font-size:14px;
+  padding:11px 14px;
+}
 }
 
 /* CELULARES MUY PEQUEÑOS */
@@ -1348,9 +1406,26 @@ button:hover{
   </div>
 </section>
 
-<a class="whatsapp-float" href="https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20Farmacias%20G%26D" target="_blank" aria-label="WhatsApp">
-  <i class="fa-brands fa-whatsapp"></i>
-</a>
+<div class="whatsapp-container">
+  <div class="whatsapp-options" id="whatsappOptions">
+    <a href="https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20la%20Sucursal%20Tapachula" target="_blank">
+      Sucursal Tapachula
+    </a>
+    <a href="https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20la%20Sucursal%20Toscana" target="_blank">
+      Sucursal Toscana
+    </a>
+    <a href="https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20la%20Sucursal%20Ciudad%20Hidalgo" target="_blank">
+      Sucursal Ciudad Hidalgo
+    </a>
+    <a href="https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20la%20Sucursal%20Tuxtla%20Gutierrez" target="_blank">
+      Sucursal Tuxtla Gutiérrez
+    </a>
+  </div>
+
+  <button class="whatsapp-float" id="whatsappToggle" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </button>
+</div>
 
 <script>
 const sucursalesData = {
@@ -1648,6 +1723,20 @@ window.addEventListener('resize', function(){
 });
 
 sugerirSucursalPorUbicacion();
+
+const whatsappToggle = document.getElementById('whatsappToggle');
+const whatsappOptions = document.getElementById('whatsappOptions');
+
+whatsappToggle.addEventListener('click', function(){
+  whatsappOptions.classList.toggle('show');
+});
+
+document.addEventListener('click', function(e){
+  const container = document.querySelector('.whatsapp-container');
+  if(container && !container.contains(e.target)){
+    whatsappOptions.classList.remove('show');
+  }
+});
 </script>
 
 </body>
