@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Distribución G&D</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Poppins,sans-serif;
+  background:linear-gradient(180deg,#f5f7fb 0%, #eef3fa 100%);
+  color:#1d1d1d;
+  overflow-x:hidden;
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(90deg,#1f5ea8,#2d6fc0);
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 8px 24px rgba(0,0,0,.15);
+}
+
+nav{
+  width:92%;
+  margin:auto;
+  min-height:82px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+nav img{
+  height:58px;
+  background:#fff;
+  padding:4px 8px;
+  border-radius:8px;
+  box-shadow:0 6px 16px rgba(0,0,0,.15);
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+nav ul li a{
+  color:#fff;
+  text-decoration:none;
+  padding:10px 16px;
+  border-radius:999px;
+  transition:.3s ease;
+  font-weight:600;
+}
+
+nav ul li a:hover{
+  background:#ff2222;
+  transform:translateY(-2px);
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:90px 20px 80px;
+  position:relative;
+  background:
+    linear-gradient(135deg, #f4f8ff 0%, #e8f1ff 40%, #fff5f5 100%);
+  overflow:hidden;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  width:420px;
+  height:420px;
+  background:radial-gradient(circle, rgba(31,94,168,.22) 0%, rgba(31,94,168,0) 70%);
+  top:-120px;
+  left:-120px;
+  z-index:0;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  width:380px;
+  height:380px;
+  background:radial-gradient(circle, rgba(255,30,30,.20) 0%, rgba(255,30,30,0) 70%);
+  right:-100px;
+  bottom:-120px;
+  z-index:0;
+}
+
+.hero img{
+  width:min(320px,85%);
+  display:block;
+  margin:0 auto 30px;
+  filter:drop-shadow(0 18px 28px rgba(0,0,0,.18));
+  position:relative;
+  z-index:1;
+}
+
+.titulo-animado{
+  margin-top:10px;
+  margin-bottom:18px;
+  font-size:clamp(42px, 6vw, 74px);
+  font-weight:800;
+  line-height:1.1;
+  color:#ff1e1e;
+  letter-spacing:1px;
+  text-align:center;
+  position:relative;
+  z-index:1;
+  text-shadow:0 6px 18px rgba(255,30,30,.18);
+}
+
+.hero p{
+  font-size:clamp(18px, 2vw, 28px);
+  max-width:900px;
+  margin:0 auto;
+  color:#1f4f91;
+  font-weight:500;
+  line-height:1.5;
+  position:relative;
+  z-index:1;
+}
+.hero-linea{
+  width:140px;
+  height:6px;
+  margin:0 auto 24px;
+  border-radius:999px;
+  background:linear-gradient(90deg, #1f5ea8, #ff1e1e);
+  box-shadow:0 6px 16px rgba(31,94,168,.18);
+  position:relative;
+  z-index:1;
+}
+/* SECCIONES */
+.section{
+  padding:85px 20px;
+  text-align:center;
+}
+
+.section h2{
+  color:#ff1e1e;
+  margin-bottom:22px;
+  font-size:56px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+/* SLIDER */
+.slider{
+  width:min(1050px,78%);
+  margin:25px auto 50px;
+  overflow:hidden;
+  border-radius:0;
+  box-shadow:none;
+  position:relative;
+  background:transparent;
+}
+
+.slides{
+  display:flex;
+  width:400%;
+  animation:slide 16s infinite;
+}
+
+.slides img{
+  width:100%;
+  height:auto;
+  max-height:560px;
+  object-fit:contain;
+  display:block;
+}
+
+@keyframes slide{
+  0%,20%{transform:translateX(0)}
+  25%,45%{transform:translateX(-25%)}
+  50%,70%{transform:translateX(-50%)}
+  75%,100%{transform:translateX(-75%)}
+}
+
+/* CARDS */
+.cards{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  flex-wrap:wrap;
+  margin-top:40px;
+}
+
+.card{
+  width:260px;
+  height:320px;
+  border-radius:22px;
+  overflow:hidden;
+  position:relative;
+  cursor:pointer;
+  box-shadow:0 12px 30px rgba(0,0,0,0.18);
+  transition:transform .35s ease, box-shadow .35s ease;
+  background:#fff;
+}
+
+.card:hover{
+  transform:translateY(-12px) scale(1.03);
+  box-shadow:0 20px 40px rgba(0,0,0,0.25);
+}
+
+.card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .5s ease;
+}
+
+.card:hover img{
+  transform:scale(1.08);
+}
+
+.card-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.78), rgba(0,0,0,.12));
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  padding:22px;
+  text-align:center;
+}
+
+.card-overlay h3{
+  color:#fff;
+  font-size:32px;
+  font-weight:700;
+  margin:0;
+  text-shadow:0 4px 12px rgba(0,0,0,.35);
+}
+
+/* MODAL GENERAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.72);
+  backdrop-filter:blur(6px);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:5000;
+  padding:20px;
+}
+
+.modal.show{
+  display:flex;
+  animation:fadeModal .35s ease;
+}
+
+.modal-content{
+  width:min(820px,92%);
+  max-height:85vh;
+  background:#fff;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+  animation:zoomIn .35s ease;
+  position:relative;
+}
+
+.modal-grid{
+  display:grid;
+  grid-template-columns:320px 1fr;
+  align-items:center;
+  gap:24px;
+  padding:28px;
+}
+
+.modal-image{
+  width:100%;
+  max-height:280px;
+  object-fit:contain;
+  display:block;
+}
+
+.modal-info{
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  text-align:left;
+  max-height:70vh;
+  overflow-y:auto;
+  padding-right:10px;
+}
+
+.modal-info h2{
+  margin:0 0 14px;
+  color:#ff1e1e;
+  font-size:34px;
+  line-height:1.2;
+}
+
+.modal-info p{
+  margin:0;
+  color:#1f1f1f;
+  font-size:16px;
+  line-height:1.8;
+  text-align:left;
+  word-break:normal;
+  overflow-wrap:break-word;
+}
+
+.close-btn{
+  position:absolute;
+  top:14px;
+  right:16px;
+  width:38px;
+  height:38px;
+  border:none;
+  border-radius:50%;
+  background:#fff;
+  color:#1f5ea8;
+  font-size:22px;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(0,0,0,.18);
+  transition:.25s;
+  z-index:10;
+}
+
+.close-btn:hover{
+  background:#ff1e1e;
+  color:#fff;
+  transform:rotate(90deg);
+}
+
+@keyframes fadeModal{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+
+@keyframes zoomIn{
+  from{opacity:0; transform:scale(.92) translateY(20px);}
+  to{opacity:1; transform:scale(1) translateY(0);}
+}
+
+/* MODAL MAPA */
+.map-modal-content{
+  width:min(1000px,94%);
+  max-height:88vh;
+  background:#fff;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+  animation:zoomIn .35s ease;
+  position:relative;
+}
+
+.map-modal-grid{
+  display:grid;
+  grid-template-columns:1fr 1.3fr;
+  gap:24px;
+  padding:28px;
+  align-items:start;
+}
+
+.map-info{
+  text-align:left;
+}
+
+.map-info h2{
+  color:#ff1e1e;
+  font-size:34px;
+  margin-bottom:14px;
+}
+
+.map-info p{
+  font-size:16px;
+  line-height:1.8;
+  color:#1f1f1f;
+  margin-bottom:18px;
+}
+
+.map-btn{
+  display:inline-block;
+  background:#1f5ea8;
+  color:#fff;
+  text-decoration:none;
+  padding:12px 18px;
+  border-radius:12px;
+  font-weight:600;
+  transition:.3s ease;
+  box-shadow:0 8px 20px rgba(31,94,168,.22);
+}
+
+.map-btn:hover{
+  background:#ff2222;
+  transform:translateY(-2px);
+}
+
+.map-frame{
+  width:100%;
+  height:380px;
+  border:0;
+  border-radius:18px;
+  box-shadow:0 10px 24px rgba(0,0,0,.12);
+}
+
+/* INFO BOXES */
+.info-boxes{
+  width:min(1100px,92%);
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
+
+.info-box{
+  background:#fff;
+  border-radius:24px;
+  padding:30px 24px;
+  box-shadow:0 12px 30px rgba(0,0,0,.12);
+  transition:.35s ease;
+}
+
+.info-box:hover{
+  transform:translateY(-10px);
+  box-shadow:0 18px 36px rgba(0,0,0,.18);
+}
+
+.info-box h3{
+  color:#1f5ea8;
+  font-size:30px;
+  margin-bottom:15px;
+}
+
+.info-box p{
+  color:#4b607f;
+  font-size:18px;
+  line-height:1.7;
+}
+
+/* CONTACTO */
+.contact{
+  display:flex;
+  justify-content:space-around;
+  gap:40px;
+  padding:70px 30px 90px;
+  flex-wrap:wrap;
+  align-items:flex-start;
+}
+
+.contact > div:first-child{
+  background:#fff;
+  padding:35px 28px;
+  border-radius:24px;
+  box-shadow:0 12px 30px rgba(0,0,0,.12);
+  min-width:290px;
+}
+
+.contact > div:last-child{
+  width:min(520px,100%);
+  background:#fff;
+  padding:35px 28px;
+  border-radius:24px;
+  box-shadow:0 12px 30px rgba(0,0,0,.12);
+}
+
+.contact h2{
+  margin-bottom:16px;
+}
+
+.contact p,
+.contact h3{
+  margin-bottom:14px;
+}
+
+input,select,textarea{
+  width:100%;
+  padding:14px 12px;
+  margin:12px 0;
+  border:none;
+  border-bottom:2px solid #d7deea;
+  background:#f8fbff;
+  font-family:Poppins,sans-serif;
+  font-size:16px;
+  border-radius:10px 10px 0 0;
+  outline:none;
+  transition:.3s;
+}
+
+input:focus,select:focus,textarea:focus{
+  border-bottom-color:#1f5ea8;
+  background:#eef6ff;
+}
+
+textarea{
+  resize:vertical;
+  min-height:120px;
+}
+
+button{
+  background:#1f5ea8;
+  color:#fff;
+  padding:14px 26px;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  transition:.3s;
+  font-size:17px;
+  font-weight:600;
+  margin-top:10px;
+}
+
+button:hover{
+  background:#ff2222;
+  transform:scale(1.05);
+}
+
+/* RESPONSIVE */
+@media(max-width:950px){
+  nav{
+    flex-direction:column;
+    padding:12px 0 16px;
+  }
+
+  .modal-grid,
+  .map-modal-grid{
+    grid-template-columns:1fr;
+    padding:20px;
+  }
+
+  .modal-image{
+    max-height:220px;
+    margin:auto;
+  }
+
+  .modal-info{
+    max-height:none;
+    overflow:visible;
+    padding-right:0;
+  }
+
+  .modal-info h2,
+  .map-info h2{
+    font-size:28px;
+    text-align:center;
+  }
+
+  .modal-info p,
+  .map-info p{
+    font-size:15px;
+    line-height:1.7;
+    text-align:left;
+  }
+
+  .info-boxes{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:768px){
+  .titulo-animado span{
+    font-size:32px;
+  }
+
+  .hero p{
+    font-size:17px;
+  }
+
+  .section h2{
+    font-size:38px;
+  }
+
+  .slides img{
+    height:260px;
+  }
+
+  .card{
+    width:90%;
+    max-width:320px;
+  }
+
+  .map-frame{
+    height:280px;
+  }
+
+  .contact{
+    padding:50px 18px 70px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <img src="logo.png" alt="Logo G&D">
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#empresa">Empresa</a></li>
+      <li><a href="#sucursales">Sucursales</a></li>
+      <li><a href="#farmacia">Farmacia</a></li>
+      <li><a href="#perfumeria">Perfumería</a></li>
+      <li><a href="#abarrotes">Abarrotes</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" id="inicio">
+  <img src="principal.png" alt="Imagen principal">
+
+  <h1 class="titulo-animado">Bienvenidos a Distribución G&amp;D</h1>
+  <div class="hero-linea"></div>
+
+  <p>Tienda Especializada en Distribución de Farmacéuticos, Perfumería, Abarrotes y más.</p>
+</section>
+
+<section id="empresa" class="section">
+  <h2>Empresa</h2>
+
+  <div class="slider">
+    <div class="slides">
+      <img src="img1.png" alt="Imagen 1">
+      <img src="img2.png" alt="Imagen 2">
+      <img src="img3.png" alt="Imagen 3">
+      <img src="img4.png" alt="Imagen 4">
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card" onclick="abrirModal('mision')">
+      <img src="mision.png" alt="Misión">
+      <div class="card-overlay">
+        <h3>Misión</h3>
+      </div>
+    </div>
+
+    <div class="card" onclick="abrirModal('vision')">
+      <img src="vision.png" alt="Visión">
+      <div class="card-overlay">
+        <h3>Visión</h3>
+      </div>
+    </div>
+
+    <div class="card" onclick="abrirModal('valores')">
+      <img src="valores.jpg" alt="Valores">
+      <div class="card-overlay">
+        <h3>Valores</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL EMPRESA -->
+<div class="modal" id="modalEmpresa">
+  <div class="modal-content">
+    <button class="close-btn" onclick="cerrarModal()">&times;</button>
+    <div class="modal-grid">
+      <img id="modalImg" class="modal-image" src="" alt="">
+      <div class="modal-info">
+        <h2 id="modalTitulo"></h2>
+        <p id="modalTexto"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="sucursales" class="section">
+  <h2>Sucursales</h2>
+
+  <div class="cards">
+    <div class="card" onclick="abrirSucursal('tapachula')">
+      <img src="tapachula.jpeg" alt="Sucursal Tapachula">
+      <div class="card-overlay">
+        <h3>Tapachula</h3>
+      </div>
+    </div>
+
+    <div class="card" onclick="abrirSucursal('toscana')">
+      <img src="toscana.jpeg" alt="Sucursal Toscana">
+      <div class="card-overlay">
+        <h3>Toscana</h3>
+      </div>
+    </div>
+
+    <div class="card" onclick="abrirSucursal('ciudadhidalgo')">
+      <img src="cdhidalgo.jpg" alt="Sucursal Ciudad Hidalgo">
+      <div class="card-overlay">
+        <h3>Ciudad Hidalgo</h3>
+      </div>
+    </div>
+
+    <div class="card" onclick="abrirSucursal('tuxtla')">
+      <img src="tuxtla.png" alt="Sucursal Tuxtla Gutiérrez">
+      <div class="card-overlay">
+        <h3>Tuxtla Gutiérrez</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL SUCURSALES -->
+<div class="modal" id="modalSucursal">
+  <div class="map-modal-content">
+    <button class="close-btn" onclick="cerrarSucursal()">&times;</button>
+    <div class="map-modal-grid">
+      <div class="map-info">
+        <h2 id="sucursalTitulo"></h2>
+        <p id="sucursalDireccion"></p>
+        <a id="sucursalLink" href="#" target="_blank" class="map-btn">Abrir en Google Maps</a>
+      </div>
+
+      <div>
+        <iframe
+          id="sucursalMapa"
+          class="map-frame"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="farmacia" class="section">
+  <h2>Farmacia</h2>
+  <div class="info-boxes">
+    <div class="info-box">
+      <h3>Medicamentos</h3>
+      <p>Amplia variedad de productos farmacéuticos con enfoque en calidad, confianza y disponibilidad.</p>
+    </div>
+    <div class="info-box">
+      <h3>Cuidado de la salud</h3>
+      <p>Productos esenciales para el bienestar diario, siempre pensando en la economía del cliente.</p>
+    </div>
+    <div class="info-box">
+      <h3>Atención confiable</h3>
+      <p>Servicio pensado para resolver necesidades de compra con rapidez y una experiencia agradable.</p>
+    </div>
+  </div>
+</section>
+
+<section id="perfumeria" class="section">
+  <h2>Perfumería</h2>
+  <div class="info-boxes">
+    <div class="info-box">
+      <h3>Fragancias</h3>
+      <p>Perfumes y lociones seleccionadas para ofrecer opciones atractivas y de alta rotación.</p>
+    </div>
+    <div class="info-box">
+      <h3>Cuidado personal</h3>
+      <p>Artículos de higiene y belleza para complementar la experiencia de compra del cliente.</p>
+    </div>
+    <div class="info-box">
+      <h3>Presentación moderna</h3>
+      <p>Productos ideales para venta al detalle con exhibición visual más atractiva.</p>
+    </div>
+  </div>
+</section>
+
+<section id="abarrotes" class="section">
+  <h2>Abarrotes</h2>
+  <div class="info-boxes">
+    <div class="info-box">
+      <h3>Gran surtido</h3>
+      <p>Productos de consumo diario pensados para clientes que buscan practicidad y buen precio.</p>
+    </div>
+    <div class="info-box">
+      <h3>Mayoreo y detalle</h3>
+      <p>Opciones de compra flexibles para distintos tipos de negocio y necesidades del hogar.</p>
+    </div>
+    <div class="info-box">
+      <h3>Mejor experiencia</h3>
+      <p>Una oferta más completa para que el cliente encuentre variedad en un solo lugar.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="contact">
+  <div>
+    <h2 style="color:#ff1e1e;">Contáctanos</h2>
+    <p style="color:#1f5ea8;font-size:22px;font-weight:600;">atnclientes@dgardi.com</p>
+    <p>O llámanos al:</p>
+    <h3 style="color:#1f5ea8;font-size:34px;">96 2286 6104</h3>
+  </div>
+
+  <div>
+    <h2 style="color:#ff1e1e;">Contacto</h2>
+    <input placeholder="Nombre">
+    <input placeholder="Email">
+    <select>
+      <option>¿Está interesado en comprar?</option>
+      <option>Medicamentos</option>
+      <option>Perfumería</option>
+      <option>Abarrotes</option>
+      <option>Información general</option>
+    </select>
+    <textarea placeholder="Comentarios"></textarea>
+    <textarea placeholder="Mensaje adicional"></textarea>
+    <button>Enviar</button>
+  </div>
+</section>
+
+<script>
+function abrirModal(tipo){
+  const modal = document.getElementById('modalEmpresa');
+  const titulo = document.getElementById('modalTitulo');
+  const texto = document.getElementById('modalTexto');
+  const imagen = document.getElementById('modalImg');
+
+  if(tipo === 'mision'){
+    titulo.textContent = 'Misión';
+    imagen.src = 'mision.png';
+    imagen.alt = 'Misión';
+    texto.textContent = 'Somos una empresa enfocada en ofrecer una alternativa de salud y productos abarroteros siendo proveedores de una gran gama de productos farmacéuticos, apegados a las normas que nos brinde la secretaria de salud con responsabilidad.';
+  }
+
+  if(tipo === 'vision'){
+    titulo.textContent = 'Visión';
+    imagen.src = 'vision.png';
+    imagen.alt = 'Visión';
+    texto.textContent = 'Somos una empresa con una ambición, seguir cuidando de tu salud apoyando tu economía, nos caracterizamos por brindar más de una solución y seguir ofreciendo nuestra principal vocación, TU BIENESTAR.';
+  }
+
+  if(tipo === 'valores'){
+    titulo.textContent = 'Valores';
+    imagen.src = 'valores.jpg';
+    imagen.alt = 'Valores';
+    texto.textContent = 'Distribuidora G&D tenemos los valores muy recalcados nuestro compromiso con el sector salud nos exige la Responsabilidad que tenemos con nuestros clientes, el trato respetuoso que se merecen, la Comunicación interna clara y honesta con nuestros socios comerciales, somos creadores de la Integridad empresarial, estamos preparados para lidiar con estaciones sanitarias, dejando en claro NO LUCRAR con la salud de las personas a través de nuestros socios comerciales, involucramos la Honestidad y Disciplina como parte de nuestros valores para mejorar día a día siempre viendo por nuestros clientes y aliados.';
+  }
+
+  modal.classList.add('show');
+}
+
+function cerrarModal(){
+  document.getElementById('modalEmpresa').classList.remove('show');
+}
+
+function abrirSucursal(tipo){
+  const modal = document.getElementById('modalSucursal');
+  const titulo = document.getElementById('sucursalTitulo');
+  const direccion = document.getElementById('sucursalDireccion');
+  const mapa = document.getElementById('sucursalMapa');
+  const link = document.getElementById('sucursalLink');
+
+  if(tipo === 'tapachula'){
+    titulo.textContent = 'Sucursal Tapachula';
+    direccion.textContent = 'Carr. a Puerto Madero km 4, Los Naranjos, Canta Ranas, 30797 Tapachula de Córdova y Ordóñez, Chis.';
+    mapa.src = 'https://www.google.com/maps?q=Tapachula,Chiapas,Mexico&output=embed';
+    link.href = 'https://maps.app.goo.gl/iCP9EMFZsKTdKKQ9A';
+  }
+
+  if(tipo === 'toscana'){
+    titulo.textContent = 'Sucursal Toscana';
+    direccion.textContent = 'Plaza Toscana Libramiento Sur Oriente, 30785 Tapachula de Córdova y Ordóñez, Chis.';
+    mapa.src = 'https://www.google.com/maps?q=Toscana,Tapachula,Chiapas,Mexico&output=embed';
+    link.href = 'https://maps.app.goo.gl/hv1utfDiUdBwcUieA';
+  }
+
+  if(tipo === 'ciudadhidalgo'){
+    titulo.textContent = 'Sucursal Ciudad Hidalgo';
+    direccion.textContent = 'tercera avenida Oriente entre primera y tercera nte Ciudad Hidalgo, 30840 Cdad. Hidalgo, Chis.';
+    mapa.src = 'https://www.google.com/maps?q=Ciudad+Hidalgo,Chiapas,Mexico&output=embed';
+    link.href = 'https://maps.app.goo.gl/F6ryDvbnRQXbtqWa9';
+  }
+
+  if(tipo === 'tuxtla'){
+    titulo.textContent = 'Sucursal Tuxtla Gutiérrez';
+    direccion.textContent = 'De la Octava Sur Ote. 1535-Locales 07 y 08, entre 13 y 15 Oriente, Santa Cruz, 29073 Tuxtla Gutiérrez, Chis.';
+    mapa.src = 'https://www.google.com/maps?q=Tuxtla+Gutierrez,Chiapas,Mexico&output=embed';
+    link.href = 'https://maps.app.goo.gl/2pcGG943xgzVTg6v8';
+  }
+
+  modal.classList.add('show');
+}
+
+function cerrarSucursal(){
+  const modal = document.getElementById('modalSucursal');
+  const mapa = document.getElementById('sucursalMapa');
+  modal.classList.remove('show');
+  mapa.src = '';
+}
+
+window.addEventListener('click', function(e){
+  const modalEmpresa = document.getElementById('modalEmpresa');
+  const modalSucursal = document.getElementById('modalSucursal');
+
+  if(e.target === modalEmpresa){
+    cerrarModal();
+  }
+
+  if(e.target === modalSucursal){
+    cerrarSucursal();
+  }
+});
+
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape'){
+    cerrarModal();
+    cerrarSucursal();
+  }
+});
+</script>
+
+</body>
+</html>
