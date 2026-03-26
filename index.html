@@ -346,8 +346,6 @@ nav ul li a:hover{
   width:min(1050px,78%);
   margin:25px auto 50px;
   overflow:hidden;
-  border-radius:0;
-  box-shadow:none;
   position:relative;
   background:transparent;
 }
@@ -359,20 +357,29 @@ nav ul li a:hover{
 }
 
 .slides img{
-  width:25%;
-  flex:0 0 25%;
+  width:100%;
+  flex:0 0 100%;
+  max-width:100%;
   height:500px;
-  object-fit:cover;
+  object-fit:contain;
   display:block;
 }
 
+/* 4 imágenes */
 @keyframes slide{
-  0%,20%{transform:translateX(0)}
-  25%,45%{transform:translateX(-25%)}
-  50%,70%{transform:translateX(-50%)}
-  75%,100%{transform:translateX(-75%)}
+  0%,20%{
+    transform:translateX(0%);
+  }
+  25%,45%{
+    transform:translateX(-100%);
+  }
+  50%,70%{
+    transform:translateX(-200%);
+  }
+  75%,100%{
+    transform:translateX(-300%);
+  }
 }
-
 /* CARDS */
 .cards{
   display:flex;
@@ -1015,9 +1022,10 @@ button:hover{
   }
 
   .slides img{
-    max-height:260px;
-    width:100%;
-    object-fit:contain;
+  height:220px;
+  flex:0 0 100%;
+  width:100%;
+  object-fit:contain;
   }
 
   .cards{
