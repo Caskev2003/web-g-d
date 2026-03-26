@@ -530,6 +530,71 @@ button:hover{
   transform:scale(1.05);
 }
 
+/* HEADER */
+header{
+  background:linear-gradient(90deg,#1f5ea8,#2d6fc0);
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 8px 24px rgba(0,0,0,.15);
+}
+
+nav{
+  width:92%;
+  margin:auto;
+  min-height:82px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  position:relative;
+}
+
+nav img{
+  height:58px;
+  background:#fff;
+  padding:4px 8px;
+  border-radius:8px;
+  box-shadow:0 6px 16px rgba(0,0,0,.15);
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+}
+
+nav ul li a{
+  color:#fff;
+  text-decoration:none;
+  padding:10px 16px;
+  border-radius:999px;
+  transition:.3s ease;
+  font-weight:600;
+  display:block;
+}
+
+nav ul li a:hover{
+  background:#ff2222;
+  transform:translateY(-2px);
+}
+
+.menu-toggle{
+  display:none;
+  border:none;
+  background:#fff;
+  color:#1f5ea8;
+  font-size:28px;
+  font-weight:700;
+  width:48px;
+  height:48px;
+  border-radius:12px;
+  cursor:pointer;
+  box-shadow:0 6px 16px rgba(0,0,0,.15);
+}
+
 /* TABLETS */
 @media (max-width: 1024px){
   nav{
@@ -620,29 +685,59 @@ button:hover{
 /* CELULARES */
 @media (max-width: 768px){
   header{
-    position:static;
+    position:sticky;
+    top:0;
   }
 
   nav{
     width:100%;
-    padding:14px 14px 18px;
-    flex-direction:column;
-    gap:14px;
+    padding:14px 16px;
+    min-height:auto;
+    display:grid;
+    grid-template-columns:1fr auto;
+    align-items:center;
+    gap:12px;
   }
 
   nav img{
     height:52px;
+    justify-self:start;
+  }
+
+  .menu-toggle{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    justify-self:end;
   }
 
   nav ul{
+    display:none;
+    grid-column:1 / -1;
     width:100%;
-    justify-content:center;
-    gap:8px;
+    flex-direction:column;
+    gap:10px;
+    margin-top:8px;
+    padding:12px;
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(6px);
+    border-radius:18px;
+  }
+
+  nav ul.show{
+    display:flex;
+  }
+
+  nav ul li{
+    width:100%;
   }
 
   nav ul li a{
-    font-size:14px;
-    padding:8px 12px;
+    width:100%;
+    text-align:center;
+    font-size:15px;
+    padding:12px 14px;
+    background:rgba(255,255,255,.08);
   }
 
   .hero{
@@ -809,13 +904,9 @@ button:hover{
 
 /* CELULARES MUY PEQUEÑOS */
 @media (max-width: 480px){
-  nav ul{
-    gap:6px;
-  }
-
   nav ul li a{
     font-size:13px;
-    padding:7px 10px;
+    padding:10px 12px;
   }
 
   .titulo-animado{
