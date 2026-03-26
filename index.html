@@ -41,6 +41,7 @@ nav{
   justify-content:space-between;
   align-items:center;
   gap:20px;
+  position:relative;
 }
 
 nav img{
@@ -66,11 +67,26 @@ nav ul li a{
   border-radius:999px;
   transition:.3s ease;
   font-weight:600;
+  display:block;
 }
 
 nav ul li a:hover{
   background:#ff2222;
   transform:translateY(-2px);
+}
+
+.menu-toggle{
+  display:none;
+  border:none;
+  background:#fff;
+  color:#1f5ea8;
+  font-size:28px;
+  font-weight:700;
+  width:48px;
+  height:48px;
+  border-radius:12px;
+  cursor:pointer;
+  box-shadow:0 6px 16px rgba(0,0,0,.15);
 }
 
 /* HERO */
@@ -147,6 +163,174 @@ nav ul li a:hover{
   box-shadow:0 6px 16px rgba(31,94,168,.18);
   position:relative;
   z-index:1;
+}
+
+/* ACCESOS RAPIDOS */
+.quick-actions{
+  width:min(1100px,92%);
+  margin:35px auto 0;
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:18px;
+  position:relative;
+  z-index:1;
+}
+
+.quick-card{
+  background:#fff;
+  border-radius:22px;
+  padding:24px 18px;
+  text-decoration:none;
+  color:#1d1d1d;
+  box-shadow:0 12px 30px rgba(0,0,0,.10);
+  transition:.3s ease;
+  border:1px solid rgba(31,94,168,.08);
+}
+
+.quick-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 18px 36px rgba(0,0,0,.16);
+}
+
+.quick-card .quick-icon{
+  font-size:34px;
+  margin-bottom:10px;
+}
+
+.quick-card h3{
+  color:#1f5ea8;
+  font-size:20px;
+  margin-bottom:8px;
+}
+
+.quick-card p{
+  color:#4b607f;
+  font-size:14px;
+  line-height:1.5;
+}
+
+/* SUCURSAL DESTACADA */
+.branch-highlight{
+  width:min(1100px,92%);
+  margin:35px auto 0;
+  background:#fff;
+  border-radius:28px;
+  box-shadow:0 14px 35px rgba(0,0,0,.12);
+  padding:28px;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:24px;
+  align-items:center;
+}
+
+.branch-highlight-left{
+  text-align:left;
+}
+
+.branch-badge{
+  display:inline-block;
+  background:#eef6ff;
+  color:#1f5ea8;
+  font-weight:700;
+  border-radius:999px;
+  padding:8px 14px;
+  margin-bottom:14px;
+  font-size:14px;
+}
+
+.branch-highlight-left h3{
+  color:#ff1e1e;
+  font-size:34px;
+  margin-bottom:10px;
+}
+
+.branch-highlight-left p{
+  color:#4b607f;
+  line-height:1.7;
+  margin-bottom:16px;
+}
+
+.branch-meta{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(140px, 1fr));
+  gap:12px;
+  margin-bottom:16px;
+}
+
+.branch-meta div{
+  background:#f8fbff;
+  border-radius:16px;
+  padding:14px;
+  color:#1f4f91;
+  font-size:14px;
+  box-shadow:inset 0 0 0 1px rgba(31,94,168,.08);
+}
+
+.branch-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.branch-actions a,
+.branch-actions button{
+  text-decoration:none;
+  border:none;
+  cursor:pointer;
+  background:#1f5ea8;
+  color:#fff;
+  padding:12px 18px;
+  border-radius:12px;
+  font-weight:600;
+  transition:.3s ease;
+}
+
+.branch-actions a:hover,
+.branch-actions button:hover{
+  background:#ff2222;
+  transform:translateY(-2px);
+}
+
+.branch-highlight-right{
+  background:linear-gradient(135deg,#1f5ea8,#2d6fc0);
+  border-radius:24px;
+  padding:24px;
+  color:#fff;
+  text-align:left;
+  min-height:240px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.branch-highlight-right h4{
+  font-size:24px;
+  margin-bottom:10px;
+}
+
+.branch-highlight-right p{
+  line-height:1.7;
+  opacity:.95;
+  margin-bottom:10px;
+}
+
+.status-pill{
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:14px;
+  margin-top:8px;
+}
+
+.status-open{
+  background:#d6f8df;
+  color:#12863a;
+}
+
+.status-closed{
+  background:#ffe0e0;
+  color:#c62828;
 }
 
 /* SECCIONES */
@@ -530,69 +714,28 @@ button:hover{
   transform:scale(1.05);
 }
 
-/* HEADER */
-header{
-  background:linear-gradient(90deg,#1f5ea8,#2d6fc0);
-  position:sticky;
-  top:0;
-  z-index:1000;
-  box-shadow:0 8px 24px rgba(0,0,0,.15);
-}
-
-nav{
-  width:92%;
-  margin:auto;
-  min-height:82px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:20px;
-  position:relative;
-}
-
-nav img{
-  height:58px;
-  background:#fff;
-  padding:4px 8px;
-  border-radius:8px;
-  box-shadow:0 6px 16px rgba(0,0,0,.15);
-}
-
-nav ul{
-  list-style:none;
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:10px;
-}
-
-nav ul li a{
+/* WHATSAPP FLOTANTE */
+.whatsapp-float{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  background:#25D366;
   color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:32px;
   text-decoration:none;
-  padding:10px 16px;
-  border-radius:999px;
+  box-shadow:0 12px 24px rgba(0,0,0,.22);
+  z-index:6000;
   transition:.3s ease;
-  font-weight:600;
-  display:block;
 }
 
-nav ul li a:hover{
-  background:#ff2222;
-  transform:translateY(-2px);
-}
-
-.menu-toggle{
-  display:none;
-  border:none;
-  background:#fff;
-  color:#1f5ea8;
-  font-size:28px;
-  font-weight:700;
-  width:48px;
-  height:48px;
-  border-radius:12px;
-  cursor:pointer;
-  box-shadow:0 6px 16px rgba(0,0,0,.15);
+.whatsapp-float:hover{
+  transform:scale(1.08);
 }
 
 /* TABLETS */
@@ -623,6 +766,14 @@ nav ul li a:hover{
   .hero p{
     font-size:20px;
     max-width:700px;
+  }
+
+  .quick-actions{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .branch-highlight{
+    grid-template-columns:1fr;
   }
 
   .slider{
@@ -781,6 +932,33 @@ nav ul li a:hover{
     padding:0 6px;
   }
 
+  .quick-actions{
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+
+  .branch-highlight{
+    padding:20px 16px;
+  }
+
+  .branch-highlight-left h3{
+    font-size:26px;
+  }
+
+  .branch-meta{
+    grid-template-columns:1fr;
+  }
+
+  .branch-actions{
+    flex-direction:column;
+  }
+
+  .branch-actions a,
+  .branch-actions button{
+    width:100%;
+    text-align:center;
+  }
+
   .section{
     padding:60px 16px;
   }
@@ -900,6 +1078,14 @@ nav ul li a:hover{
   button{
     width:100%;
   }
+
+  .whatsapp-float{
+    width:58px;
+    height:58px;
+    font-size:28px;
+    right:16px;
+    bottom:16px;
+  }
 }
 
 /* CELULARES MUY PEQUEÑOS */
@@ -965,6 +1151,56 @@ nav ul li a:hover{
   <div class="hero-linea"></div>
 
   <p>Tienda Especializada en Distribución de Farmacéuticos, Perfumería, Abarrotes y más.</p>
+
+  <div class="quick-actions">
+    <a class="quick-card" href="https://wa.me/529621874692?text=Hola,%20quiero%20hacer%20un%20pedido%20en%20Farmacias%20G%26D" target="_blank">
+      <div class="quick-icon">💬</div>
+      <h3>Pedir por WhatsApp</h3>
+      <p>Envía tu lista o receta y recibe atención rápida.</p>
+    </a>
+
+    <a class="quick-card" href="#sucursales">
+      <div class="quick-icon">📍</div>
+      <h3>Ver sucursales</h3>
+      <p>Consulta ubicaciones, horarios y cómo llegar.</p>
+    </a>
+
+    <a class="quick-card" href="#farmacia">
+      <div class="quick-icon">💊</div>
+      <h3>Ir a farmacia</h3>
+      <p>Encuentra productos de salud y cuidado diario.</p>
+    </a>
+
+    <a class="quick-card" href="#contacto">
+      <div class="quick-icon">📞</div>
+      <h3>Contacto rápido</h3>
+      <p>Habla con nosotros para compras o información.</p>
+    </a>
+  </div>
+
+  <div class="branch-highlight">
+    <div class="branch-highlight-left">
+      <span class="branch-badge">Sucursal sugerida</span>
+      <h3 id="highlightBranchName">Sucursal Tapachula</h3>
+      <p id="highlightBranchAddress">Carr. a Puerto Madero km 4, Los Naranjos, Canta Ranas, 30797 Tapachula de Córdova y Ordóñez, Chis.</p>
+
+      <div class="branch-meta">
+        <div><strong>Horario:</strong><br><span id="highlightBranchHours">Lun a sáb · 8:00 am a 6:00 pm</span></div>
+        <div><strong>Estado:</strong><br><span id="highlightBranchStatusText">Abierto ahora</span></div>
+      </div>
+
+      <div class="branch-actions">
+        <button onclick="abrirSucursal('tapachula')" id="highlightMapBtn">Ver ubicación</button>
+        <a id="highlightMapsLink" href="https://maps.app.goo.gl/iCP9EMFZsKTdKKQ9A" target="_blank">Cómo llegar</a>
+      </div>
+    </div>
+
+    <div class="branch-highlight-right">
+      <h4 id="highlightRightTitle">Servicio disponible hoy</h4>
+      <p id="highlightRightText">Consulta sucursal, horario y ubicación exacta para comprar con mayor rapidez.</p>
+      <span class="status-pill status-open" id="highlightStatusPill">Disponible</span>
+    </div>
+  </div>
 </section>
 
 <section id="empresa" class="section">
@@ -1003,7 +1239,6 @@ nav ul li a:hover{
   </div>
 </section>
 
-<!-- MODAL EMPRESA -->
 <div class="modal" id="modalEmpresa">
   <div class="modal-content">
     <button class="close-btn" onclick="cerrarModal()">&times;</button>
@@ -1051,7 +1286,6 @@ nav ul li a:hover{
   </div>
 </section>
 
-<!-- MODAL SUCURSALES -->
 <div class="modal" id="modalSucursal">
   <div class="map-modal-content">
     <button class="close-btn" onclick="cerrarSucursal()">&times;</button>
@@ -1059,6 +1293,8 @@ nav ul li a:hover{
       <div class="map-info">
         <h2 id="sucursalTitulo"></h2>
         <p id="sucursalDireccion"></p>
+        <p><strong>Horario:</strong> <span id="sucursalHorario"></span></p>
+        <p><strong>Estado de servicio:</strong> <span id="sucursalEstado"></span></p>
         <a id="sucursalLink" href="#" target="_blank" class="map-btn">Abrir en Google Maps</a>
       </div>
 
@@ -1134,7 +1370,7 @@ nav ul li a:hover{
     <h2 style="color:#ff1e1e;">Contáctanos</h2>
     <p style="color:#1f5ea8;font-size:22px;font-weight:600;">atnclientes@dgardi.com</p>
     <p>O llámanos al:</p>
-    <h3 style="color:#1f5ea8;font-size:34px;">96 2286 6104</h3>
+    <h3 style="color:#1f5ea8;font-size:34px;">96 21874692</h3>
   </div>
 
   <div>
@@ -1154,7 +1390,72 @@ nav ul li a:hover{
   </div>
 </section>
 
+<a class="whatsapp-float" href="https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20Farmacias%20G%26D" target="_blank" aria-label="WhatsApp">
+  💬
+</a>
+
 <script>
+const sucursalesData = {
+  tapachula: {
+    nombre: 'Sucursal Tapachula',
+    direccion: 'Carr. a Puerto Madero km 4, Los Naranjos, Canta Ranas, 30797 Tapachula de Córdova y Ordóñez, Chis.',
+    horarioTexto: 'Lun a sáb · 8:00 am a 6:00 pm',
+    abre: '08:00',
+    cierra: '18:00',
+    mapa: 'https://www.google.com/maps?q=Tapachula,Chiapas,Mexico&output=embed',
+    link: 'https://maps.app.goo.gl/iCP9EMFZsKTdKKQ9A'
+  },
+  toscana: {
+    nombre: 'Sucursal Toscana',
+    direccion: 'Plaza Toscana Libramiento Sur Oriente, 30785 Tapachula de Córdova y Ordóñez, Chis.',
+    horarioTexto: 'Lun a sáb · 8:00 am a 6:00 pm',
+    abre: '08:00',
+    cierra: '18:00',
+    mapa: 'https://www.google.com/maps?q=Toscana,Tapachula,Chiapas,Mexico&output=embed',
+    link: 'https://maps.app.goo.gl/hv1utfDiUdBwcUieA'
+  },
+  ciudadhidalgo: {
+    nombre: 'Sucursal Ciudad Hidalgo',
+    direccion: 'tercera avenida Oriente entre primera y tercera nte Ciudad Hidalgo, 30840 Cdad. Hidalgo, Chis.',
+    horarioTexto: 'Lun a sáb · 7:30 am a 5:30 pm',
+    abre: '07:30',
+    cierra: '17:30',
+    mapa: 'https://www.google.com/maps?q=Ciudad+Hidalgo,Chiapas,Mexico&output=embed',
+    link: 'https://maps.app.goo.gl/F6ryDvbnRQXbtqWa9'
+  },
+  tuxtla: {
+    nombre: 'Sucursal Tuxtla Gutiérrez',
+    direccion: 'De la Octava Sur Ote. 1535-Locales 07 y 08, entre 13 y 15 Oriente, Santa Cruz, 29073 Tuxtla Gutiérrez, Chis.',
+    horarioTexto: 'Lun a sáb · 8:00 am a 6:00 pm',
+    abre: '08:00',
+    cierra: '18:00',
+    mapa: 'https://www.google.com/maps?q=Tuxtla+Gutierrez,Chiapas,Mexico&output=embed',
+    link: 'https://maps.app.goo.gl/2pcGG943xgzVTg6v8'
+  }
+};
+
+function obtenerEstadoSucursal(abre, cierra){
+  const ahora = new Date();
+  const dia = ahora.getDay(); // 0 domingo, 6 sábado
+
+  if(dia === 0){
+    return 'Cerrado hoy';
+  }
+
+  const [abreH, abreM] = abre.split(':').map(Number);
+  const [cierraH, cierraM] = cierra.split(':').map(Number);
+
+  const minutosActuales = ahora.getHours() * 60 + ahora.getMinutes();
+  const minutosAbre = abreH * 60 + abreM;
+  const minutosCierra = cierraH * 60 + cierraM;
+
+  if(minutosActuales >= minutosAbre && minutosActuales < minutosCierra){
+    return 'Abierto ahora';
+  }
+
+  return 'Cerrado por el momento';
+}
+
 function abrirModal(tipo){
   const modal = document.getElementById('modalEmpresa');
   const titulo = document.getElementById('modalTitulo');
@@ -1195,34 +1496,18 @@ function abrirSucursal(tipo){
   const direccion = document.getElementById('sucursalDireccion');
   const mapa = document.getElementById('sucursalMapa');
   const link = document.getElementById('sucursalLink');
+  const horario = document.getElementById('sucursalHorario');
+  const estado = document.getElementById('sucursalEstado');
 
-  if(tipo === 'tapachula'){
-    titulo.textContent = 'Sucursal Tapachula';
-    direccion.textContent = 'Carr. a Puerto Madero km 4, Los Naranjos, Canta Ranas, 30797 Tapachula de Córdova y Ordóñez, Chis.';
-    mapa.src = 'https://www.google.com/maps?q=Tapachula,Chiapas,Mexico&output=embed';
-    link.href = 'https://maps.app.goo.gl/iCP9EMFZsKTdKKQ9A';
-  }
+  const sucursal = sucursalesData[tipo];
+  const estadoActual = obtenerEstadoSucursal(sucursal.abre, sucursal.cierra);
 
-  if(tipo === 'toscana'){
-    titulo.textContent = 'Sucursal Toscana';
-    direccion.textContent = 'Plaza Toscana Libramiento Sur Oriente, 30785 Tapachula de Córdova y Ordóñez, Chis.';
-    mapa.src = 'https://www.google.com/maps?q=Toscana,Tapachula,Chiapas,Mexico&output=embed';
-    link.href = 'https://maps.app.goo.gl/hv1utfDiUdBwcUieA';
-  }
-
-  if(tipo === 'ciudadhidalgo'){
-    titulo.textContent = 'Sucursal Ciudad Hidalgo';
-    direccion.textContent = 'tercera avenida Oriente entre primera y tercera nte Ciudad Hidalgo, 30840 Cdad. Hidalgo, Chis.';
-    mapa.src = 'https://www.google.com/maps?q=Ciudad+Hidalgo,Chiapas,Mexico&output=embed';
-    link.href = 'https://maps.app.goo.gl/F6ryDvbnRQXbtqWa9';
-  }
-
-  if(tipo === 'tuxtla'){
-    titulo.textContent = 'Sucursal Tuxtla Gutiérrez';
-    direccion.textContent = 'De la Octava Sur Ote. 1535-Locales 07 y 08, entre 13 y 15 Oriente, Santa Cruz, 29073 Tuxtla Gutiérrez, Chis.';
-    mapa.src = 'https://www.google.com/maps?q=Tuxtla+Gutierrez,Chiapas,Mexico&output=embed';
-    link.href = 'https://maps.app.goo.gl/2pcGG943xgzVTg6v8';
-  }
+  titulo.textContent = sucursal.nombre;
+  direccion.textContent = sucursal.direccion;
+  horario.textContent = sucursal.horarioTexto;
+  estado.textContent = estadoActual;
+  mapa.src = sucursal.mapa;
+  link.href = sucursal.link;
 
   modal.classList.add('show');
 }
@@ -1232,6 +1517,45 @@ function cerrarSucursal(){
   const mapa = document.getElementById('sucursalMapa');
   modal.classList.remove('show');
   mapa.src = '';
+}
+
+function actualizarSucursalDestacada(){
+  const orden = ['tapachula', 'toscana', 'ciudadhidalgo', 'tuxtla'];
+  let sugerida = 'tapachula';
+
+  for(const key of orden){
+    const estado = obtenerEstadoSucursal(sucursalesData[key].abre, sucursalesData[key].cierra);
+    if(estado === 'Abierto ahora'){
+      sugerida = key;
+      break;
+    }
+  }
+
+  const sucursal = sucursalesData[sugerida];
+  const estadoActual = obtenerEstadoSucursal(sucursal.abre, sucursal.cierra);
+
+  document.getElementById('highlightBranchName').textContent = sucursal.nombre;
+  document.getElementById('highlightBranchAddress').textContent = sucursal.direccion;
+  document.getElementById('highlightBranchHours').textContent = sucursal.horarioTexto;
+  document.getElementById('highlightBranchStatusText').textContent = estadoActual;
+  document.getElementById('highlightMapsLink').href = sucursal.link;
+  document.getElementById('highlightMapBtn').onclick = () => abrirSucursal(sugerida);
+
+  const pill = document.getElementById('highlightStatusPill');
+  const rightTitle = document.getElementById('highlightRightTitle');
+  const rightText = document.getElementById('highlightRightText');
+
+  pill.textContent = estadoActual;
+
+  if(estadoActual === 'Abierto ahora'){
+    pill.className = 'status-pill status-open';
+    rightTitle.textContent = 'Servicio disponible hoy';
+    rightText.textContent = 'Esta sucursal se encuentra disponible en este momento para brindarte atención dentro de su horario.';
+  } else {
+    pill.className = 'status-pill status-closed';
+    rightTitle.textContent = 'Consulta tu sucursal';
+    rightText.textContent = 'Revisa ubicación, horario y planea tu visita a la sucursal que mejor se adapte a tu horario.';
+  }
 }
 
 window.addEventListener('click', function(e){
@@ -1278,6 +1602,8 @@ window.addEventListener('resize', function(){
     menuToggle.textContent = '☰';
   }
 });
+
+actualizarSucursalDestacada();
 </script>
 
 </body>
