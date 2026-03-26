@@ -1253,6 +1253,31 @@ document.addEventListener('keydown', function(e){
     cerrarSucursal();
   }
 });
+
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.getElementById('navMenu');
+const navLinks = document.querySelectorAll('#navMenu a');
+
+menuToggle.addEventListener('click', function(){
+  navMenu.classList.toggle('show');
+  menuToggle.textContent = navMenu.classList.contains('show') ? '✕' : '☰';
+});
+
+navLinks.forEach(link => {
+  link.addEventListener('click', function(){
+    if(window.innerWidth <= 768){
+      navMenu.classList.remove('show');
+      menuToggle.textContent = '☰';
+    }
+  });
+});
+
+window.addEventListener('resize', function(){
+  if(window.innerWidth > 768){
+    navMenu.classList.remove('show');
+    menuToggle.textContent = '☰';
+  }
+});
 </script>
 
 </body>
