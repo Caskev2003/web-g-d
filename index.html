@@ -25,6 +25,26 @@ body{
   overflow-x:hidden;
 }
 
+img{
+  max-width:100%;
+}
+
+a{
+  text-decoration:none;
+}
+
+/* ANIMACIONES */
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+
+.reveal.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
 /* HEADER */
 header{
   background:linear-gradient(90deg,#1f5ea8,#2d6fc0);
@@ -88,6 +108,51 @@ nav ul li a:hover{
   border-radius:12px;
   cursor:pointer;
   box-shadow:0 6px 16px rgba(0,0,0,.15);
+}
+
+/* BANNER SUPERIOR */
+.top-banner{
+  width:min(1400px,94%);
+  margin:16px auto 0;
+  background:linear-gradient(90deg,#ffeded,#fff4e6);
+  border:1px solid rgba(255,30,30,.10);
+  color:#9c1d1d;
+  border-radius:18px;
+  padding:14px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  box-shadow:0 10px 24px rgba(0,0,0,.06);
+}
+
+.top-banner strong{
+  color:#ff1e1e;
+}
+
+.top-banner .banner-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.banner-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:#ff1e1e;
+  color:#fff;
+  padding:10px 14px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:14px;
+  transition:.3s ease;
+}
+
+.banner-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(255,30,30,.25);
 }
 
 /* HERO */
@@ -164,6 +229,50 @@ nav ul li a:hover{
   box-shadow:0 6px 16px rgba(31,94,168,.18);
   position:relative;
   z-index:1;
+}
+
+.hero-actions{
+  margin:24px auto 0;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:14px;
+  position:relative;
+  z-index:1;
+}
+
+.hero-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:14px 20px;
+  border-radius:14px;
+  font-weight:700;
+  transition:.3s ease;
+  box-shadow:0 10px 24px rgba(0,0,0,.10);
+}
+
+.hero-btn.primary{
+  background:#1f5ea8;
+  color:#fff;
+}
+
+.hero-btn.secondary{
+  background:#fff;
+  color:#1f5ea8;
+}
+
+.hero-btn:hover{
+  transform:translateY(-2px);
+}
+
+.hero-btn.primary:hover{
+  background:#ff1e1e;
+}
+
+.hero-btn.secondary:hover{
+  background:#eef6ff;
 }
 
 /* BLOQUE DE SUCURSALES CERCANAS */
@@ -359,10 +468,380 @@ nav ul li a:hover{
 
 .section h2{
   color:#ff1e1e;
-  margin-bottom:22px;
+  margin-bottom:18px;
   font-size:56px;
   font-weight:800;
   letter-spacing:1px;
+}
+
+.section-subtitle{
+  max-width:900px;
+  margin:0 auto 28px;
+  color:#55708f;
+  font-size:18px;
+  line-height:1.7;
+}
+
+/* BUSCADOR */
+.search-section{
+  padding:40px 20px 20px;
+}
+
+.search-box{
+  width:min(1100px,92%);
+  margin:auto;
+  background:#fff;
+  border-radius:26px;
+  padding:26px;
+  box-shadow:0 14px 35px rgba(0,0,0,.10);
+  text-align:left;
+}
+
+.search-box h2{
+  color:#1f5ea8;
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+.search-box p{
+  color:#5a6f8c;
+  margin-bottom:18px;
+  line-height:1.7;
+}
+
+.search-controls{
+  display:grid;
+  grid-template-columns:1.1fr .9fr auto;
+  gap:12px;
+  align-items:center;
+}
+
+.search-controls input,
+.search-controls select{
+  margin:0;
+  border-radius:14px;
+  border:1px solid #d9e4f2;
+  border-bottom:1px solid #d9e4f2;
+  background:#f8fbff;
+  padding:14px 14px;
+}
+
+.search-controls button{
+  margin-top:0;
+  height:100%;
+  min-height:50px;
+}
+
+.search-results{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.search-card{
+  background:#f8fbff;
+  border-radius:18px;
+  padding:18px;
+  box-shadow:inset 0 0 0 1px rgba(31,94,168,.08);
+  text-align:left;
+}
+
+.search-card h4{
+  color:#1f5ea8;
+  font-size:20px;
+  margin-bottom:8px;
+}
+
+.search-card p{
+  color:#55708f;
+  font-size:14px;
+  line-height:1.6;
+  margin-bottom:12px;
+}
+
+.search-tag{
+  display:inline-block;
+  background:#fff;
+  color:#1f5ea8;
+  border-radius:999px;
+  padding:6px 10px;
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.search-empty{
+  grid-column:1/-1;
+  background:#fff6f6;
+  color:#a62e2e;
+  border-radius:16px;
+  padding:18px;
+  font-weight:600;
+  text-align:center;
+}
+
+/* PROMOCIONES */
+.promo-grid{
+  width:min(1200px,92%);
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.promo-card{
+  background:#fff;
+  border-radius:24px;
+  padding:26px;
+  text-align:left;
+  box-shadow:0 12px 30px rgba(0,0,0,.10);
+  transition:.35s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+.promo-card::before{
+  content:"";
+  position:absolute;
+  width:160px;
+  height:160px;
+  background:radial-gradient(circle, rgba(255,30,30,.10), transparent 70%);
+  top:-40px;
+  right:-40px;
+}
+
+.promo-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 40px rgba(0,0,0,.14);
+}
+
+.promo-badge{
+  display:inline-block;
+  background:#ffefef;
+  color:#ff1e1e;
+  padding:7px 12px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:800;
+  margin-bottom:14px;
+}
+
+.promo-card h3{
+  color:#1f5ea8;
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.promo-card p{
+  color:#5a6f8c;
+  line-height:1.7;
+  margin-bottom:16px;
+}
+
+.promo-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.promo-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:11px 14px;
+  border-radius:12px;
+  font-weight:700;
+  transition:.3s ease;
+}
+
+.promo-link.primary{
+  background:#1f5ea8;
+  color:#fff;
+}
+
+.promo-link.secondary{
+  background:#eef6ff;
+  color:#1f5ea8;
+}
+
+.promo-link.primary:hover{
+  background:#ff1e1e;
+}
+
+.promo-link.secondary:hover{
+  background:#dbeaff;
+}
+
+/* CATALOGO */
+.catalog-grid{
+  width:min(1250px,94%);
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+}
+
+.catalog-card{
+  background:#fff;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 12px 30px rgba(0,0,0,.10);
+  transition:.35s ease;
+  text-align:left;
+}
+
+.catalog-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 18px 36px rgba(0,0,0,.15);
+}
+
+.catalog-image{
+  height:180px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:58px;
+  color:#fff;
+}
+
+.catalog-image.farmacia{ background:linear-gradient(135deg,#1f5ea8,#4f8fe0); }
+.catalog-image.perfumeria{ background:linear-gradient(135deg,#ff6b81,#ff9aa9); }
+.catalog-image.abarrotes{ background:linear-gradient(135deg,#f5a623,#f8c15c); }
+.catalog-image.ofertas{ background:linear-gradient(135deg,#2e7d32,#58b56a); }
+
+.catalog-info{
+  padding:22px;
+}
+
+.catalog-info h3{
+  color:#1f5ea8;
+  font-size:26px;
+  margin-bottom:10px;
+}
+
+.catalog-info p{
+  color:#5a6f8c;
+  line-height:1.7;
+  margin-bottom:16px;
+}
+
+.catalog-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.catalog-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:#1f5ea8;
+  color:#fff;
+  padding:11px 14px;
+  border-radius:12px;
+  font-weight:700;
+  transition:.3s ease;
+}
+
+.catalog-btn.alt{
+  background:#eef6ff;
+  color:#1f5ea8;
+}
+
+.catalog-btn:hover{
+  transform:translateY(-2px);
+}
+
+.catalog-btn:not(.alt):hover{
+  background:#ff1e1e;
+}
+
+.catalog-btn.alt:hover{
+  background:#dbeaff;
+}
+
+/* CONFIANZA */
+.trust-grid{
+  width:min(1200px,92%);
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.trust-card{
+  background:#fff;
+  border-radius:24px;
+  padding:26px 20px;
+  box-shadow:0 12px 30px rgba(0,0,0,.10);
+  transition:.35s ease;
+}
+
+.trust-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 18px 36px rgba(0,0,0,.14);
+}
+
+.trust-icon{
+  width:68px;
+  height:68px;
+  margin:0 auto 16px;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  color:#1f5ea8;
+  background:#eef6ff;
+}
+
+.trust-card h3{
+  color:#1f5ea8;
+  font-size:24px;
+  margin-bottom:10px;
+}
+
+.trust-card p{
+  color:#5a6f8c;
+  line-height:1.7;
+}
+
+
+/* MARCAS */
+.brands-gallery{
+  width:min(1250px,94%);
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:22px;
+}
+
+.brand-card{
+  background:#fff;
+  border-radius:22px;
+  padding:22px;
+  min-height:160px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 12px 28px rgba(0,0,0,.10);
+  transition:.35s ease;
+}
+
+.brand-card:hover{
+  transform:translateY(-6px) scale(1.02);
+  box-shadow:0 18px 36px rgba(0,0,0,.14);
+}
+
+.brand-card img{
+  max-width:100%;
+  max-height:90px;
+  object-fit:contain;
+  display:block;
+  filter:drop-shadow(0 4px 10px rgba(0,0,0,.08));
 }
 
 /* SLIDER */
@@ -397,7 +876,7 @@ nav ul li a:hover{
   75%,100%{transform:translateX(-75%)}
 }
 
-/* CARDS */
+/* CARDS RESTAURADAS */
 .cards{
   display:flex;
   justify-content:center;
@@ -454,7 +933,7 @@ nav ul li a:hover{
   text-shadow:0 4px 12px rgba(0,0,0,.35);
 }
 
-/* MODAL GENERAL */
+/* MODAL */
 .modal{
   position:fixed;
   inset:0;
@@ -759,6 +1238,7 @@ button:hover{
   transform:scale(1.05);
 }
 
+/* WHATSAPP */
 .whatsapp-container{
   position:fixed;
   right:20px;
@@ -877,6 +1357,17 @@ button:hover{
     grid-template-columns:1fr;
   }
 
+  .search-results,
+  .promo-grid,
+  .catalog-grid,
+  .trust-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+ .brands-gallery{
+  grid-template-columns:repeat(3,1fr);
+}
+
   .slider{
     width:min(950px,90%);
   }
@@ -931,6 +1422,10 @@ button:hover{
   .contact > div:first-child,
   .contact > div:last-child{
     width:min(650px,100%);
+  }
+
+  .search-controls{
+    grid-template-columns:1fr;
   }
 }
 
@@ -992,6 +1487,11 @@ button:hover{
     background:rgba(255,255,255,.08);
   }
 
+  .top-banner{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
   .hero{
     padding:55px 16px 45px;
   }
@@ -1036,6 +1536,7 @@ button:hover{
   .branch-highlight{
     padding:18px 14px;
     gap:14px;
+    grid-template-columns:1fr;
   }
 
   .branch-highlight-left h3{
@@ -1054,6 +1555,10 @@ button:hover{
   .branch-highlight-right p{
     font-size:14px;
     line-height:1.4;
+  }
+
+  .nearest-branches{
+    grid-template-columns:1fr;
   }
 
   .nearest-card h4{
@@ -1078,6 +1583,26 @@ button:hover{
     font-size:34px;
     margin-bottom:18px;
   }
+
+  .section-subtitle{
+    font-size:16px;
+  }
+
+  .search-box{
+    padding:20px 16px;
+  }
+
+  .search-box h2{
+    font-size:28px;
+  }
+
+.search-results,
+.promo-grid,
+.catalog-grid,
+.trust-grid,
+.brands-gallery{
+  grid-template-columns:1fr;
+}
 
   .slider{
     width:100%;
@@ -1254,15 +1779,27 @@ button:hover{
 
     <ul id="navMenu">
       <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#buscador">Buscar</a></li>
+      <li><a href="#promociones">Promociones</a></li>
+      <li><a href="#catalogo">Catálogo</a></li>
       <li><a href="#empresa">Empresa</a></li>
       <li><a href="#sucursales">Sucursales</a></li>
-      <li><a href="#farmacia">Farmacia</a></li>
-      <li><a href="#perfumeria">Perfumería</a></li>
-      <li><a href="#abarrotes">Abarrotes</a></li>
+      <li><a href="#confianza">Nosotros</a></li>
+      <li><a href="#marcas">Marcas</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
   </nav>
 </header>
+
+<div class="top-banner reveal">
+  <div>
+    <strong>Promoción de temporada:</strong> consulta por WhatsApp productos destacados en farmacia, perfumería y abarrotes. También te ayudamos a ubicar tu sucursal más cercana.
+  </div>
+  <div class="banner-actions">
+    <a href="#promociones" class="banner-btn"><i class="fa-solid fa-tags"></i> Ver promociones</a>
+    <a href="#catalogo" class="banner-btn"><i class="fa-solid fa-boxes-stacked"></i> Ver productos</a>
+  </div>
+</div>
 
 <section class="hero" id="inicio">
   <img src="Principal.png" alt="Imagen principal">
@@ -1270,9 +1807,15 @@ button:hover{
   <h1 class="titulo-animado">Bienvenidos a Distribución G&amp;D</h1>
   <div class="hero-linea"></div>
 
-  <p>Tienda Especializada en Distribución de Farmacéuticos, Perfumería, Abarrotes y más.</p>
+  <p>Tienda especializada en distribución de farmacéuticos, perfumería, abarrotes y más.</p>
 
-  <div class="branch-highlight">
+  <div class="hero-actions reveal">
+    <a href="#catalogo" class="hero-btn primary"><i class="fa-solid fa-store"></i> Ver catálogo</a>
+    <a href="#buscador" class="hero-btn secondary"><i class="fa-solid fa-magnifying-glass"></i> Buscar productos</a>
+    <a href="#promociones" class="hero-btn secondary"><i class="fa-solid fa-percent"></i> Ver promociones</a>
+  </div>
+
+  <div class="branch-highlight reveal">
     <div class="branch-highlight-left">
       <span class="branch-badge">Sucursales más cercanas a ti</span>
       <h3>Te sugerimos estas opciones</h3>
@@ -1289,10 +1832,130 @@ button:hover{
   </div>
 </section>
 
-<section id="empresa" class="section">
-  <h2>Empresa</h2>
+<section id="buscador" class="search-section">
+  <div class="search-box reveal">
+    <h2>Busca productos por categoría</h2>
+    <p>Escribe el nombre del producto o filtra por categoría para encontrar opciones destacadas y consultarlas por WhatsApp.</p>
 
-  <div class="slider">
+    <div class="search-controls">
+      <input type="text" id="productSearchInput" placeholder="Ejemplo: paracetamol, shampoo, arroz...">
+      <select id="categoryFilter">
+        <option value="todas">Todas las categorías</option>
+        <option value="farmacia">Farmacia</option>
+        <option value="perfumeria">Perfumería</option>
+        <option value="abarrotes">Abarrotes</option>
+      </select>
+      <button id="searchButton"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+    </div>
+
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</section>
+
+<section id="promociones" class="section">
+  <h2 class="reveal">Promociones destacadas</h2>
+  <p class="section-subtitle reveal">Haz que tu página se sienta más viva mostrando campañas temporales, productos populares y promociones especiales para tus clientes.</p>
+
+  <div class="promo-grid">
+    <div class="promo-card reveal">
+      <span class="promo-badge">Oferta de la semana</span>
+      <h3>Productos esenciales</h3>
+      <p>Consulta disponibilidad de artículos de uso diario y aprovecha promociones especiales en productos seleccionados.</p>
+      <div class="promo-actions">
+        <a class="promo-link primary" target="_blank" href="https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20la%20oferta%20de%20productos%20esenciales"><i class="fa-brands fa-whatsapp"></i> Consultar</a>
+        <a class="promo-link secondary" href="#catalogo"><i class="fa-solid fa-box-open"></i> Ver catálogo</a>
+      </div>
+    </div>
+
+    <div class="promo-card reveal">
+      <span class="promo-badge">Perfumería</span>
+      <h3>Promociones en cuidado personal</h3>
+      <p>Explora opciones destacadas en higiene, belleza y fragancias para complementar la experiencia de compra.</p>
+      <div class="promo-actions">
+        <a class="promo-link primary" target="_blank" href="https://wa.me/529621874692?text=Hola,%20quiero%20conocer%20las%20promociones%20de%20perfumer%C3%ADa"><i class="fa-brands fa-whatsapp"></i> Preguntar</a>
+        <a class="promo-link secondary" href="#catalogo"><i class="fa-solid fa-spray-can-sparkles"></i> Ver sección</a>
+      </div>
+    </div>
+
+    <div class="promo-card reveal">
+      <span class="promo-badge">Mayoreo y detalle</span>
+      <h3>Abarrotes con atención rápida</h3>
+      <p>Consulta surtido y productos de alta rotación para compras al detalle o pedidos más amplios según tu necesidad.</p>
+      <div class="promo-actions">
+        <a class="promo-link primary" target="_blank" href="https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20abarrotes%20y%20promociones"><i class="fa-brands fa-whatsapp"></i> Solicitar info</a>
+        <a class="promo-link secondary" href="#catalogo"><i class="fa-solid fa-basket-shopping"></i> Ver opciones</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="catalogo" class="section">
+  <h2 class="reveal">Catálogo visual</h2>
+  <p class="section-subtitle reveal">Presenta tus principales categorías con una experiencia más comercial, moderna y orientada a generar contacto rápido.</p>
+
+  <div class="catalog-grid">
+    <div class="catalog-card reveal">
+      <div class="catalog-image farmacia">
+        <i class="fa-solid fa-pills"></i>
+      </div>
+      <div class="catalog-info">
+        <h3>Farmacia</h3>
+        <p>Medicamentos, artículos de cuidado y productos esenciales para la salud con atención rápida y confiable.</p>
+        <div class="catalog-actions">
+          <a href="#farmacia" class="catalog-btn"><i class="fa-solid fa-capsules"></i> Ver sección</a>
+          <a target="_blank" href="https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20productos%20de%20farmacia" class="catalog-btn alt"><i class="fa-brands fa-whatsapp"></i> Consultar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="catalog-card reveal">
+      <div class="catalog-image perfumeria">
+        <i class="fa-solid fa-spray-can-sparkles"></i>
+      </div>
+      <div class="catalog-info">
+        <h3>Perfumería</h3>
+        <p>Fragancias, higiene y cuidado personal para clientes que buscan variedad y presentación atractiva.</p>
+        <div class="catalog-actions">
+          <a href="#perfumeria" class="catalog-btn"><i class="fa-solid fa-heart"></i> Ver sección</a>
+          <a target="_blank" href="https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20perfumer%C3%ADa" class="catalog-btn alt"><i class="fa-brands fa-whatsapp"></i> Consultar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="catalog-card reveal">
+      <div class="catalog-image abarrotes">
+        <i class="fa-solid fa-cart-shopping"></i>
+      </div>
+      <div class="catalog-info">
+        <h3>Abarrotes</h3>
+        <p>Productos de consumo diario con opciones para mayoreo y detalle, pensados para surtir rápido y bien.</p>
+        <div class="catalog-actions">
+          <a href="#abarrotes" class="catalog-btn"><i class="fa-solid fa-boxes-stacked"></i> Ver sección</a>
+          <a target="_blank" href="https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20abarrotes" class="catalog-btn alt"><i class="fa-brands fa-whatsapp"></i> Consultar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="catalog-card reveal">
+      <div class="catalog-image ofertas">
+        <i class="fa-solid fa-tags"></i>
+      </div>
+      <div class="catalog-info">
+        <h3>Ofertas y consultas</h3>
+        <p>Pregunta por promociones, disponibilidad, atención por sucursal y productos más buscados del momento.</p>
+        <div class="catalog-actions">
+          <a href="#promociones" class="catalog-btn"><i class="fa-solid fa-fire"></i> Ver ofertas</a>
+          <a target="_blank" href="https://wa.me/529621874692?text=Hola,%20quiero%20conocer%20sus%20promociones%20vigentes" class="catalog-btn alt"><i class="fa-brands fa-whatsapp"></i> Pedir info</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="empresa" class="section">
+  <h2 class="reveal">Empresa</h2>
+
+  <div class="slider reveal">
     <div class="slides">
       <img src="img1.png" alt="Imagen 1">
       <img src="img2.png" alt="Imagen 2">
@@ -1302,21 +1965,21 @@ button:hover{
   </div>
 
   <div class="cards">
-    <div class="card" onclick="abrirModal('mision')">
+    <div class="card reveal" onclick="abrirModal('mision')">
       <img src="mision.png" alt="Misión">
       <div class="card-overlay">
         <h3>Misión</h3>
       </div>
     </div>
 
-    <div class="card" onclick="abrirModal('vision')">
+    <div class="card reveal" onclick="abrirModal('vision')">
       <img src="vision.png" alt="Visión">
       <div class="card-overlay">
         <h3>Visión</h3>
       </div>
     </div>
 
-    <div class="card" onclick="abrirModal('valores')">
+    <div class="card reveal" onclick="abrirModal('valores')">
       <img src="Valores.jpg" alt="Valores">
       <div class="card-overlay">
         <h3>Valores</h3>
@@ -1339,31 +2002,31 @@ button:hover{
 </div>
 
 <section id="sucursales" class="section">
-  <h2>Sucursales</h2>
+  <h2 class="reveal">Sucursales</h2>
 
   <div class="cards">
-    <div class="card" onclick="abrirSucursal('tapachula')">
+    <div class="card reveal" onclick="abrirSucursal('tapachula')">
       <img src="tapachula.jpeg" alt="Sucursal Tapachula">
       <div class="card-overlay">
         <h3>Tapachula</h3>
       </div>
     </div>
 
-    <div class="card" onclick="abrirSucursal('toscana')">
+    <div class="card reveal" onclick="abrirSucursal('toscana')">
       <img src="toscana.jpeg" alt="Sucursal Toscana">
       <div class="card-overlay">
         <h3>Toscana</h3>
       </div>
     </div>
 
-    <div class="card" onclick="abrirSucursal('ciudadhidalgo')">
+    <div class="card reveal" onclick="abrirSucursal('ciudadhidalgo')">
       <img src="cdhidalgo.jpg" alt="Sucursal Ciudad Hidalgo">
       <div class="card-overlay">
         <h3>Ciudad Hidalgo</h3>
       </div>
     </div>
 
-    <div class="card" onclick="abrirSucursal('tuxtla')">
+    <div class="card reveal" onclick="abrirSucursal('tuxtla')">
       <img src="tuxtla.png" alt="Sucursal Tuxtla Gutiérrez">
       <div class="card-overlay">
         <h3>Tuxtla Gutiérrez</h3>
@@ -1401,18 +2064,49 @@ button:hover{
   </div>
 </div>
 
+<section id="confianza" class="section">
+  <h2 class="reveal">¿Por qué elegirnos?</h2>
+  <p class="section-subtitle reveal">Haz que el visitante sienta confianza desde el primer vistazo mostrando beneficios claros, útiles y orientados a resolver rápido su necesidad.</p>
+
+  <div class="trust-grid">
+    <div class="trust-card reveal">
+      <div class="trust-icon"><i class="fa-solid fa-bolt"></i></div>
+      <h3>Atención rápida</h3>
+      <p>Consulta productos, horarios y ubicaciones de forma inmediata desde la página o por WhatsApp.</p>
+    </div>
+
+    <div class="trust-card reveal">
+      <div class="trust-icon"><i class="fa-solid fa-location-dot"></i></div>
+      <h3>Varias sucursales</h3>
+      <p>Te mostramos opciones cercanas para que elijas la sucursal que mejor te convenga.</p>
+    </div>
+
+    <div class="trust-card reveal">
+      <div class="trust-icon"><i class="fa-solid fa-box-open"></i></div>
+      <h3>Surtido amplio</h3>
+      <p>Farmacia, perfumería y abarrotes en una sola experiencia más cómoda para el cliente.</p>
+    </div>
+
+    <div class="trust-card reveal">
+      <div class="trust-icon"><i class="fa-brands fa-whatsapp"></i></div>
+      <h3>Contacto directo</h3>
+      <p>Botones de acción claros para consultar rápido promociones, productos y sucursales.</p>
+    </div>
+  </div>
+</section>
+
 <section id="farmacia" class="section">
-  <h2>Farmacia</h2>
+  <h2 class="reveal">Farmacia</h2>
   <div class="info-boxes">
-    <div class="info-box">
+    <div class="info-box reveal">
       <h3>Medicamentos</h3>
       <p>Amplia variedad de productos farmacéuticos con enfoque en calidad, confianza y disponibilidad.</p>
     </div>
-    <div class="info-box">
+    <div class="info-box reveal">
       <h3>Cuidado de la salud</h3>
       <p>Productos esenciales para el bienestar diario, siempre pensando en la economía del cliente.</p>
     </div>
-    <div class="info-box">
+    <div class="info-box reveal">
       <h3>Atención confiable</h3>
       <p>Servicio pensado para resolver necesidades de compra con rapidez y una experiencia agradable.</p>
     </div>
@@ -1420,17 +2114,17 @@ button:hover{
 </section>
 
 <section id="perfumeria" class="section">
-  <h2>Perfumería</h2>
+  <h2 class="reveal">Perfumería</h2>
   <div class="info-boxes">
-    <div class="info-box">
+    <div class="info-box reveal">
       <h3>Fragancias</h3>
       <p>Perfumes y lociones seleccionadas para ofrecer opciones atractivas y de alta rotación.</p>
     </div>
-    <div class="info-box">
+    <div class="info-box reveal">
       <h3>Cuidado personal</h3>
       <p>Artículos de higiene y belleza para complementar la experiencia de compra del cliente.</p>
     </div>
-    <div class="info-box">
+    <div class="info-box reveal">
       <h3>Presentación moderna</h3>
       <p>Productos ideales para venta al detalle con exhibición visual más atractiva.</p>
     </div>
@@ -1438,32 +2132,81 @@ button:hover{
 </section>
 
 <section id="abarrotes" class="section">
-  <h2>Abarrotes</h2>
+  <h2 class="reveal">Abarrotes</h2>
   <div class="info-boxes">
-    <div class="info-box">
+    <div class="info-box reveal">
       <h3>Gran surtido</h3>
       <p>Productos de consumo diario pensados para clientes que buscan practicidad y buen precio.</p>
     </div>
-    <div class="info-box">
+    <div class="info-box reveal">
       <h3>Mayoreo y detalle</h3>
       <p>Opciones de compra flexibles para distintos tipos de negocio y necesidades del hogar.</p>
     </div>
-    <div class="info-box">
+    <div class="info-box reveal">
       <h3>Mejor experiencia</h3>
       <p>Una oferta más completa para que el cliente encuentre variedad en un solo lugar.</p>
     </div>
   </div>
 </section>
 
+<section id="marcas" class="section">
+  <h2 class="reveal">Marcas y líneas que maneja Distribución G&amp;D</h2>
+  <p class="section-subtitle reveal">
+    Conoce algunas de las marcas y líneas comerciales que forman parte del surtido de Distribución G&amp;D.
+  </p>
+
+  <div class="brands-gallery">
+    <div class="brand-card reveal">
+      <img src="bayer.png" alt="Bayer">
+    </div>
+
+    <div class="brand-card reveal">
+      <img src="johnsons.png" alt="Johnsons">
+    </div>
+
+    <div class="brand-card reveal">
+      <img src="electrolit.png" alt="Electrolit">
+    </div>
+
+    <div class="brand-card reveal">
+      <img src="savile.avif" alt="Savilé">
+    </div>
+
+    <div class="brand-card reveal">
+      <img src="ensure.png" alt="Ensure">
+    </div>
+
+    <div class="brand-card reveal">
+      <img src="pediasure.png" alt="PediaSure">
+    </div>
+
+    <div class="brand-card reveal">
+      <img src="pedialyte.png" alt="Pedialyte">
+    </div>
+
+    <div class="brand-card reveal">
+      <img src="pyg.png" alt="P&G">
+    </div>
+
+    <div class="brand-card reveal">
+      <img src="doloneurobion.png" alt="Doloneurobión">
+    </div>
+
+    <div class="brand-card reveal">
+      <img src="neurobion.png" alt="Neurobión">
+    </div>
+  </div>
+</section>
+
 <section id="contacto" class="contact">
-  <div>
+  <div class="reveal">
     <h2 style="color:#ff1e1e;">Contáctanos</h2>
     <p style="color:#1f5ea8;font-size:22px;font-weight:600;">atnclientes@dgardi.com</p>
     <p>O llámanos al:</p>
     <h3 style="color:#1f5ea8;font-size:34px;">96 21874692</h3>
   </div>
 
-  <div>
+  <div class="reveal">
     <h2 style="color:#ff1e1e;">Contacto</h2>
     <input placeholder="Nombre">
     <input placeholder="Email">
@@ -1557,6 +2300,45 @@ const sucursalesData = {
   }
 };
 
+const productosData = [
+  {
+    nombre: 'Paracetamol',
+    categoria: 'farmacia',
+    descripcion: 'Producto destacado de farmacia para consulta rápida de disponibilidad.',
+    whatsapp: 'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Paracetamol'
+  },
+  {
+    nombre: 'Vitamina C',
+    categoria: 'farmacia',
+    descripcion: 'Consulta opciones de bienestar y productos de cuidado diario.',
+    whatsapp: 'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Vitamina%20C'
+  },
+  {
+    nombre: 'Shampoo',
+    categoria: 'perfumeria',
+    descripcion: 'Producto de cuidado personal y perfumería con atención por WhatsApp.',
+    whatsapp: 'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Shampoo'
+  },
+  {
+    nombre: 'Jabón corporal',
+    categoria: 'perfumeria',
+    descripcion: 'Consulta opciones de higiene y cuidado personal.',
+    whatsapp: 'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Jab%C3%B3n%20corporal'
+  },
+  {
+    nombre: 'Arroz',
+    categoria: 'abarrotes',
+    descripcion: 'Producto de abarrotes de consumo diario para detalle o mayoreo.',
+    whatsapp: 'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Arroz'
+  },
+  {
+    nombre: 'Aceite',
+    categoria: 'abarrotes',
+    descripcion: 'Consulta productos básicos y surtido disponible.',
+    whatsapp: 'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Aceite'
+  }
+];
+
 function obtenerEstadoSucursal(sucursal){
   const ahora = new Date();
   const dia = ahora.getDay();
@@ -1639,21 +2421,21 @@ function abrirModal(tipo){
     titulo.textContent = 'Misión';
     imagen.src = 'mision.png';
     imagen.alt = 'Misión';
-    texto.textContent = 'Somos una empresa enfocada en ofrecer una alternativa de salud y productos abarroteros siendo proveedores de una gran gama de productos farmacéuticos, apegados a las normas que nos brinde la secretaria de salud con responsabilidad.';
+    texto.textContent = 'Somos una empresa enfocada en ofrecer una alternativa de salud y productos abarroteros siendo proveedores de una gran gama de productos farmacéuticos, apegados a las normas que nos brinde la secretaría de salud con responsabilidad.';
   }
 
   if(tipo === 'vision'){
     titulo.textContent = 'Visión';
     imagen.src = 'vision.png';
     imagen.alt = 'Visión';
-    texto.textContent = 'Somos una empresa con una ambición, seguir cuidando de tu salud apoyando tu economía, nos caracterizamos por brindar más de una solución y seguir ofreciendo nuestra principal vocación, TU BIENESTAR.';
+    texto.textContent = 'Somos una empresa con una ambición: seguir cuidando de tu salud apoyando tu economía. Nos caracterizamos por brindar más de una solución y seguir ofreciendo nuestra principal vocación: tu bienestar.';
   }
 
   if(tipo === 'valores'){
     titulo.textContent = 'Valores';
     imagen.src = 'Valores.jpg';
     imagen.alt = 'Valores';
-    texto.textContent = 'Distribuidora G&D tenemos los valores muy recalcados nuestro compromiso con el sector salud nos exige la Responsabilidad que tenemos con nuestros clientes, el trato respetuoso que se merecen, la Comunicación interna clara y honesta con nuestros socios comerciales, somos creadores de la Integridad empresarial, estamos preparados para lidiar con estaciones sanitarias, dejando en claro NO LUCRAR con la salud de las personas a través de nuestros socios comerciales, involucramos la Honestidad y Disciplina como parte de nuestros valores para mejorar día a día siempre viendo por nuestros clientes y aliados.';
+    texto.textContent = 'Distribuidora G&D tiene muy presentes valores como responsabilidad, respeto, comunicación clara, integridad, honestidad y disciplina, buscando siempre mejorar día a día y servir mejor a clientes y aliados.';
   }
 
   modal.classList.add('show');
@@ -1778,6 +2560,50 @@ function sugerirSucursalPorUbicacion(){
   );
 }
 
+function renderizarProductos(lista){
+  const contenedor = document.getElementById('searchResults');
+  contenedor.innerHTML = '';
+
+  if(lista.length === 0){
+    contenedor.innerHTML = `<div class="search-empty">No encontramos coincidencias. Intenta con otra palabra o cambia la categoría.</div>`;
+    return;
+  }
+
+  lista.forEach(producto => {
+    const card = document.createElement('div');
+    card.className = 'search-card';
+
+    card.innerHTML = `
+      <span class="search-tag">${producto.categoria}</span>
+      <h4>${producto.nombre}</h4>
+      <p>${producto.descripcion}</p>
+      <a class="catalog-btn" target="_blank" href="${producto.whatsapp}">
+        <i class="fa-brands fa-whatsapp"></i> Consultar producto
+      </a>
+    `;
+
+    contenedor.appendChild(card);
+  });
+}
+
+function buscarProductos(){
+  const texto = document.getElementById('productSearchInput').value.trim().toLowerCase();
+  const categoria = document.getElementById('categoryFilter').value;
+
+  const resultados = productosData.filter(producto => {
+    const coincideTexto =
+      producto.nombre.toLowerCase().includes(texto) ||
+      producto.descripcion.toLowerCase().includes(texto);
+
+    const coincideCategoria =
+      categoria === 'todas' || producto.categoria === categoria;
+
+    return coincideTexto && coincideCategoria;
+  });
+
+  renderizarProductos(resultados);
+}
+
 window.addEventListener('click', function(e){
   const modalEmpresa = document.getElementById('modalEmpresa');
   const modalSucursal = document.getElementById('modalSucursal');
@@ -1823,8 +2649,6 @@ window.addEventListener('resize', function(){
   }
 });
 
-sugerirSucursalPorUbicacion();
-
 const whatsappToggle = document.getElementById('whatsappToggle');
 const whatsappOptions = document.getElementById('whatsappOptions');
 
@@ -1838,6 +2662,23 @@ document.addEventListener('click', function(e){
     whatsappOptions.classList.remove('show');
   }
 });
+
+document.getElementById('searchButton').addEventListener('click', buscarProductos);
+document.getElementById('productSearchInput').addEventListener('input', buscarProductos);
+document.getElementById('categoryFilter').addEventListener('change', buscarProductos);
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+renderizarProductos(productosData);
+sugerirSucursalPorUbicacion();
 </script>
 
 </body>
