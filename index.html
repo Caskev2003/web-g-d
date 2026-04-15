@@ -350,6 +350,80 @@ button:hover{background:#25D366;transform:scale(1.05)}
   </div>
 </section>
 
+<!-- EMPRESA ABAJO DE SUGERENCIA DE SUCURSAL -->
+<section id="empresa" class="section">
+  <h2 class="reveal">Empresa</h2>
+  <div class="slider reveal">
+    <div class="slides">
+      <img src="img1.png" alt="Imagen 1">
+      <img src="img2.png" alt="Imagen 2">
+      <img src="img3.png" alt="Imagen 3">
+      <img src="img4.png" alt="Imagen 4">
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card reveal" onclick="abrirModal('mision')"><img src="mision.png" alt="Misión"><div class="card-overlay"><h3>Misión</h3></div></div>
+    <div class="card reveal" onclick="abrirModal('vision')"><img src="vision.png" alt="Visión"><div class="card-overlay"><h3>Visión</h3></div></div>
+    <div class="card reveal" onclick="abrirModal('valores')"><img src="Valores.jpg" alt="Valores"><div class="card-overlay"><h3>Valores</h3></div></div>
+  </div>
+</section>
+
+<div class="modal" id="modalEmpresa">
+  <div class="modal-content">
+    <button class="close-btn" onclick="cerrarModal()">&times;</button>
+    <div class="modal-grid">
+      <img id="modalImg" class="modal-image" src="" alt="">
+      <div class="modal-info">
+        <h2 id="modalTitulo"></h2>
+        <p id="modalTexto"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SUCURSALES ABAJO DE EMPRESA -->
+<section id="sucursales" class="section">
+  <h2 class="reveal">Sucursales</h2>
+  <div class="cards">
+    <div class="card reveal" onclick="abrirSucursal('tapachula')"><img src="tapachula.jpeg" alt="Sucursal Tapachula"><div class="card-overlay"><h3>Tapachula</h3></div></div>
+    <div class="card reveal" onclick="abrirSucursal('toscana')"><img src="toscana.jpeg" alt="Sucursal Toscana"><div class="card-overlay"><h3>Toscana</h3></div></div>
+    <div class="card reveal" onclick="abrirSucursal('ciudadhidalgo')"><img src="cdhidalgo.jpg" alt="Sucursal Ciudad Hidalgo"><div class="card-overlay"><h3>Ciudad Hidalgo</h3></div></div>
+    <div class="card reveal" onclick="abrirSucursal('tuxtla')"><img src="tuxtla.png" alt="Sucursal Tuxtla Gutiérrez"><div class="card-overlay"><h3>Tuxtla Gutiérrez</h3></div></div>
+  </div>
+</section>
+
+<div class="modal" id="modalSucursal">
+  <div class="map-modal-content">
+    <button class="close-btn" onclick="cerrarSucursal()">&times;</button>
+    <div class="map-modal-grid">
+      <div class="map-info">
+        <h2 id="sucursalTitulo"></h2>
+        <p id="sucursalDireccion"></p>
+        <p><strong>Horario:</strong> <span id="sucursalHorario"></span></p>
+        <div id="estadoContainer"><span id="sucursalEstado"></span></div>
+        <a id="sucursalLink" href="#" target="_blank" class="map-btn">Abrir en Google Maps</a>
+      </div>
+      <div>
+        <iframe id="sucursalMapa" class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- POR QUÉ ELEGIRNOS ABAJO DE SUCURSALES -->
+<section id="confianza" class="section">
+  <h2 class="reveal">¿Por qué elegirnos?</h2>
+  <p class="section-subtitle reveal">Haz que el visitante sienta confianza desde el primer vistazo mostrando beneficios claros, útiles y orientados a resolver rápido su necesidad.</p>
+  <div class="trust-grid">
+    <div class="trust-card reveal"><div class="trust-icon"><i class="fa-solid fa-bolt"></i></div><h3>Atención rápida</h3><p>Consulta productos, horarios y ubicaciones de forma inmediata desde la página o por WhatsApp.</p></div>
+    <div class="trust-card reveal"><div class="trust-icon"><i class="fa-solid fa-location-dot"></i></div><h3>Varias sucursales</h3><p>Te mostramos opciones cercanas para que elijas la sucursal que mejor te convenga.</p></div>
+    <div class="trust-card reveal"><div class="trust-icon"><i class="fa-solid fa-box-open"></i></div><h3>Surtido amplio</h3><p>Farmacia, perfumería y abarrotes en una sola experiencia más cómoda para el cliente.</p></div>
+    <div class="trust-card reveal"><div class="trust-icon"><i class="fa-brands fa-whatsapp"></i></div><h3>Contacto directo</h3><p>Botones de acción claros para consultar rápido promociones, productos y sucursales.</p></div>
+  </div>
+</section>
+
+<!-- LO DEMÁS YA QUEDA ABAJO -->
 <section id="buscador" class="search-section">
   <div class="search-box reveal">
     <h2>Busca productos por categoría</h2>
@@ -432,76 +506,6 @@ button:hover{background:#25D366;transform:scale(1.05)}
   <h2 class="reveal">Anuncios destacados</h2>
   <p class="section-subtitle reveal">Esta sección funciona como vitrina comercial. Aquí van los anuncios ya diseñados, agrupados por categoría para que el cliente vea productos reales.</p>
   <div class="gallery-grid" id="featuredAdsGrid"></div>
-</section>
-
-<section id="empresa" class="section">
-  <h2 class="reveal">Empresa</h2>
-  <div class="slider reveal">
-    <div class="slides">
-      <img src="img1.png" alt="Imagen 1">
-      <img src="img2.png" alt="Imagen 2">
-      <img src="img3.png" alt="Imagen 3">
-      <img src="img4.png" alt="Imagen 4">
-    </div>
-  </div>
-
-  <div class="cards">
-    <div class="card reveal" onclick="abrirModal('mision')"><img src="mision.png" alt="Misión"><div class="card-overlay"><h3>Misión</h3></div></div>
-    <div class="card reveal" onclick="abrirModal('vision')"><img src="vision.png" alt="Visión"><div class="card-overlay"><h3>Visión</h3></div></div>
-    <div class="card reveal" onclick="abrirModal('valores')"><img src="Valores.jpg" alt="Valores"><div class="card-overlay"><h3>Valores</h3></div></div>
-  </div>
-</section>
-
-<div class="modal" id="modalEmpresa">
-  <div class="modal-content">
-    <button class="close-btn" onclick="cerrarModal()">&times;</button>
-    <div class="modal-grid">
-      <img id="modalImg" class="modal-image" src="" alt="">
-      <div class="modal-info">
-        <h2 id="modalTitulo"></h2>
-        <p id="modalTexto"></p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<section id="sucursales" class="section">
-  <h2 class="reveal">Sucursales</h2>
-  <div class="cards">
-    <div class="card reveal" onclick="abrirSucursal('tapachula')"><img src="tapachula.jpeg" alt="Sucursal Tapachula"><div class="card-overlay"><h3>Tapachula</h3></div></div>
-    <div class="card reveal" onclick="abrirSucursal('toscana')"><img src="toscana.jpeg" alt="Sucursal Toscana"><div class="card-overlay"><h3>Toscana</h3></div></div>
-    <div class="card reveal" onclick="abrirSucursal('ciudadhidalgo')"><img src="cdhidalgo.jpg" alt="Sucursal Ciudad Hidalgo"><div class="card-overlay"><h3>Ciudad Hidalgo</h3></div></div>
-    <div class="card reveal" onclick="abrirSucursal('tuxtla')"><img src="tuxtla.png" alt="Sucursal Tuxtla Gutiérrez"><div class="card-overlay"><h3>Tuxtla Gutiérrez</h3></div></div>
-  </div>
-</section>
-
-<div class="modal" id="modalSucursal">
-  <div class="map-modal-content">
-    <button class="close-btn" onclick="cerrarSucursal()">&times;</button>
-    <div class="map-modal-grid">
-      <div class="map-info">
-        <h2 id="sucursalTitulo"></h2>
-        <p id="sucursalDireccion"></p>
-        <p><strong>Horario:</strong> <span id="sucursalHorario"></span></p>
-        <div id="estadoContainer"><span id="sucursalEstado"></span></div>
-        <a id="sucursalLink" href="#" target="_blank" class="map-btn">Abrir en Google Maps</a>
-      </div>
-      <div>
-        <iframe id="sucursalMapa" class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-    </div>
-  </div>
-</div>
-
-<section id="confianza" class="section">
-  <h2 class="reveal">¿Por qué elegirnos?</h2>
-  <p class="section-subtitle reveal">Haz que el visitante sienta confianza desde el primer vistazo mostrando beneficios claros, útiles y orientados a resolver rápido su necesidad.</p>
-  <div class="trust-grid">
-    <div class="trust-card reveal"><div class="trust-icon"><i class="fa-solid fa-bolt"></i></div><h3>Atención rápida</h3><p>Consulta productos, horarios y ubicaciones de forma inmediata desde la página o por WhatsApp.</p></div>
-    <div class="trust-card reveal"><div class="trust-icon"><i class="fa-solid fa-location-dot"></i></div><h3>Varias sucursales</h3><p>Te mostramos opciones cercanas para que elijas la sucursal que mejor te convenga.</p></div>
-    <div class="trust-card reveal"><div class="trust-icon"><i class="fa-solid fa-box-open"></i></div><h3>Surtido amplio</h3><p>Farmacia, perfumería y abarrotes en una sola experiencia más cómoda para el cliente.</p></div>
-    <div class="trust-card reveal"><div class="trust-icon"><i class="fa-brands fa-whatsapp"></i></div><h3>Contacto directo</h3><p>Botones de acción claros para consultar rápido promociones, productos y sucursales.</p></div>
-  </div>
 </section>
 
 <section id="farmacia" class="section">
@@ -598,8 +602,8 @@ const sucursalesData = {
     },
     mapa: 'https://www.google.com/maps?q=Tapachula,Chiapas,Mexico&output=embed',
     link: 'https://maps.app.goo.gl/iCP9EMFZsKTdKKQ9A',
-    lat: 14.8782227,
-    lng: -92.2837224
+    lat: 14.907038641809468,
+    lng: -92.2834320129711
   },
   toscana: {
     nombre: 'Sucursal Toscana',
