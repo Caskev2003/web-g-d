@@ -1,4 +1,3 @@
-<!-- Archivo actualizado con integración de anuncios y catálogo visual -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -23,7 +22,8 @@ nav ul li a{color:#fff;padding:10px 16px;border-radius:999px;transition:.3s ease
 nav ul li a:hover{background:#ff2222;transform:translateY(-2px)}
 .menu-toggle{display:none;border:none;background:#fff;color:#1f5ea8;font-size:28px;font-weight:700;width:48px;height:48px;border-radius:12px;cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,.15)}
 .top-banner{width:min(1400px,94%);margin:16px auto 0;background:linear-gradient(90deg,#ffeded,#fff4e6);border:1px solid rgba(255,30,30,.10);color:#9c1d1d;border-radius:18px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:18px;box-shadow:0 10px 24px rgba(0,0,0,.06)}
-.top-banner strong{color:#ff1e1e}.top-banner .banner-actions{display:flex;gap:10px;flex-wrap:wrap}
+.top-banner strong{color:#ff1e1e}
+.top-banner .banner-actions{display:flex;gap:10px;flex-wrap:wrap}
 .banner-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#ff1e1e;color:#fff;padding:10px 14px;border-radius:999px;font-weight:700;font-size:14px;transition:.3s ease}
 .banner-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(255,30,30,.25)}
 .hero{text-align:center;padding:clamp(10px, 3vw, 30px) 20px 40px;position:relative;background:linear-gradient(135deg, #f4f8ff 0%, #e8f1ff 40%, #fff5f5 100%);overflow:hidden}
@@ -35,60 +35,253 @@ nav ul li a:hover{background:#ff2222;transform:translateY(-2px)}
 .hero-linea{width:140px;height:6px;margin:0 auto 24px;border-radius:999px;background:linear-gradient(90deg, #1f5ea8, #ff1e1e);box-shadow:0 6px 16px rgba(31,94,168,.18);position:relative;z-index:1}
 .hero-actions{margin:24px auto 0;display:flex;justify-content:center;flex-wrap:wrap;gap:14px;position:relative;z-index:1}
 .hero-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 20px;border-radius:14px;font-weight:700;transition:.3s ease;box-shadow:0 10px 24px rgba(0,0,0,.10)}
-.hero-btn.primary{background:#1f5ea8;color:#fff}.hero-btn.secondary{background:#fff;color:#1f5ea8}.hero-btn:hover{transform:translateY(-2px)}.hero-btn.primary:hover{background:#ff1e1e}.hero-btn.secondary:hover{background:#eef6ff}
+.hero-btn.primary{background:#1f5ea8;color:#fff}
+.hero-btn.secondary{background:#fff;color:#1f5ea8}
+.hero-btn:hover{transform:translateY(-2px)}
+.hero-btn.primary:hover{background:#ff1e1e}
+.hero-btn.secondary:hover{background:#eef6ff}
 .branch-highlight{width:min(1500px,96%);margin:35px auto 0;background:#fff;border-radius:28px;box-shadow:0 14px 35px rgba(0,0,0,.12);padding:26px;display:grid;grid-template-columns:1.75fr .45fr;gap:18px;align-items:start;position:relative;z-index:1}
 .branch-highlight-left{text-align:left;display:flex;flex-direction:column;align-items:flex-start}
 .branch-badge{display:inline-block;background:#eef6ff;color:#1f5ea8;font-weight:700;border-radius:999px;padding:8px 14px;margin-bottom:14px;font-size:14px}
 .branch-highlight-left h3{color:#ff1e1e;font-size:clamp(28px, 3vw, 42px);line-height:1.15;margin-bottom:14px;text-align:left;max-width:700px;width:100%}
 .branch-highlight-left p{color:#4b607f;font-size:clamp(16px, 1.8vw, 22px);line-height:1.45;margin-bottom:18px;text-align:left;max-width:900px;width:100%;margin-left:0}
 .branch-highlight-right{background:linear-gradient(135deg,#2e7d32,#4caf50);border-radius:24px;padding:24px;color:#fff;text-align:left;min-height:240px;display:flex;flex-direction:column;justify-content:center}
-.branch-highlight-right h4{font-size:24px;margin-bottom:10px;color:#ffffff;line-height:1.2}.branch-highlight-right p{line-height:1.6;opacity:.95;margin-bottom:12px;color:#ffffff;font-size:16px}
-.status-pill{display:inline-block;padding:8px 14px;border-radius:999px;font-weight:700;font-size:14px;margin-top:8px}.status-open{background:#d6f8df;color:#12863a}.status-closed{background:#ffe0e0;color:#c62828}
+.branch-highlight-right h4{font-size:24px;margin-bottom:10px;color:#ffffff;line-height:1.2}
+.branch-highlight-right p{line-height:1.6;opacity:.95;margin-bottom:12px;color:#ffffff;font-size:16px}
+.status-pill{display:inline-block;padding:8px 14px;border-radius:999px;font-weight:700;font-size:14px;margin-top:8px}
+.status-open{background:#d6f8df;color:#12863a}
+.status-closed{background:#ffe0e0;color:#c62828}
+.location-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:18px;width:100%}
+.location-message{color:#4b607f;font-weight:600;font-size:14px}
+.location-btn{width:auto!important;margin-top:0!important;background:#1f5ea8;color:#fff;padding:12px 18px;border:none;border-radius:12px;cursor:pointer;transition:.3s ease;font-size:15px;font-weight:700;display:inline-flex;align-items:center;gap:8px}
+.location-btn:hover{background:#ff2222;transform:translateY(-2px)}
+.location-btn:disabled{opacity:.7;cursor:not-allowed;transform:none}
 .nearest-branches{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:16px;width:100%}
 .nearest-card{width:100%;min-height:220px;background:#f8fbff;border-radius:20px;padding:18px;box-shadow:inset 0 0 0 1px rgba(31,94,168,.08);transition:.3s ease;display:flex;flex-direction:column;justify-content:space-between}
 .nearest-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(0,0,0,.10)}
-.nearest-card h4{color:#1f5ea8;font-size:20px;margin-bottom:8px}.nearest-card p{color:#4b607f;font-size:14px;line-height:1.5;margin-bottom:12px}
-.nearest-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.nearest-meta span{background:#fff;color:#1f4f91;padding:7px 10px;border-radius:999px;font-size:12px;font-weight:600;box-shadow:0 4px 10px rgba(0,0,0,.06)}
-.nearest-actions{display:flex;gap:10px;flex-wrap:nowrap}.nearest-actions button,.nearest-actions a{flex:1;border:none;cursor:pointer;background:#1f5ea8;color:#fff;padding:10px 12px;border-radius:12px;font-weight:600;transition:.3s ease;font-size:14px;text-align:center}.nearest-actions button:hover,.nearest-actions a:hover{background:#ff2222;transform:translateY(-2px)}
-.section{padding:85px 20px;text-align:center}.section h2{color:#ff1e1e;margin-bottom:18px;font-size:56px;font-weight:800;letter-spacing:1px}.section-subtitle{max-width:900px;margin:0 auto 28px;color:#55708f;font-size:18px;line-height:1.7}
-.search-section{padding:40px 20px 20px}.search-box{width:min(1100px,92%);margin:auto;background:#fff;border-radius:26px;padding:26px;box-shadow:0 14px 35px rgba(0,0,0,.10);text-align:left}
-.search-box h2{color:#1f5ea8;font-size:38px;margin-bottom:10px}.search-box p{color:#5a6f8c;margin-bottom:18px;line-height:1.7}
-.search-controls{display:grid;grid-template-columns:1.1fr .9fr auto;gap:12px;align-items:center}.search-controls input,.search-controls select{margin:0;border-radius:14px;border:1px solid #d9e4f2;background:#f8fbff;padding:14px 14px}.search-controls button{margin-top:0;height:100%;min-height:50px}
+.nearest-card h4{color:#1f5ea8;font-size:20px;margin-bottom:8px}
+.nearest-card p{color:#4b607f;font-size:14px;line-height:1.5;margin-bottom:12px}
+.nearest-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.nearest-meta span{background:#fff;color:#1f4f91;padding:7px 10px;border-radius:999px;font-size:12px;font-weight:600;box-shadow:0 4px 10px rgba(0,0,0,.06)}
+.nearest-actions{display:flex;gap:10px;flex-wrap:nowrap}
+.nearest-actions button,.nearest-actions a{flex:1;border:none;cursor:pointer;background:#1f5ea8;color:#fff;padding:10px 12px;border-radius:12px;font-weight:600;transition:.3s ease;font-size:14px;text-align:center}
+.nearest-actions button:hover,.nearest-actions a:hover{background:#ff2222;transform:translateY(-2px)}
+.section{padding:85px 20px;text-align:center}
+.section h2{color:#ff1e1e;margin-bottom:18px;font-size:56px;font-weight:800;letter-spacing:1px}
+.section-subtitle{max-width:900px;margin:0 auto 28px;color:#55708f;font-size:18px;line-height:1.7}
+.search-section{padding:40px 20px 20px}
+.search-box{width:min(1100px,92%);margin:auto;background:#fff;border-radius:26px;padding:26px;box-shadow:0 14px 35px rgba(0,0,0,.10);text-align:left}
+.search-box h2{color:#1f5ea8;font-size:38px;margin-bottom:10px}
+.search-box p{color:#5a6f8c;margin-bottom:18px;line-height:1.7}
+.search-controls{display:grid;grid-template-columns:1.1fr .9fr auto;gap:12px;align-items:center}
+.search-controls input,.search-controls select{margin:0;border-radius:14px;border:1px solid #d9e4f2;background:#f8fbff;padding:14px 14px}
+.search-controls button{margin-top:0;height:100%;min-height:50px}
 .search-results{margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.search-card{background:#f8fbff;border-radius:18px;padding:18px;box-shadow:inset 0 0 0 1px rgba(31,94,168,.08);text-align:left}.search-card h4{color:#1f5ea8;font-size:20px;margin-bottom:8px}.search-card p{color:#55708f;font-size:14px;line-height:1.6;margin-bottom:12px}.search-tag{display:inline-block;background:#fff;color:#1f5ea8;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:700;margin-bottom:10px}.search-empty{grid-column:1/-1;background:#fff6f6;color:#a62e2e;border-radius:16px;padding:18px;font-weight:600;text-align:center}
-.promo-grid{width:min(1280px,94%);margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.promo-card{background:#fff;border-radius:24px;padding:18px;text-align:left;box-shadow:0 12px 30px rgba(0,0,0,.10);transition:.35s ease;position:relative;overflow:hidden}.promo-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,.14)}
+.search-card{background:#f8fbff;border-radius:18px;padding:18px;box-shadow:inset 0 0 0 1px rgba(31,94,168,.08);text-align:left}
+.search-card h4{color:#1f5ea8;font-size:20px;margin-bottom:8px}
+.search-card p{color:#55708f;font-size:14px;line-height:1.6;margin-bottom:12px}
+.search-tag{display:inline-block;background:#fff;color:#1f5ea8;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:700;margin-bottom:10px}
+.search-empty{grid-column:1/-1;background:#fff6f6;color:#a62e2e;border-radius:16px;padding:18px;font-weight:600;text-align:center}
+.promo-grid{width:min(1280px,94%);margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.promo-card{background:#fff;border-radius:24px;padding:18px;text-align:left;box-shadow:0 12px 30px rgba(0,0,0,.10);transition:.35s ease;position:relative;overflow:hidden}
+.promo-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,.14)}
 .promo-badge{display:inline-block;background:#ffefef;color:#ff1e1e;padding:7px 12px;border-radius:999px;font-size:12px;font-weight:800;margin-bottom:14px}
 .promo-media{border-radius:18px;overflow:hidden;aspect-ratio:4/5;background:#f5f5f5;margin-bottom:16px;box-shadow:0 10px 20px rgba(0,0,0,.08)}
 .promo-media img{width:100%;height:100%;object-fit:cover}
-.promo-card h3{color:#1f5ea8;font-size:24px;margin-bottom:10px}.promo-card p{color:#5a6f8c;line-height:1.7;margin-bottom:16px}.promo-actions{display:flex;gap:10px;flex-wrap:wrap}
-.promo-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 14px;border-radius:12px;font-weight:700;transition:.3s ease}.promo-link.primary{background:#1f5ea8;color:#fff}.promo-link.secondary{background:#eef6ff;color:#1f5ea8}.promo-link.primary:hover{background:#ff1e1e}.promo-link.secondary:hover{background:#dbeaff}
-.catalog-grid{width:min(1250px,94%);margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}.catalog-card{background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.10);transition:.35s ease;text-align:left}.catalog-card:hover{transform:translateY(-8px);box-shadow:0 18px 36px rgba(0,0,0,.15)}
-.catalog-image{height:180px;display:flex;align-items:center;justify-content:center;font-size:58px;color:#fff}.catalog-image.farmacia{background:linear-gradient(135deg,#1f5ea8,#4f8fe0)}.catalog-image.perfumeria{background:linear-gradient(135deg,#ff6b81,#ff9aa9)}.catalog-image.abarrotes{background:linear-gradient(135deg,#f5a623,#f8c15c)}.catalog-image.ofertas{background:linear-gradient(135deg,#2e7d32,#58b56a)}
-.catalog-info{padding:22px}.catalog-info h3{color:#1f5ea8;font-size:26px;margin-bottom:10px}.catalog-info p{color:#5a6f8c;line-height:1.7;margin-bottom:16px}.catalog-actions{display:flex;gap:10px;flex-wrap:wrap}
-.catalog-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#1f5ea8;color:#fff;padding:11px 14px;border-radius:12px;font-weight:700;transition:.3s ease}.catalog-btn.alt{background:#eef6ff;color:#1f5ea8}.catalog-btn:hover{transform:translateY(-2px)}.catalog-btn:not(.alt):hover{background:#ff1e1e}.catalog-btn.alt:hover{background:#dbeaff}
+.promo-card h3{color:#1f5ea8;font-size:24px;margin-bottom:10px}
+.promo-card p{color:#5a6f8c;line-height:1.7;margin-bottom:16px}
+.promo-actions{display:flex;gap:10px;flex-wrap:wrap}
+.promo-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 14px;border-radius:12px;font-weight:700;transition:.3s ease}
+.promo-link.primary{background:#1f5ea8;color:#fff}
+.promo-link.secondary{background:#eef6ff;color:#1f5ea8}
+.promo-link.primary:hover{background:#ff1e1e}
+.promo-link.secondary:hover{background:#dbeaff}
+.catalog-grid{width:min(1250px,94%);margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.catalog-card{background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.10);transition:.35s ease;text-align:left}
+.catalog-card:hover{transform:translateY(-8px);box-shadow:0 18px 36px rgba(0,0,0,.15)}
+.catalog-image{height:180px;display:flex;align-items:center;justify-content:center;font-size:58px;color:#fff}
+.catalog-image.farmacia{background:linear-gradient(135deg,#1f5ea8,#4f8fe0)}
+.catalog-image.perfumeria{background:linear-gradient(135deg,#ff6b81,#ff9aa9)}
+.catalog-image.abarrotes{background:linear-gradient(135deg,#f5a623,#f8c15c)}
+.catalog-image.ofertas{background:linear-gradient(135deg,#2e7d32,#58b56a)}
+.catalog-info{padding:22px}
+.catalog-info h3{color:#1f5ea8;font-size:26px;margin-bottom:10px}
+.catalog-info p{color:#5a6f8c;line-height:1.7;margin-bottom:16px}
+.catalog-actions{display:flex;gap:10px;flex-wrap:wrap}
+.catalog-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#1f5ea8;color:#fff;padding:11px 14px;border-radius:12px;font-weight:700;transition:.3s ease}
+.catalog-btn.alt{background:#eef6ff;color:#1f5ea8}
+.catalog-btn:hover{transform:translateY(-2px)}
+.catalog-btn:not(.alt):hover{background:#ff1e1e}
+.catalog-btn.alt:hover{background:#dbeaff}
 .gallery-grid{width:min(1280px,94%);margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
 .gallery-card{background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.10);transition:.35s ease;text-align:left}
 .gallery-card:hover{transform:translateY(-8px);box-shadow:0 18px 36px rgba(0,0,0,.15)}
 .gallery-card img{width:100%;aspect-ratio:4/5;object-fit:cover}
-.gallery-info{padding:18px}.gallery-info h3{color:#1f5ea8;font-size:21px;margin-bottom:8px}.gallery-info p{color:#5a6f8c;line-height:1.6;font-size:14px;margin-bottom:14px}.gallery-actions{display:flex;gap:10px;flex-wrap:wrap}
-.trust-grid{width:min(1200px,92%);margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.trust-card{background:#fff;border-radius:24px;padding:26px 20px;box-shadow:0 12px 30px rgba(0,0,0,.10);transition:.35s ease}.trust-card:hover{transform:translateY(-8px);box-shadow:0 18px 36px rgba(0,0,0,.14)}.trust-icon{width:68px;height:68px;margin:0 auto 16px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:28px;color:#1f5ea8;background:#eef6ff}.trust-card h3{color:#1f5ea8;font-size:24px;margin-bottom:10px}.trust-card p{color:#5a6f8c;line-height:1.7}
-.brands-gallery{width:min(1250px,94%);margin:auto;display:grid;grid-template-columns:repeat(5,1fr);gap:22px}.brand-card{background:#fff;border-radius:22px;padding:22px;min-height:160px;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 28px rgba(0,0,0,.10);transition:.35s ease}.brand-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 18px 36px rgba(0,0,0,.14)}.brand-card img{max-width:100%;max-height:90px;object-fit:contain;filter:drop-shadow(0 4px 10px rgba(0,0,0,.08))}
-.slider{width:min(1050px,78%);margin:25px auto 50px;overflow:hidden;position:relative;background:transparent}.slides{display:flex;width:400%;animation:slide 24s infinite}.slides img{width:25%;flex:0 0 25%;height:500px;object-fit:cover}
+.gallery-info{padding:18px}
+.gallery-info h3{color:#1f5ea8;font-size:21px;margin-bottom:8px}
+.gallery-info p{color:#5a6f8c;line-height:1.6;font-size:14px;margin-bottom:14px}
+.gallery-actions{display:flex;gap:10px;flex-wrap:wrap}
+.trust-grid{width:min(1200px,92%);margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.trust-card{background:#fff;border-radius:24px;padding:26px 20px;box-shadow:0 12px 30px rgba(0,0,0,.10);transition:.35s ease}
+.trust-card:hover{transform:translateY(-8px);box-shadow:0 18px 36px rgba(0,0,0,.14)}
+.trust-icon{width:68px;height:68px;margin:0 auto 16px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:28px;color:#1f5ea8;background:#eef6ff}
+.trust-card h3{color:#1f5ea8;font-size:24px;margin-bottom:10px}
+.trust-card p{color:#5a6f8c;line-height:1.7}
+.brands-gallery{width:min(1250px,94%);margin:auto;display:grid;grid-template-columns:repeat(5,1fr);gap:22px}
+.brand-card{background:#fff;border-radius:22px;padding:22px;min-height:160px;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 28px rgba(0,0,0,.10);transition:.35s ease}
+.brand-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 18px 36px rgba(0,0,0,.14)}
+.brand-card img{max-width:100%;max-height:90px;object-fit:contain;filter:drop-shadow(0 4px 10px rgba(0,0,0,.08))}
+.slider{width:min(1050px,78%);margin:25px auto 50px;overflow:hidden;position:relative;background:transparent}
+.slides{display:flex;width:400%;animation:slide 24s infinite}
+.slides img{width:25%;flex:0 0 25%;height:500px;object-fit:cover}
 @keyframes slide{0%,20%{transform:translateX(0)}25%,45%{transform:translateX(-25%)}50%,70%{transform:translateX(-50%)}75%,100%{transform:translateX(-75%)}}
-.cards{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-top:40px}.card{width:260px;height:320px;border-radius:22px;overflow:hidden;position:relative;cursor:pointer;box-shadow:0 12px 30px rgba(0,0,0,0.18);transition:transform .35s ease, box-shadow .35s ease;background:#fff}.card:hover{transform:translateY(-12px) scale(1.03);box-shadow:0 20px 40px rgba(0,0,0,0.25)}.card img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}.card:hover img{transform:scale(1.08)}.card-overlay{position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,.78), rgba(0,0,0,.12));display:flex;align-items:flex-end;justify-content:center;padding:22px;text-align:center}.card-overlay h3{color:#fff;font-size:32px;font-weight:700;margin:0;text-shadow:0 4px 12px rgba(0,0,0,.35)}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.72);backdrop-filter:blur(6px);display:none;justify-content:center;align-items:center;z-index:5000;padding:20px}.modal.show{display:flex;animation:fadeModal .35s ease}.modal-content{width:min(820px,92%);max-height:85vh;background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.35);animation:zoomIn .35s ease;position:relative}.modal-grid{display:grid;grid-template-columns:320px 1fr;align-items:center;gap:24px;padding:28px}.modal-image{width:100%;max-height:280px;object-fit:contain}.modal-info{display:flex;flex-direction:column;justify-content:center;text-align:left;max-height:70vh;overflow-y:auto;padding-right:10px}.modal-info h2{margin:0 0 14px;color:#ff1e1e;font-size:34px;line-height:1.2}.modal-info p{margin:0;color:#1f1f1f;font-size:16px;line-height:1.8;text-align:left;overflow-wrap:break-word}.close-btn{position:absolute;top:14px;right:16px;width:38px;height:38px;border:none;border-radius:50%;background:#fff;color:#1f5ea8;font-size:22px;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.18);transition:.25s;z-index:10}.close-btn:hover{background:#ff1e1e;color:#fff;transform:rotate(90deg)}
-@keyframes fadeModal{from{opacity:0}to{opacity:1}} @keyframes zoomIn{from{opacity:0; transform:scale(.92) translateY(20px)}to{opacity:1; transform:scale(1) translateY(0)}}
-.map-modal-content{width:min(1000px,94%);max-height:88vh;background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.35);animation:zoomIn .35s ease;position:relative}.map-modal-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:24px;padding:28px;align-items:start}.map-info{text-align:left}.map-info h2{color:#ff1e1e;font-size:34px;margin-bottom:14px}.map-info p{font-size:16px;line-height:1.8;color:#1f1f1f;margin-bottom:18px}.map-btn{display:inline-block;background:#1f5ea8;color:#fff;padding:12px 18px;border-radius:12px;font-weight:600;transition:.3s ease;box-shadow:0 8px 20px rgba(31,94,168,.22)}.map-btn:hover{background:#ff2222;transform:translateY(-2px)}.map-frame{width:100%;height:380px;border:0;border-radius:18px;box-shadow:0 10px 24px rgba(0,0,0,.12)}
-#estadoContainer{margin:18px 0 20px;width:100%}#sucursalEstado{display:block;width:100%;padding:14px 18px;border-radius:999px;font-weight:700;font-size:16px;line-height:1.2;text-align:left}.estado-open{background:#cfe8d5;color:#0f6d2f}.estado-closed{background:#f8d7da;color:#a71d2a}
-.info-boxes{width:min(1100px,92%);margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:25px}.info-box{background:#fff;border-radius:24px;padding:30px 24px;box-shadow:0 12px 30px rgba(0,0,0,.12);transition:.35s ease}.info-box:hover{transform:translateY(-10px);box-shadow:0 18px 36px rgba(0,0,0,.18)}.info-box h3{color:#1f5ea8;font-size:30px;margin-bottom:15px}.info-box p{color:#4b607f;font-size:18px;line-height:1.7}
-.contact{display:flex;justify-content:space-around;gap:40px;padding:70px 30px 90px;flex-wrap:wrap;align-items:flex-start}.contact>div:first-child,.contact>div:last-child{background:#fff;padding:35px 28px;border-radius:24px;box-shadow:0 12px 30px rgba(0,0,0,.12)}.contact>div:first-child{min-width:290px}.contact>div:last-child{width:min(520px,100%)}.contact h2{margin-bottom:16px}.contact p,.contact h3{margin-bottom:14px}
-input,select,textarea{width:100%;padding:14px 12px;margin:12px 0;border:none;border-bottom:2px solid #d7deea;background:#f8fbff;font-family:Poppins,sans-serif;font-size:16px;border-radius:10px 10px 0 0;outline:none;transition:.3s}input:focus,select:focus,textarea:focus{border-bottom-color:#1f5ea8;background:#eef6ff}textarea{resize:vertical;min-height:120px}
-button{background:#1f5ea8;color:#fff;padding:14px 26px;border:none;border-radius:12px;cursor:pointer;transition:.3s;font-size:17px;font-weight:600;margin-top:10px}button:hover{background:#25D366;transform:scale(1.05)}
-.whatsapp-container{position:fixed;right:20px;bottom:20px;z-index:6000;display:flex;flex-direction:column;align-items:flex-end;gap:12px}.whatsapp-options{display:none;flex-direction:column;gap:10px;margin-bottom:4px}.whatsapp-options.show{display:flex;animation:fadeUp .25s ease}.whatsapp-options a{background:#ffffff;color:#1f5ea8;padding:12px 16px;border-radius:14px;font-weight:600;box-shadow:0 10px 24px rgba(0,0,0,.14);min-width:240px;text-align:left;transition:.25s ease}.whatsapp-options a:hover{background:#25D366;color:#ffffff;transform:translateX(-4px)}.whatsapp-float{width:64px;height:64px;border:none;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:32px;cursor:pointer;box-shadow:0 12px 24px rgba(0,0,0,.22);transition:.3s ease;animation:float 2s ease-in-out infinite}.whatsapp-float:hover{transform:scale(1.08)}
-@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}} @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-@media (max-width:1024px){nav{width:95%;gap:14px}nav ul{justify-content:center;gap:8px}nav ul li a{padding:8px 12px;font-size:15px}.hero{padding:70px 20px 60px}.titulo-animado{font-size:clamp(34px,5vw,58px)}.hero p{font-size:20px;max-width:700px}.branch-highlight{grid-template-columns:1fr}.nearest-branches{grid-template-columns:1fr}.search-results,.promo-grid,.catalog-grid,.trust-grid,.gallery-grid{grid-template-columns:1fr 1fr}.brands-gallery{grid-template-columns:repeat(3,1fr)}.slider{width:min(950px,90%)}.slides img{max-height:440px}.section h2{font-size:46px}.modal-grid,.map-modal-grid{grid-template-columns:1fr;padding:22px}.modal-image{max-height:240px;margin:auto}.modal-info{max-height:none;overflow:visible;padding-right:0}.modal-info h2,.map-info h2{font-size:28px;text-align:center}.modal-info p,.map-info p{font-size:15px;line-height:1.7}.info-boxes{grid-template-columns:1fr;width:min(700px,92%)}.contact{flex-direction:column;align-items:center}.contact>div:first-child,.contact>div:last-child{width:min(650px,100%)}.search-controls{grid-template-columns:1fr}}
-@media (max-width:768px){nav{width:100%;padding:14px 16px;min-height:auto;display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px}nav img{height:52px;justify-self:start}.menu-toggle{display:flex;align-items:center;justify-content:center;justify-self:end}nav ul{display:none;grid-column:1/-1;width:100%;flex-direction:column;gap:10px;margin-top:8px;padding:12px;background:rgba(255,255,255,.12);backdrop-filter:blur(6px);border-radius:18px}nav ul.show{display:flex}nav ul li{width:100%}nav ul li a{width:100%;text-align:center;font-size:15px;padding:12px 14px;background:rgba(255,255,255,.08)}.top-banner{flex-direction:column;align-items:flex-start}.hero{padding:55px 16px 45px}.hero::before{width:260px;height:260px;top:-90px;left:-100px}.hero::after{width:240px;height:240px;right:-90px;bottom:-90px}.hero img{width:min(220px,75%);margin-bottom:22px}.titulo-animado{font-size:clamp(28px,8vw,42px);line-height:1.15;margin-bottom:14px}.hero-linea{width:110px;height:5px;margin-bottom:18px}.hero p{font-size:16px;line-height:1.6;padding:0 6px}.branch-highlight{padding:18px 14px;gap:14px;grid-template-columns:1fr}.branch-highlight-left h3{font-size:26px}.branch-highlight-right{padding:18px 16px;min-height:auto}.branch-highlight-right h4{font-size:20px}.branch-highlight-right p{font-size:14px;line-height:1.4}.nearest-branches{grid-template-columns:1fr}.nearest-card h4{font-size:20px}.nearest-actions{flex-direction:column}.nearest-actions button,.nearest-actions a{width:100%;text-align:center}.section{padding:60px 16px}.section h2{font-size:34px;margin-bottom:18px}.section-subtitle{font-size:16px}.search-box{padding:20px 16px}.search-box h2{font-size:28px}.search-results,.promo-grid,.catalog-grid,.trust-grid,.brands-gallery,.gallery-grid{grid-template-columns:1fr}.slider{width:100%;margin:20px auto 35px}.slides img{max-height:260px;width:100%;object-fit:contain}.cards{gap:18px;margin-top:28px}.card{width:100%;max-width:320px;height:260px}.card-overlay h3{font-size:26px}.modal-content,.map-modal-content{width:min(95%,95%);max-height:90vh;border-radius:18px}.modal-grid,.map-modal-grid{padding:16px;gap:16px}.modal-image{max-height:180px}.modal-info h2,.map-info h2{font-size:24px;margin-bottom:10px}.modal-info p,.map-info p{font-size:14px;line-height:1.6}.map-frame{height:240px;border-radius:14px}.close-btn{top:10px;right:10px;width:34px;height:34px;font-size:20px}.info-boxes{width:100%;gap:18px}.info-box{padding:24px 18px;border-radius:18px}.info-box h3{font-size:24px}.info-box p{font-size:16px}.contact{padding:45px 16px 60px;gap:20px}.contact>div:first-child,.contact>div:last-child{width:100%;padding:24px 18px;border-radius:18px}.contact h2{font-size:28px}input,select,textarea{font-size:15px;padding:12px 10px}button{width:100%}.whatsapp-container{right:16px;bottom:16px}.whatsapp-float{width:58px;height:58px;font-size:30px}.whatsapp-options a{min-width:210px;font-size:14px;padding:11px 14px}}
-@media (max-width:480px){nav ul li a{font-size:13px;padding:10px 12px}.titulo-animado{font-size:30px}.hero p{font-size:15px}.section h2{font-size:30px}.card{height:230px}.card-overlay h3{font-size:22px}.slides img{max-height:220px}}
+.cards{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-top:40px}
+.card{width:260px;height:320px;border-radius:22px;overflow:hidden;position:relative;cursor:pointer;box-shadow:0 12px 30px rgba(0,0,0,0.18);transition:transform .35s ease, box-shadow .35s ease;background:#fff}
+.card:hover{transform:translateY(-12px) scale(1.03);box-shadow:0 20px 40px rgba(0,0,0,0.25)}
+.card img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.card:hover img{transform:scale(1.08)}
+.card-overlay{position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,.78), rgba(0,0,0,.12));display:flex;align-items:flex-end;justify-content:center;padding:22px;text-align:center}
+.card-overlay h3{color:#fff;font-size:32px;font-weight:700;margin:0;text-shadow:0 4px 12px rgba(0,0,0,.35)}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.72);backdrop-filter:blur(6px);display:none;justify-content:center;align-items:center;z-index:5000;padding:20px}
+.modal.show{display:flex;animation:fadeModal .35s ease}
+.modal-content{width:min(820px,92%);max-height:85vh;background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.35);animation:zoomIn .35s ease;position:relative}
+.modal-grid{display:grid;grid-template-columns:320px 1fr;align-items:center;gap:24px;padding:28px}
+.modal-image{width:100%;max-height:280px;object-fit:contain}
+.modal-info{display:flex;flex-direction:column;justify-content:center;text-align:left;max-height:70vh;overflow-y:auto;padding-right:10px}
+.modal-info h2{margin:0 0 14px;color:#ff1e1e;font-size:34px;line-height:1.2}
+.modal-info p{margin:0;color:#1f1f1f;font-size:16px;line-height:1.8;text-align:left;overflow-wrap:break-word}
+.close-btn{position:absolute;top:14px;right:16px;width:38px;height:38px;border:none;border-radius:50%;background:#fff;color:#1f5ea8;font-size:22px;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.18);transition:.25s;z-index:10}
+.close-btn:hover{background:#ff1e1e;color:#fff;transform:rotate(90deg)}
+@keyframes fadeModal{from{opacity:0}to{opacity:1}}
+@keyframes zoomIn{from{opacity:0;transform:scale(.92) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.map-modal-content{width:min(1000px,94%);max-height:88vh;background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.35);animation:zoomIn .35s ease;position:relative}
+.map-modal-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:24px;padding:28px;align-items:start}
+.map-info{text-align:left}
+.map-info h2{color:#ff1e1e;font-size:34px;margin-bottom:14px}
+.map-info p{font-size:16px;line-height:1.8;color:#1f1f1f;margin-bottom:18px}
+.map-btn{display:inline-block;background:#1f5ea8;color:#fff;padding:12px 18px;border-radius:12px;font-weight:600;transition:.3s ease;box-shadow:0 8px 20px rgba(31,94,168,.22)}
+.map-btn:hover{background:#ff2222;transform:translateY(-2px)}
+.map-frame{width:100%;height:380px;border:0;border-radius:18px;box-shadow:0 10px 24px rgba(0,0,0,.12)}
+#estadoContainer{margin:18px 0 20px;width:100%}
+#sucursalEstado{display:block;width:100%;padding:14px 18px;border-radius:999px;font-weight:700;font-size:16px;line-height:1.2;text-align:left}
+.estado-open{background:#cfe8d5;color:#0f6d2f}
+.estado-closed{background:#f8d7da;color:#a71d2a}
+.info-boxes{width:min(1100px,92%);margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+.info-box{background:#fff;border-radius:24px;padding:30px 24px;box-shadow:0 12px 30px rgba(0,0,0,.12);transition:.35s ease}
+.info-box:hover{transform:translateY(-10px);box-shadow:0 18px 36px rgba(0,0,0,.18)}
+.info-box h3{color:#1f5ea8;font-size:30px;margin-bottom:15px}
+.info-box p{color:#4b607f;font-size:18px;line-height:1.7}
+.contact{display:flex;justify-content:space-around;gap:40px;padding:70px 30px 90px;flex-wrap:wrap;align-items:flex-start}
+.contact>div:first-child,.contact>div:last-child{background:#fff;padding:35px 28px;border-radius:24px;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.contact>div:first-child{min-width:290px}
+.contact>div:last-child{width:min(520px,100%)}
+.contact h2{margin-bottom:16px}
+.contact p,.contact h3{margin-bottom:14px}
+input,select,textarea{width:100%;padding:14px 12px;margin:12px 0;border:none;border-bottom:2px solid #d7deea;background:#f8fbff;font-family:Poppins,sans-serif;font-size:16px;border-radius:10px 10px 0 0;outline:none;transition:.3s}
+input:focus,select:focus,textarea:focus{border-bottom-color:#1f5ea8;background:#eef6ff}
+textarea{resize:vertical;min-height:120px}
+button{background:#1f5ea8;color:#fff;padding:14px 26px;border:none;border-radius:12px;cursor:pointer;transition:.3s;font-size:17px;font-weight:600;margin-top:10px}
+button:hover{background:#25D366;transform:scale(1.05)}
+.whatsapp-container{position:fixed;right:20px;bottom:20px;z-index:6000;display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+.whatsapp-options{display:none;flex-direction:column;gap:10px;margin-bottom:4px}
+.whatsapp-options.show{display:flex;animation:fadeUp .25s ease}
+.whatsapp-options a{background:#ffffff;color:#1f5ea8;padding:12px 16px;border-radius:14px;font-weight:600;box-shadow:0 10px 24px rgba(0,0,0,.14);min-width:240px;text-align:left;transition:.25s ease}
+.whatsapp-options a:hover{background:#25D366;color:#ffffff;transform:translateX(-4px)}
+.whatsapp-float{width:64px;height:64px;border:none;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:32px;cursor:pointer;box-shadow:0 12px 24px rgba(0,0,0,.22);transition:.3s ease;animation:float 2s ease-in-out infinite}
+.whatsapp-float:hover{transform:scale(1.08)}
+@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@media (max-width:1024px){
+  nav{width:95%;gap:14px}
+  nav ul{justify-content:center;gap:8px}
+  nav ul li a{padding:8px 12px;font-size:15px}
+  .hero{padding:70px 20px 60px}
+  .titulo-animado{font-size:clamp(34px,5vw,58px)}
+  .hero p{font-size:20px;max-width:700px}
+  .branch-highlight{grid-template-columns:1fr}
+  .nearest-branches{grid-template-columns:1fr}
+  .search-results,.promo-grid,.catalog-grid,.trust-grid,.gallery-grid{grid-template-columns:1fr 1fr}
+  .brands-gallery{grid-template-columns:repeat(3,1fr)}
+  .slider{width:min(950px,90%)}
+  .slides img{max-height:440px}
+  .section h2{font-size:46px}
+  .modal-grid,.map-modal-grid{grid-template-columns:1fr;padding:22px}
+  .modal-image{max-height:240px;margin:auto}
+  .modal-info{max-height:none;overflow:visible;padding-right:0}
+  .modal-info h2,.map-info h2{font-size:28px;text-align:center}
+  .modal-info p,.map-info p{font-size:15px;line-height:1.7}
+  .info-boxes{grid-template-columns:1fr;width:min(700px,92%)}
+  .contact{flex-direction:column;align-items:center}
+  .contact>div:first-child,.contact>div:last-child{width:min(650px,100%)}
+  .search-controls{grid-template-columns:1fr}
+}
+@media (max-width:768px){
+  nav{width:100%;padding:14px 16px;min-height:auto;display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px}
+  nav img{height:52px;justify-self:start}
+  .menu-toggle{display:flex;align-items:center;justify-content:center;justify-self:end}
+  nav ul{display:none;grid-column:1/-1;width:100%;flex-direction:column;gap:10px;margin-top:8px;padding:12px;background:rgba(255,255,255,.12);backdrop-filter:blur(6px);border-radius:18px}
+  nav ul.show{display:flex}
+  nav ul li{width:100%}
+  nav ul li a{width:100%;text-align:center;font-size:15px;padding:12px 14px;background:rgba(255,255,255,.08)}
+  .top-banner{flex-direction:column;align-items:flex-start}
+  .hero{padding:55px 16px 45px}
+  .hero::before{width:260px;height:260px;top:-90px;left:-100px}
+  .hero::after{width:240px;height:240px;right:-90px;bottom:-90px}
+  .hero img{width:min(220px,75%);margin-bottom:22px}
+  .titulo-animado{font-size:clamp(28px,8vw,42px);line-height:1.15;margin-bottom:14px}
+  .hero-linea{width:110px;height:5px;margin-bottom:18px}
+  .hero p{font-size:16px;line-height:1.6;padding:0 6px}
+  .branch-highlight{padding:18px 14px;gap:14px;grid-template-columns:1fr}
+  .branch-highlight-left h3{font-size:26px}
+  .branch-highlight-right{padding:18px 16px;min-height:auto}
+  .branch-highlight-right h4{font-size:20px}
+  .branch-highlight-right p{font-size:14px;line-height:1.4}
+  .nearest-branches{grid-template-columns:1fr}
+  .nearest-card h4{font-size:20px}
+  .nearest-actions{flex-direction:column}
+  .nearest-actions button,.nearest-actions a{width:100%;text-align:center}
+  .location-actions{flex-direction:column;align-items:flex-start}
+  .location-btn{width:100%!important;justify-content:center}
+  .section{padding:60px 16px}
+  .section h2{font-size:34px;margin-bottom:18px}
+  .section-subtitle{font-size:16px}
+  .search-box{padding:20px 16px}
+  .search-box h2{font-size:28px}
+  .search-results,.promo-grid,.catalog-grid,.trust-grid,.brands-gallery,.gallery-grid{grid-template-columns:1fr}
+  .slider{width:100%;margin:20px auto 35px}
+  .slides img{max-height:260px;width:100%;object-fit:contain}
+  .cards{gap:18px;margin-top:28px}
+  .card{width:100%;max-width:320px;height:260px}
+  .card-overlay h3{font-size:26px}
+  .modal-content,.map-modal-content{width:min(95%,95%);max-height:90vh;border-radius:18px}
+  .modal-grid,.map-modal-grid{padding:16px;gap:16px}
+  .modal-image{max-height:180px}
+  .modal-info h2,.map-info h2{font-size:24px;margin-bottom:10px}
+  .modal-info p,.map-info p{font-size:14px;line-height:1.6}
+  .map-frame{height:240px;border-radius:14px}
+  .close-btn{top:10px;right:10px;width:34px;height:34px;font-size:20px}
+  .info-boxes{width:100%;gap:18px}
+  .info-box{padding:24px 18px;border-radius:18px}
+  .info-box h3{font-size:24px}
+  .info-box p{font-size:16px}
+  .contact{padding:45px 16px 60px;gap:20px}
+  .contact>div:first-child,.contact>div:last-child{width:100%;padding:24px 18px;border-radius:18px}
+  .contact h2{font-size:28px}
+  input,select,textarea{font-size:15px;padding:12px 10px}
+  button{width:100%}
+  .whatsapp-container{right:16px;bottom:16px}
+  .whatsapp-float{width:58px;height:58px;font-size:30px}
+  .whatsapp-options a{min-width:210px;font-size:14px;padding:11px 14px}
+}
+@media (max-width:480px){
+  nav ul li a{font-size:13px;padding:10px 12px}
+  .titulo-animado{font-size:30px}
+  .hero p{font-size:15px}
+  .section h2{font-size:30px}
+  .card{height:230px}
+  .card-overlay h3{font-size:22px}
+  .slides img{max-height:220px}
+}
 </style>
 </head>
 <body>
@@ -126,18 +319,29 @@ button{background:#1f5ea8;color:#fff;padding:14px 26px;border:none;border-radius
   <h1 class="titulo-animado">Bienvenidos a Distribución G&amp;D</h1>
   <div class="hero-linea"></div>
   <p>Tienda especializada en distribución de farmacéuticos, perfumería, abarrotes y más.</p>
+
   <div class="hero-actions reveal">
     <a href="#catalogo" class="hero-btn primary"><i class="fa-solid fa-store"></i> Ver catálogo</a>
     <a href="#buscador" class="hero-btn secondary"><i class="fa-solid fa-magnifying-glass"></i> Buscar productos</a>
     <a href="#promociones" class="hero-btn secondary"><i class="fa-solid fa-percent"></i> Ver promociones</a>
   </div>
+
   <div class="branch-highlight reveal">
     <div class="branch-highlight-left">
       <span class="branch-badge">Sucursales más cercanas a ti</span>
       <h3>Te sugerimos estas opciones</h3>
       <p>Activa tu ubicación para mostrar las sucursales más cercanas y elige la que prefieras.</p>
+
+      <div class="location-actions">
+        <button id="locationButton" type="button" class="location-btn">
+          <i class="fa-solid fa-location-crosshairs"></i> Usar mi ubicación
+        </button>
+        <span id="locationMessage" class="location-message"></span>
+      </div>
+
       <div class="nearest-branches" id="nearestBranches"></div>
     </div>
+
     <div class="branch-highlight-right">
       <h4 id="highlightRightTitle">Servicio disponible hoy</h4>
       <p id="highlightRightText">Selecciona una sucursal cercana para ver su ubicación completa, horario y mapa.</p>
@@ -185,6 +389,7 @@ button{background:#1f5ea8;color:#fff;padding:14px 26px;border:none;border-radius
         </div>
       </div>
     </div>
+
     <div class="catalog-card reveal">
       <div class="catalog-image perfumeria"><i class="fa-solid fa-spray-can-sparkles"></i></div>
       <div class="catalog-info">
@@ -196,6 +401,7 @@ button{background:#1f5ea8;color:#fff;padding:14px 26px;border:none;border-radius
         </div>
       </div>
     </div>
+
     <div class="catalog-card reveal">
       <div class="catalog-image abarrotes"><i class="fa-solid fa-cart-shopping"></i></div>
       <div class="catalog-info">
@@ -207,6 +413,7 @@ button{background:#1f5ea8;color:#fff;padding:14px 26px;border:none;border-radius
         </div>
       </div>
     </div>
+
     <div class="catalog-card reveal">
       <div class="catalog-image ofertas"><i class="fa-solid fa-tags"></i></div>
       <div class="catalog-info">
@@ -237,6 +444,7 @@ button{background:#1f5ea8;color:#fff;padding:14px 26px;border:none;border-radius
       <img src="img4.png" alt="Imagen 4">
     </div>
   </div>
+
   <div class="cards">
     <div class="card reveal" onclick="abrirModal('mision')"><img src="mision.png" alt="Misión"><div class="card-overlay"><h3>Misión</h3></div></div>
     <div class="card reveal" onclick="abrirModal('vision')"><img src="vision.png" alt="Visión"><div class="card-overlay"><h3>Visión</h3></div></div>
@@ -350,6 +558,7 @@ button{background:#1f5ea8;color:#fff;padding:14px 26px;border:none;border-radius
     <p>O llámanos al:</p>
     <h3 style="color:#1f5ea8;font-size:34px;">96 21874692</h3>
   </div>
+
   <div class="reveal">
     <h2 style="color:#ff1e1e;">Contacto</h2>
     <input placeholder="Nombre">
@@ -378,35 +587,98 @@ button{background:#1f5ea8;color:#fff;padding:14px 26px;border:none;border-radius
 </div>
 
 <script>
-const sucursalesData={tapachula:{nombre:'Sucursal Tapachula',direccion:'Carr. a Puerto Madero km 4, Los Naranjos, Canta Ranas, 30797 Tapachula de Córdova y Ordóñez, Chis.',horarioTexto:'Lun a vie · 8:00 am a 6:00 pm · Sáb 8:00 am a 4:00 pm',horarios:{lunesViernes:{abre:'08:00',cierra:'18:00'},sabado:{abre:'08:00',cierra:'16:00'}},mapa:'https://www.google.com/maps?q=Tapachula,Chiapas,Mexico&output=embed',link:'https://maps.app.goo.gl/iCP9EMFZsKTdKKQ9A',lat:14.907038641809468,lng:-92.2834320129711},toscana:{nombre:'Sucursal Toscana',direccion:'Plaza Toscana Libramiento Sur Oriente, 30785 Tapachula de Córdova y Ordóñez, Chis.',horarioTexto:'Lun a vie · 8:00 am a 6:00 pm · Sáb 8:00 am a 5:00 pm',horarios:{lunesViernes:{abre:'08:00',cierra:'18:00'},sabado:{abre:'08:00',cierra:'17:00'}},mapa:'https://www.google.com/maps?q=Toscana,Tapachula,Chiapas,Mexico&output=embed',link:'https://maps.app.goo.gl/hv1utfDiUdBwcUieA',lat:14.85721410750208,lng:-92.2782996},ciudadhidalgo:{nombre:'Sucursal Ciudad Hidalgo',direccion:'Tercera avenida Oriente entre Primera y Tercera Norte, Ciudad Hidalgo, 30840 Cdad. Hidalgo, Chis.',horarioTexto:'Lun a vie · 7:30 am a 5:30 pm · Sáb 7:30 am a 3:30 pm',horarios:{lunesViernes:{abre:'07:30',cierra:'17:30'},sabado:{abre:'07:30',cierra:'15:30'}},mapa:'https://www.google.com/maps?q=Ciudad+Hidalgo,Chiapas,Mexico&output=embed',link:'https://maps.app.goo.gl/F6ryDvbnRQXbtqWa9',lat:14.6813187,lng:-92.1494964},tuxtla:{nombre:'Sucursal Tuxtla Gutiérrez',direccion:'De la Octava Sur Ote. 1535-Locales 07 y 08, entre 13 y 15 Oriente, Santa Cruz, 29073 Tuxtla Gutiérrez, Chis.',horarioTexto:'Lun a vie · 8:00 am a 6:00 pm · Sáb 8:00 am a 4:00 pm',horarios:{lunesViernes:{abre:'08:00',cierra:'18:00'},sabado:{abre:'08:00',cierra:'16:00'}},mapa:'https://www.google.com/maps?q=Tuxtla+Gutierrez,Chiapas,Mexico&output=embed',link:'https://maps.app.goo.gl/2pcGG943xgzVTg6v8',lat:16.74520249631762,lng:-93.10482933216417}};
+const sucursalesData = {
+  tapachula: {
+    nombre: 'Sucursal Tapachula',
+    direccion: 'Carr. a Puerto Madero km 4, Los Naranjos, Canta Ranas, 30797 Tapachula de Córdova y Ordóñez, Chis.',
+    horarioTexto: 'Lun a vie · 8:00 am a 6:00 pm · Sáb 8:00 am a 4:00 pm',
+    horarios: {
+      lunesViernes: { abre: '08:00', cierra: '18:00' },
+      sabado: { abre: '08:00', cierra: '16:00' }
+    },
+    mapa: 'https://www.google.com/maps?q=Tapachula,Chiapas,Mexico&output=embed',
+    link: 'https://maps.app.goo.gl/iCP9EMFZsKTdKKQ9A',
+    lat: 14.8782227,
+    lng: -92.2837224
+  },
+  toscana: {
+    nombre: 'Sucursal Toscana',
+    direccion: 'Plaza Toscana Libramiento Sur Oriente, 30785 Tapachula de Córdova y Ordóñez, Chis.',
+    horarioTexto: 'Lun a vie · 8:00 am a 6:00 pm · Sáb 8:00 am a 5:00 pm',
+    horarios: {
+      lunesViernes: { abre: '08:00', cierra: '18:00' },
+      sabado: { abre: '08:00', cierra: '17:00' }
+    },
+    mapa: 'https://www.google.com/maps?q=Toscana,Tapachula,Chiapas,Mexico&output=embed',
+    link: 'https://maps.app.goo.gl/hv1utfDiUdBwcUieA',
+    lat: 14.85721410750208,
+    lng: -92.2782996
+  },
+  ciudadhidalgo: {
+    nombre: 'Sucursal Ciudad Hidalgo',
+    direccion: 'Tercera avenida Oriente entre Primera y Tercera Norte, Ciudad Hidalgo, 30840 Cdad. Hidalgo, Chis.',
+    horarioTexto: 'Lun a vie · 7:30 am a 5:30 pm · Sáb 7:30 am a 3:30 pm',
+    horarios: {
+      lunesViernes: { abre: '07:30', cierra: '17:30' },
+      sabado: { abre: '07:30', cierra: '15:30' }
+    },
+    mapa: 'https://www.google.com/maps?q=Ciudad+Hidalgo,Chiapas,Mexico&output=embed',
+    link: 'https://maps.app.goo.gl/F6ryDvbnRQXbtqWa9',
+    lat: 14.6813187,
+    lng: -92.1494964
+  },
+  tuxtla: {
+    nombre: 'Sucursal Tuxtla Gutiérrez',
+    direccion: 'De la Octava Sur Ote. 1535-Locales 07 y 08, entre 13 y 15 Oriente, Santa Cruz, 29073 Tuxtla Gutiérrez, Chis.',
+    horarioTexto: 'Lun a vie · 8:00 am a 6:00 pm · Sáb 8:00 am a 4:00 pm',
+    horarios: {
+      lunesViernes: { abre: '08:00', cierra: '18:00' },
+      sabado: { abre: '08:00', cierra: '16:00' }
+    },
+    mapa: 'https://www.google.com/maps?q=Tuxtla+Gutierrez,Chiapas,Mexico&output=embed',
+    link: 'https://maps.app.goo.gl/2pcGG943xgzVTg6v8',
+    lat: 16.74520249631762,
+    lng: -93.10482933216417
+  }
+};
 
-const productosData=[
-  {nombre:'Paracetamol',categoria:'farmacia',descripcion:'Producto destacado de farmacia para consulta rápida de disponibilidad.',whatsapp:'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Paracetamol'},
-  {nombre:'Vitamina C',categoria:'farmacia',descripcion:'Consulta opciones de bienestar y productos de cuidado diario.',whatsapp:'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Vitamina%20C'},
-  {nombre:'Shampoo',categoria:'perfumeria',descripcion:'Producto de cuidado personal y perfumería con atención por WhatsApp.',whatsapp:'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Shampoo'},
-  {nombre:'Jabón corporal',categoria:'perfumeria',descripcion:'Consulta opciones de higiene y cuidado personal.',whatsapp:'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Jab%C3%B3n%20corporal'},
-  {nombre:'Arroz',categoria:'abarrotes',descripcion:'Producto de abarrotes de consumo diario para detalle o mayoreo.',whatsapp:'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Arroz'},
-  {nombre:'Aceite',categoria:'abarrotes',descripcion:'Consulta productos básicos y surtido disponible.',whatsapp:'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Aceite'}
+const productosData = [
+  { nombre: 'Paracetamol', categoria: 'farmacia', descripcion: 'Producto destacado de farmacia para consulta rápida de disponibilidad.', whatsapp: 'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Paracetamol' },
+  { nombre: 'Vitamina C', categoria: 'farmacia', descripcion: 'Consulta opciones de bienestar y productos de cuidado diario.', whatsapp: 'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Vitamina%20C' },
+  { nombre: 'Shampoo', categoria: 'perfumeria', descripcion: 'Producto de cuidado personal y perfumería con atención por WhatsApp.', whatsapp: 'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Shampoo' },
+  { nombre: 'Jabón corporal', categoria: 'perfumeria', descripcion: 'Consulta opciones de higiene y cuidado personal.', whatsapp: 'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Jab%C3%B3n%20corporal' },
+  { nombre: 'Arroz', categoria: 'abarrotes', descripcion: 'Producto de abarrotes de consumo diario para detalle o mayoreo.', whatsapp: 'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Arroz' },
+  { nombre: 'Aceite', categoria: 'abarrotes', descripcion: 'Consulta productos básicos y surtido disponible.', whatsapp: 'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Aceite' }
 ];
 
-const anunciosData=[
-  {nombre:'PediaSure',categoria:'farmacia',tipo:'promo',descripcion:'Ideal para colocarlo en promociones principales por su diseño fuerte y enfoque familiar.',imagen:'pediasure anuncio.jpeg',whatsapp:'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20PediaSure'},
-  {nombre:'Redoxon Gotas',categoria:'farmacia',tipo:'promo',descripcion:'Perfecto como promoción de temporada para defensas y bienestar.',imagen:'redoxon.jpeg',whatsapp:'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Redoxon%20Gotas'},
-  {nombre:'Silka Medic',categoria:'farmacia',tipo:'promo',descripcion:'Muy bueno para sección de ofertas por el mensaje de alivio rápido.',imagen:'silkamedic.jpeg',whatsapp:'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Silka%20Medic'},
-  {nombre:'Mauvicam',categoria:'farmacia',tipo:'farmacia',descripcion:'Medicamento destacado para incluirlo dentro del catálogo farmacéutico.',imagen:'mauvicam.jpeg',whatsapp:'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Mauvicam'},
-  {nombre:'Oxivag',categoria:'farmacia',tipo:'farmacia',descripcion:'Conviene ubicarlo en catálogo de farmacia, no en hero, para mantener orden visual.',imagen:'oxivag.jpeg',whatsapp:'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Oxivag'},
-  {nombre:'Mermavie',categoria:'farmacia',tipo:'farmacia',descripcion:'Producto farmacéutico que puede vivir dentro del catálogo especializado.',imagen:'mermavie.jpeg',whatsapp:'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Mermavie'},
-  {nombre:'Pomada de la Campana',categoria:'farmacia',tipo:'farmacia',descripcion:'Buena para catálogo visual de cuidado personal y farmacia.',imagen:'pomadadelacampana.jpeg',whatsapp:'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Pomada%20de%20la%20Campana'},
-  {nombre:'Caprice Naturals',categoria:'perfumeria',tipo:'promo',descripcion:'Anuncio muy visual para empujar perfumería y cuidado capilar.',imagen:'caprice.jpeg',whatsapp:'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Caprice%20Naturals'},
-  {nombre:'Caprice Control Caída',categoria:'perfumeria',tipo:'perfumeria',descripcion:'Este funciona mejor dentro del catálogo de shampoo y cuidado del cabello.',imagen:'caprice 2.jpeg',whatsapp:'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Caprice%20Control%20Ca%C3%ADda'},
-  {nombre:'Herbal Essences',categoria:'perfumeria',tipo:'perfumeria',descripcion:'Excelente para una sublínea de shampoos premium o destacados.',imagen:'herbal.jpeg',whatsapp:'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Herbal%20Essences'},
-  {nombre:'Speed Stick y Lady Speed Stick',categoria:'perfumeria',tipo:'promo',descripcion:'Anuncio fuerte para promociones de desodorantes y antitranspirantes.',imagen:'speed stick.jpeg',whatsapp:'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Speed%20Stick'},
-  {nombre:'eGo Sport',categoria:'perfumeria',tipo:'perfumeria',descripcion:'Ideal en línea masculina o desodorantes.',imagen:'ego dry.jpeg',whatsapp:'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20eGo%20Sport'},
-  {nombre:'Obao',categoria:'perfumeria',tipo:'perfumeria',descripcion:'Buena pieza para una fila de desodorantes femeninos y juveniles.',imagen:'obao dry.jpeg',whatsapp:'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Obao'},
-  {nombre:'Zote Rosa',categoria:'abarrotes',tipo:'abarrotes',descripcion:'Muy útil para colocar en abarrotes o limpieza del hogar.',imagen:'zote.jpeg',whatsapp:'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Jab%C3%B3n%20Zote'}
+const anunciosData = [
+  { nombre: 'PediaSure', categoria: 'farmacia', tipo: 'promo', descripcion: 'Ideal para colocarlo en promociones principales por su diseño fuerte y enfoque familiar.', imagen: 'pediasure anuncio.jpeg', whatsapp: 'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20PediaSure' },
+  { nombre: 'Redoxon Gotas', categoria: 'farmacia', tipo: 'promo', descripcion: 'Perfecto como promoción de temporada para defensas y bienestar.', imagen: 'redoxon.jpeg', whatsapp: 'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Redoxon%20Gotas' },
+  { nombre: 'Silka Medic', categoria: 'farmacia', tipo: 'promo', descripcion: 'Muy bueno para sección de ofertas por el mensaje de alivio rápido.', imagen: 'silkamedic.jpeg', whatsapp: 'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Silka%20Medic' },
+  { nombre: 'Mauvicam', categoria: 'farmacia', tipo: 'farmacia', descripcion: 'Medicamento destacado para incluirlo dentro del catálogo farmacéutico.', imagen: 'mauvicam.jpeg', whatsapp: 'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Mauvicam' },
+  { nombre: 'Oxivag', categoria: 'farmacia', tipo: 'farmacia', descripcion: 'Conviene ubicarlo en catálogo de farmacia, no en hero, para mantener orden visual.', imagen: 'oxivag.jpeg', whatsapp: 'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Oxivag' },
+  { nombre: 'Mermavie', categoria: 'farmacia', tipo: 'farmacia', descripcion: 'Producto farmacéutico que puede vivir dentro del catálogo especializado.', imagen: 'mermavie.jpeg', whatsapp: 'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Mermavie' },
+  { nombre: 'Pomada de la Campana', categoria: 'farmacia', tipo: 'farmacia', descripcion: 'Buena para catálogo visual de cuidado personal y farmacia.', imagen: 'pomadadelacampana.jpeg', whatsapp: 'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Pomada%20de%20la%20Campana' },
+  { nombre: 'Caprice Naturals', categoria: 'perfumeria', tipo: 'promo', descripcion: 'Anuncio muy visual para empujar perfumería y cuidado capilar.', imagen: 'caprice.jpeg', whatsapp: 'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Caprice%20Naturals' },
+  { nombre: 'Caprice Control Caída', categoria: 'perfumeria', tipo: 'perfumeria', descripcion: 'Este funciona mejor dentro del catálogo de shampoo y cuidado del cabello.', imagen: 'caprice 2.jpeg', whatsapp: 'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Caprice%20Control%20Ca%C3%ADda' },
+  { nombre: 'Herbal Essences', categoria: 'perfumeria', tipo: 'perfumeria', descripcion: 'Excelente para una sublínea de shampoos premium o destacados.', imagen: 'herbal.jpeg', whatsapp: 'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Herbal%20Essences' },
+  { nombre: 'Speed Stick y Lady Speed Stick', categoria: 'perfumeria', tipo: 'promo', descripcion: 'Anuncio fuerte para promociones de desodorantes y antitranspirantes.', imagen: 'speed stick.jpeg', whatsapp: 'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Speed%20Stick' },
+  { nombre: 'eGo Sport', categoria: 'perfumeria', tipo: 'perfumeria', descripcion: 'Ideal en línea masculina o desodorantes.', imagen: 'ego dry.jpeg', whatsapp: 'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20eGo%20Sport' },
+  { nombre: 'Obao', categoria: 'perfumeria', tipo: 'perfumeria', descripcion: 'Buena pieza para una fila de desodorantes femeninos y juveniles.', imagen: 'obao dry.jpeg', whatsapp: 'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Obao' },
+  { nombre: 'Zote Rosa', categoria: 'abarrotes', tipo: 'abarrotes', descripcion: 'Muy útil para colocar en abarrotes o limpieza del hogar.', imagen: 'zote.jpeg', whatsapp: 'https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20Jab%C3%B3n%20Zote' }
 ];
 
-function crearCardAnuncio(item){
+const nearestBranchesEl = document.getElementById('nearestBranches');
+const locationButtonEl = document.getElementById('locationButton');
+const locationMessageEl = document.getElementById('locationMessage');
+
+function setLocationMessage(texto, color = '#4b607f') {
+  if (!locationMessageEl) return;
+  locationMessageEl.textContent = texto;
+  locationMessageEl.style.color = color;
+}
+
+function crearCardAnuncio(item) {
   return `
     <article class="gallery-card reveal">
       <img src="${item.imagen}" alt="${item.nombre}">
@@ -421,15 +693,16 @@ function crearCardAnuncio(item){
   `;
 }
 
-function renderizarAnuncios(){
-  const promoGrid=document.getElementById('promoGrid');
-  const featuredAdsGrid=document.getElementById('featuredAdsGrid');
-  const farmaciaGrid=document.getElementById('farmaciaGrid');
-  const perfumeriaGrid=document.getElementById('perfumeriaGrid');
-  const abarrotesGrid=document.getElementById('abarrotesGrid');
+function renderizarAnuncios() {
+  const promoGrid = document.getElementById('promoGrid');
+  const featuredAdsGrid = document.getElementById('featuredAdsGrid');
+  const farmaciaGrid = document.getElementById('farmaciaGrid');
+  const perfumeriaGrid = document.getElementById('perfumeriaGrid');
+  const abarrotesGrid = document.getElementById('abarrotesGrid');
 
-  const promos=anunciosData.filter(item=>item.tipo==='promo').slice(0,3);
-  promoGrid.innerHTML=promos.map(item=>`
+  const promos = anunciosData.filter(item => item.tipo === 'promo').slice(0, 3);
+
+  promoGrid.innerHTML = promos.map(item => `
     <div class="promo-card reveal">
       <span class="promo-badge">${item.categoria === 'farmacia' ? 'Farmacia' : item.categoria === 'perfumeria' ? 'Perfumería' : 'Abarrotes'}</span>
       <div class="promo-media"><img src="${item.imagen}" alt="${item.nombre}"></div>
@@ -442,34 +715,402 @@ function renderizarAnuncios(){
     </div>
   `).join('');
 
-  featuredAdsGrid.innerHTML=anunciosData.map(crearCardAnuncio).join('');
-  farmaciaGrid.innerHTML=anunciosData.filter(item=>item.categoria==='farmacia').map(crearCardAnuncio).join('');
-  perfumeriaGrid.innerHTML=anunciosData.filter(item=>item.categoria==='perfumeria').map(crearCardAnuncio).join('');
-  abarrotesGrid.innerHTML=anunciosData.filter(item=>item.categoria==='abarrotes').map(crearCardAnuncio).join('');
+  featuredAdsGrid.innerHTML = anunciosData.map(crearCardAnuncio).join('');
+  farmaciaGrid.innerHTML = anunciosData.filter(item => item.categoria === 'farmacia').map(crearCardAnuncio).join('');
+  perfumeriaGrid.innerHTML = anunciosData.filter(item => item.categoria === 'perfumeria').map(crearCardAnuncio).join('');
+  abarrotesGrid.innerHTML = anunciosData.filter(item => item.categoria === 'abarrotes').map(crearCardAnuncio).join('');
 
-  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 }
 
-function obtenerEstadoSucursal(sucursal){const ahora=new Date();const dia=ahora.getDay();if(dia===0){return 'Cerrado hoy'}let horarioDelDia=null;if(dia>=1&&dia<=5){horarioDelDia=sucursal.horarios.lunesViernes}else if(dia===6){horarioDelDia=sucursal.horarios.sabado}if(!horarioDelDia){return 'Cerrado hoy'}const [abreH,abreM]=horarioDelDia.abre.split(':').map(Number);const [cierraH,cierraM]=horarioDelDia.cierra.split(':').map(Number);const minutosActuales=ahora.getHours()*60+ahora.getMinutes();const minutosAbre=abreH*60+abreM;const minutosCierra=cierraH*60+cierraM;if(minutosActuales>=minutosAbre&&minutosActuales<minutosCierra){return 'Abierto ahora'}return 'Cerrado por el momento'}
-function gradosARadianes(grados){return grados*(Math.PI/180)}
-function calcularDistanciaKm(lat1,lng1,lat2,lng2){const radioTierra=6371;const dLat=gradosARadianes(lat2-lat1);const dLng=gradosARadianes(lng2-lng1);const a=Math.sin(dLat/2)*Math.sin(dLat/2)+Math.cos(gradosARadianes(lat1))*Math.cos(gradosARadianes(lat2))*Math.sin(dLng/2)*Math.sin(dLng/2);const c=2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));return radioTierra*c}
-function encontrarSucursalesMasCercanas(latUsuario,lngUsuario){let sucursalesOrdenadas=[];for(const key in sucursalesData){const sucursal=sucursalesData[key];const distancia=calcularDistanciaKm(latUsuario,lngUsuario,sucursal.lat,sucursal.lng);sucursalesOrdenadas.push({key,distancia})}sucursalesOrdenadas.sort((a,b)=>a.distancia-b.distancia);return sucursalesOrdenadas.slice(0,2)}
-function abrirModal(tipo){const modal=document.getElementById('modalEmpresa');const titulo=document.getElementById('modalTitulo');const texto=document.getElementById('modalTexto');const imagen=document.getElementById('modalImg');if(tipo==='mision'){titulo.textContent='Misión';imagen.src='mision.png';imagen.alt='Misión';texto.textContent='Somos una empresa enfocada en ofrecer una alternativa de salud y productos abarroteros siendo proveedores de una gran gama de productos farmacéuticos, apegados a las normas que nos brinde la secretaría de salud con responsabilidad.'}if(tipo==='vision'){titulo.textContent='Visión';imagen.src='vision.png';imagen.alt='Visión';texto.textContent='Somos una empresa con una ambición: seguir cuidando de tu salud apoyando tu economía. Nos caracterizamos por brindar más de una solución y seguir ofreciendo nuestra principal vocación: tu bienestar.'}if(tipo==='valores'){titulo.textContent='Valores';imagen.src='Valores.jpg';imagen.alt='Valores';texto.textContent='Distribuidora G&D tiene muy presentes valores como responsabilidad, respeto, comunicación clara, integridad, honestidad y disciplina, buscando siempre mejorar día a día y servir mejor a clientes y aliados.'}modal.classList.add('show')}
-function cerrarModal(){document.getElementById('modalEmpresa').classList.remove('show')}
-function abrirSucursal(tipo){const modal=document.getElementById('modalSucursal');const titulo=document.getElementById('sucursalTitulo');const direccion=document.getElementById('sucursalDireccion');const mapa=document.getElementById('sucursalMapa');const link=document.getElementById('sucursalLink');const horario=document.getElementById('sucursalHorario');const estado=document.getElementById('sucursalEstado');const sucursal=sucursalesData[tipo];const estadoActual=obtenerEstadoSucursal(sucursal);titulo.textContent=sucursal.nombre;direccion.textContent=sucursal.direccion;horario.textContent=sucursal.horarioTexto;estado.textContent=estadoActual;estado.className=estadoActual==='Abierto ahora'?'estado-open':'estado-closed';mapa.src=sucursal.mapa;link.href=sucursal.link;modal.classList.add('show')}
-function cerrarSucursal(){const modal=document.getElementById('modalSucursal');const mapa=document.getElementById('sucursalMapa');modal.classList.remove('show');mapa.src=''}
-function seleccionarSucursal(key){const sucursal=sucursalesData[key];const estadoActual=obtenerEstadoSucursal(sucursal);document.getElementById('highlightRightTitle').textContent=sucursal.nombre;document.getElementById('highlightRightText').textContent=`${sucursal.direccion} · ${sucursal.horarioTexto}`;const pill=document.getElementById('highlightStatusPill');pill.textContent=estadoActual;pill.className=estadoActual==='Abierto ahora'?'status-pill status-open':'status-pill status-closed';abrirSucursal(key)}
-function renderizarSucursalesCercanas(sucursalesCercanas){const contenedor=document.getElementById('nearestBranches');contenedor.innerHTML='';sucursalesCercanas.forEach(item=>{const sucursal=sucursalesData[item.key];const estadoActual=obtenerEstadoSucursal(sucursal);const card=document.createElement('div');card.className='nearest-card';card.innerHTML=`<h4>${sucursal.nombre}</h4><p>${sucursal.direccion}</p><div class="nearest-meta"><span>📍 ${item.distancia.toFixed(1)} km</span><span>🕒 ${sucursal.horarioTexto}</span><span>${estadoActual==='Abierto ahora'?'✅ Abierto ahora':'⏳ '+estadoActual}</span></div><div class="nearest-actions"><button onclick="seleccionarSucursal('${item.key}')">Elegir sucursal</button><a href="${sucursal.link}" target="_blank">Cómo llegar</a></div>`;contenedor.appendChild(card)})}
-function sugerirSucursalPorUbicacion(){if(!navigator.geolocation){renderizarSucursalesCercanas([{key:'tapachula',distancia:0},{key:'toscana',distancia:0}]);return}navigator.geolocation.getCurrentPosition(function(posicion){const latUsuario=posicion.coords.latitude;const lngUsuario=posicion.coords.longitude;const sucursalesCercanas=encontrarSucursalesMasCercanas(latUsuario,lngUsuario);renderizarSucursalesCercanas(sucursalesCercanas)},function(){renderizarSucursalesCercanas([{key:'tapachula',distancia:0},{key:'toscana',distancia:0}])},{enableHighAccuracy:true,timeout:10000,maximumAge:300000})}
-function renderizarProductos(lista){const contenedor=document.getElementById('searchResults');contenedor.innerHTML='';if(lista.length===0){contenedor.innerHTML=`<div class="search-empty">No encontramos coincidencias. Intenta con otra palabra o cambia la categoría.</div>`;return}lista.forEach(producto=>{const card=document.createElement('div');card.className='search-card';card.innerHTML=`<span class="search-tag">${producto.categoria}</span><h4>${producto.nombre}</h4><p>${producto.descripcion}</p><a class="catalog-btn" target="_blank" href="${producto.whatsapp}"><i class="fa-brands fa-whatsapp"></i> Consultar producto</a>`;contenedor.appendChild(card)})}
-function buscarProductos(){const texto=document.getElementById('productSearchInput').value.trim().toLowerCase();const categoria=document.getElementById('categoryFilter').value;const resultados=productosData.filter(producto=>{const coincideTexto=producto.nombre.toLowerCase().includes(texto)||producto.descripcion.toLowerCase().includes(texto);const coincideCategoria=categoria==='todas'||producto.categoria===categoria;return coincideTexto&&coincideCategoria});renderizarProductos(resultados)}
-window.addEventListener('click',function(e){const modalEmpresa=document.getElementById('modalEmpresa');const modalSucursal=document.getElementById('modalSucursal');if(e.target===modalEmpresa){cerrarModal()}if(e.target===modalSucursal){cerrarSucursal()}})
-document.addEventListener('keydown',function(e){if(e.key==='Escape'){cerrarModal();cerrarSucursal()}})
-const menuToggle=document.getElementById('menuToggle');const navMenu=document.getElementById('navMenu');const navLinks=document.querySelectorAll('#navMenu a');menuToggle.addEventListener('click',function(){navMenu.classList.toggle('show');menuToggle.textContent=navMenu.classList.contains('show')?'✕':'☰'});navLinks.forEach(link=>{link.addEventListener('click',function(){if(window.innerWidth<=768){navMenu.classList.remove('show');menuToggle.textContent='☰'}})});window.addEventListener('resize',function(){if(window.innerWidth>768){navMenu.classList.remove('show');menuToggle.textContent='☰'}})
-const whatsappToggle=document.getElementById('whatsappToggle');const whatsappOptions=document.getElementById('whatsappOptions');whatsappToggle.addEventListener('click',function(){whatsappOptions.classList.toggle('show')});document.addEventListener('click',function(e){const container=document.querySelector('.whatsapp-container');if(container&&!container.contains(e.target)){whatsappOptions.classList.remove('show')}})
-document.getElementById('searchButton').addEventListener('click',buscarProductos);document.getElementById('productSearchInput').addEventListener('input',buscarProductos);document.getElementById('categoryFilter').addEventListener('change',buscarProductos)
-const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('show')}})},{threshold:0.15});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-renderizarProductos(productosData);renderizarAnuncios();sugerirSucursalPorUbicacion();
+function obtenerEstadoSucursal(sucursal) {
+  const ahora = new Date();
+  const dia = ahora.getDay();
+
+  if (dia === 0) return 'Cerrado hoy';
+
+  let horarioDelDia = null;
+
+  if (dia >= 1 && dia <= 5) {
+    horarioDelDia = sucursal.horarios.lunesViernes;
+  } else if (dia === 6) {
+    horarioDelDia = sucursal.horarios.sabado;
+  }
+
+  if (!horarioDelDia) return 'Cerrado hoy';
+
+  const [abreH, abreM] = horarioDelDia.abre.split(':').map(Number);
+  const [cierraH, cierraM] = horarioDelDia.cierra.split(':').map(Number);
+
+  const minutosActuales = ahora.getHours() * 60 + ahora.getMinutes();
+  const minutosAbre = abreH * 60 + abreM;
+  const minutosCierra = cierraH * 60 + cierraM;
+
+  if (minutosActuales >= minutosAbre && minutosActuales < minutosCierra) {
+    return 'Abierto ahora';
+  }
+
+  return 'Cerrado por el momento';
+}
+
+function gradosARadianes(grados) {
+  return grados * (Math.PI / 180);
+}
+
+function calcularDistanciaKm(lat1, lng1, lat2, lng2) {
+  const radioTierra = 6371;
+  const dLat = gradosARadianes(lat2 - lat1);
+  const dLng = gradosARadianes(lng2 - lng1);
+
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(gradosARadianes(lat1)) *
+    Math.cos(gradosARadianes(lat2)) *
+    Math.sin(dLng / 2) * Math.sin(dLng / 2);
+
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return radioTierra * c;
+}
+
+function encontrarSucursalesMasCercanas(latUsuario, lngUsuario) {
+  const sucursalesOrdenadas = [];
+
+  for (const key in sucursalesData) {
+    const sucursal = sucursalesData[key];
+    const distancia = calcularDistanciaKm(latUsuario, lngUsuario, sucursal.lat, sucursal.lng);
+    sucursalesOrdenadas.push({ key, distancia });
+  }
+
+  sucursalesOrdenadas.sort((a, b) => a.distancia - b.distancia);
+  return sucursalesOrdenadas.slice(0, 2);
+}
+
+function obtenerSucursalesPorDefecto() {
+  return ['tapachula', 'toscana'].map(key => ({
+    key,
+    distancia: null
+  }));
+}
+
+function abrirModal(tipo) {
+  const modal = document.getElementById('modalEmpresa');
+  const titulo = document.getElementById('modalTitulo');
+  const texto = document.getElementById('modalTexto');
+  const imagen = document.getElementById('modalImg');
+
+  if (tipo === 'mision') {
+    titulo.textContent = 'Misión';
+    imagen.src = 'mision.png';
+    imagen.alt = 'Misión';
+    texto.textContent = 'Somos una empresa enfocada en ofrecer una alternativa de salud y productos abarroteros siendo proveedores de una gran gama de productos farmacéuticos, apegados a las normas que nos brinde la secretaría de salud con responsabilidad.';
+  }
+
+  if (tipo === 'vision') {
+    titulo.textContent = 'Visión';
+    imagen.src = 'vision.png';
+    imagen.alt = 'Visión';
+    texto.textContent = 'Somos una empresa con una ambición: seguir cuidando de tu salud apoyando tu economía. Nos caracterizamos por brindar más de una solución y seguir ofreciendo nuestra principal vocación: tu bienestar.';
+  }
+
+  if (tipo === 'valores') {
+    titulo.textContent = 'Valores';
+    imagen.src = 'Valores.jpg';
+    imagen.alt = 'Valores';
+    texto.textContent = 'Distribuidora G&D tiene muy presentes valores como responsabilidad, respeto, comunicación clara, integridad, honestidad y disciplina, buscando siempre mejorar día a día y servir mejor a clientes y aliados.';
+  }
+
+  modal.classList.add('show');
+}
+
+function cerrarModal() {
+  document.getElementById('modalEmpresa').classList.remove('show');
+}
+
+function abrirSucursal(tipo) {
+  const modal = document.getElementById('modalSucursal');
+  const titulo = document.getElementById('sucursalTitulo');
+  const direccion = document.getElementById('sucursalDireccion');
+  const mapa = document.getElementById('sucursalMapa');
+  const link = document.getElementById('sucursalLink');
+  const horario = document.getElementById('sucursalHorario');
+  const estado = document.getElementById('sucursalEstado');
+
+  const sucursal = sucursalesData[tipo];
+  const estadoActual = obtenerEstadoSucursal(sucursal);
+
+  titulo.textContent = sucursal.nombre;
+  direccion.textContent = sucursal.direccion;
+  horario.textContent = sucursal.horarioTexto;
+  estado.textContent = estadoActual;
+  estado.className = estadoActual === 'Abierto ahora' ? 'estado-open' : 'estado-closed';
+  mapa.src = sucursal.mapa;
+  link.href = sucursal.link;
+
+  modal.classList.add('show');
+}
+
+function cerrarSucursal() {
+  const modal = document.getElementById('modalSucursal');
+  const mapa = document.getElementById('sucursalMapa');
+  modal.classList.remove('show');
+  mapa.src = '';
+}
+
+function seleccionarSucursal(key) {
+  const sucursal = sucursalesData[key];
+  const estadoActual = obtenerEstadoSucursal(sucursal);
+
+  document.getElementById('highlightRightTitle').textContent = sucursal.nombre;
+  document.getElementById('highlightRightText').textContent = `${sucursal.direccion} · ${sucursal.horarioTexto}`;
+
+  const pill = document.getElementById('highlightStatusPill');
+  pill.textContent = estadoActual;
+  pill.className = estadoActual === 'Abierto ahora'
+    ? 'status-pill status-open'
+    : 'status-pill status-closed';
+
+  abrirSucursal(key);
+}
+
+function renderizarSucursalesCercanas(sucursalesCercanas, usandoUbicacionReal = false) {
+  nearestBranchesEl.innerHTML = '';
+
+  sucursalesCercanas.forEach(item => {
+    const sucursal = sucursalesData[item.key];
+    const estadoActual = obtenerEstadoSucursal(sucursal);
+
+    const distanciaHTML = item.distancia === null
+      ? '<span>📍 Distancia no disponible</span>'
+      : `<span>📍 ${item.distancia.toFixed(1)} km</span>`;
+
+    const card = document.createElement('div');
+    card.className = 'nearest-card';
+    card.innerHTML = `
+      <h4>${sucursal.nombre}</h4>
+      <p>${sucursal.direccion}</p>
+      <div class="nearest-meta">
+        ${distanciaHTML}
+        <span>🕒 ${sucursal.horarioTexto}</span>
+        <span>${estadoActual === 'Abierto ahora' ? '✅ Abierto ahora' : '⏳ ' + estadoActual}</span>
+      </div>
+      <div class="nearest-actions">
+        <button onclick="seleccionarSucursal('${item.key}')">Elegir sucursal</button>
+        <a href="${sucursal.link}" target="_blank">Cómo llegar</a>
+      </div>
+    `;
+    nearestBranchesEl.appendChild(card);
+  });
+
+  if (usandoUbicacionReal && sucursalesCercanas.length > 0) {
+    const primera = sucursalesCercanas[0];
+    const sucursal = sucursalesData[primera.key];
+    const estadoActual = obtenerEstadoSucursal(sucursal);
+
+    document.getElementById('highlightRightTitle').textContent = sucursal.nombre;
+    document.getElementById('highlightRightText').textContent = `${sucursal.direccion} · ${sucursal.horarioTexto}`;
+
+    const pill = document.getElementById('highlightStatusPill');
+    pill.textContent = estadoActual;
+    pill.className = estadoActual === 'Abierto ahora'
+      ? 'status-pill status-open'
+      : 'status-pill status-closed';
+  }
+}
+
+function manejarErrorGeolocalizacion(error) {
+  let mensaje = 'No pudimos obtener tu ubicación.';
+
+  if (error) {
+    switch (error.code) {
+      case error.PERMISSION_DENIED:
+        mensaje = 'No diste permiso para acceder a tu ubicación.';
+        break;
+      case error.POSITION_UNAVAILABLE:
+        mensaje = 'La ubicación no está disponible en este momento.';
+        break;
+      case error.TIMEOUT:
+        mensaje = 'La ubicación tardó demasiado en responder.';
+        break;
+      default:
+        mensaje = 'Ocurrió un problema al obtener tu ubicación.';
+        break;
+    }
+  }
+
+  setLocationMessage(mensaje + ' Mostramos sucursales sugeridas.', '#c62828');
+  renderizarSucursalesCercanas(obtenerSucursalesPorDefecto(), false);
+
+  if (locationButtonEl) {
+    locationButtonEl.disabled = false;
+    locationButtonEl.innerHTML = '<i class="fa-solid fa-location-crosshairs"></i> Reintentar ubicación';
+  }
+}
+
+function solicitarUbicacion() {
+  if (!navigator.geolocation) {
+    setLocationMessage('Tu navegador no soporta geolocalización. Mostramos sucursales sugeridas.', '#c62828');
+    renderizarSucursalesCercanas(obtenerSucursalesPorDefecto(), false);
+    return;
+  }
+
+  setLocationMessage('Obteniendo tu ubicación...', '#1f5ea8');
+
+  if (locationButtonEl) {
+    locationButtonEl.disabled = true;
+    locationButtonEl.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Ubicando...';
+  }
+
+  navigator.geolocation.getCurrentPosition(
+    function(posicion) {
+      const latUsuario = posicion.coords.latitude;
+      const lngUsuario = posicion.coords.longitude;
+      const precision = posicion.coords.accuracy;
+
+      const sucursalesCercanas = encontrarSucursalesMasCercanas(latUsuario, lngUsuario);
+      renderizarSucursalesCercanas(sucursalesCercanas, true);
+
+      if (precision && precision > 1000) {
+        setLocationMessage(`Ubicación aproximada obtenida (precisión aprox. ${Math.round(precision)} m).`, '#b45309');
+      } else if (precision) {
+        setLocationMessage(`Ubicación obtenida correctamente (precisión aprox. ${Math.round(precision)} m).`, '#15803d');
+      } else {
+        setLocationMessage('Ubicación obtenida correctamente.', '#15803d');
+      }
+
+      if (locationButtonEl) {
+        locationButtonEl.disabled = false;
+        locationButtonEl.innerHTML = '<i class="fa-solid fa-location-crosshairs"></i> Actualizar ubicación';
+      }
+    },
+    function(error) {
+      manejarErrorGeolocalizacion(error);
+    },
+    {
+      enableHighAccuracy: true,
+      timeout: 15000,
+      maximumAge: 0
+    }
+  );
+}
+
+function renderizarProductos(lista) {
+  const contenedor = document.getElementById('searchResults');
+  contenedor.innerHTML = '';
+
+  if (lista.length === 0) {
+    contenedor.innerHTML = '<div class="search-empty">No encontramos coincidencias. Intenta con otra palabra o cambia la categoría.</div>';
+    return;
+  }
+
+  lista.forEach(producto => {
+    const card = document.createElement('div');
+    card.className = 'search-card';
+    card.innerHTML = `
+      <span class="search-tag">${producto.categoria}</span>
+      <h4>${producto.nombre}</h4>
+      <p>${producto.descripcion}</p>
+      <a class="catalog-btn" target="_blank" href="${producto.whatsapp}">
+        <i class="fa-brands fa-whatsapp"></i> Consultar producto
+      </a>
+    `;
+    contenedor.appendChild(card);
+  });
+}
+
+function buscarProductos() {
+  const texto = document.getElementById('productSearchInput').value.trim().toLowerCase();
+  const categoria = document.getElementById('categoryFilter').value;
+
+  const resultados = productosData.filter(producto => {
+    const coincideTexto =
+      producto.nombre.toLowerCase().includes(texto) ||
+      producto.descripcion.toLowerCase().includes(texto);
+
+    const coincideCategoria =
+      categoria === 'todas' || producto.categoria === categoria;
+
+    return coincideTexto && coincideCategoria;
+  });
+
+  renderizarProductos(resultados);
+}
+
+window.addEventListener('click', function(e) {
+  const modalEmpresa = document.getElementById('modalEmpresa');
+  const modalSucursal = document.getElementById('modalSucursal');
+
+  if (e.target === modalEmpresa) cerrarModal();
+  if (e.target === modalSucursal) cerrarSucursal();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    cerrarModal();
+    cerrarSucursal();
+  }
+});
+
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.getElementById('navMenu');
+const navLinks = document.querySelectorAll('#navMenu a');
+
+menuToggle.addEventListener('click', function() {
+  navMenu.classList.toggle('show');
+  menuToggle.textContent = navMenu.classList.contains('show') ? '✕' : '☰';
+});
+
+navLinks.forEach(link => {
+  link.addEventListener('click', function() {
+    if (window.innerWidth <= 768) {
+      navMenu.classList.remove('show');
+      menuToggle.textContent = '☰';
+    }
+  });
+});
+
+window.addEventListener('resize', function() {
+  if (window.innerWidth > 768) {
+    navMenu.classList.remove('show');
+    menuToggle.textContent = '☰';
+  }
+});
+
+const whatsappToggle = document.getElementById('whatsappToggle');
+const whatsappOptions = document.getElementById('whatsappOptions');
+
+whatsappToggle.addEventListener('click', function() {
+  whatsappOptions.classList.toggle('show');
+});
+
+document.addEventListener('click', function(e) {
+  const container = document.querySelector('.whatsapp-container');
+  if (container && !container.contains(e.target)) {
+    whatsappOptions.classList.remove('show');
+  }
+});
+
+document.getElementById('searchButton').addEventListener('click', buscarProductos);
+document.getElementById('productSearchInput').addEventListener('input', buscarProductos);
+document.getElementById('categoryFilter').addEventListener('change', buscarProductos);
+
+if (locationButtonEl) {
+  locationButtonEl.addEventListener('click', solicitarUbicacion);
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+renderizarProductos(productosData);
+renderizarAnuncios();
+renderizarSucursalesCercanas(obtenerSucursalesPorDefecto(), false);
+setLocationMessage('Pulsa "Usar mi ubicación" para calcular sucursales cercanas.');
 </script>
 </body>
 </html>
