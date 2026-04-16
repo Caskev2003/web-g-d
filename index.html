@@ -1,191 +1,867 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Distribución G&D</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+:root{
+  --primary:#0f3d91;
+  --primary-2:#1e5fd0;
+  --primary-soft:#eaf2ff;
+  --secondary:#e53935;
+  --secondary-soft:#fff1f1;
+  --accent:#16a34a;
+  --accent-soft:#e9faef;
+  --warning:#d97706;
+  --warning-soft:#fff5e8;
+  --text:#172233;
+  --text-soft:#5e6f88;
+  --white:#ffffff;
+  --bg:#f5f8fc;
+  --bg-2:#eef4fb;
+  --border:#dce6f2;
+  --shadow:0 16px 40px rgba(15,61,145,.10);
+  --shadow-hover:0 24px 52px rgba(15,61,145,.16);
+  --container:min(1280px,92%);
 }
 
-html{
-  scroll-behavior:smooth;
-}
-
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
   font-family:Poppins,sans-serif;
-  background:linear-gradient(180deg,#f5f7fb 0%, #eef3fa 100%);
-  color:#1d1d1d;
+  color:var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(15,61,145,.08), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(229,57,53,.06), transparent 22%),
+    linear-gradient(180deg,#f7fbff 0%,#eef4fb 100%);
   overflow-x:hidden;
 }
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font-family:Poppins,sans-serif}
 
-/* HEADER */
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+.reveal.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.section{
+  padding:90px 20px;
+}
+.section-title{
+  font-size:clamp(30px,4vw,54px);
+  font-weight:800;
+  line-height:1.08;
+  text-align:center;
+  color:var(--primary);
+  margin-bottom:16px;
+}
+.section-subtitle{
+  max-width:850px;
+  margin:0 auto 30px;
+  text-align:center;
+  color:var(--text-soft);
+  font-size:17px;
+  line-height:1.8;
+}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 16px;
+  border-radius:999px;
+  background:var(--primary-soft);
+  color:var(--primary);
+  font-size:13px;
+  font-weight:700;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:14px 18px;
+  border:none;
+  border-radius:14px;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.28s ease;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{
+  background:linear-gradient(135deg,var(--primary),var(--primary-2));
+  color:#fff;
+  box-shadow:0 12px 24px rgba(15,61,145,.22);
+}
+.btn-primary:hover{
+  box-shadow:0 16px 28px rgba(15,61,145,.28);
+}
+.btn-secondary{
+  background:#fff;
+  color:var(--primary);
+  border:1px solid var(--border);
+  box-shadow:0 8px 18px rgba(15,61,145,.08);
+}
+.btn-secondary:hover{background:#f8fbff}
+.btn-danger{
+  background:linear-gradient(135deg,var(--secondary),#f15b57);
+  color:#fff;
+}
+.btn-whatsapp{
+  background:#25D366;
+  color:#fff;
+}
+
 header{
-  background:linear-gradient(90deg,#1f5ea8,#2d6fc0);
   position:sticky;
   top:0;
-  z-index:1000;
-  box-shadow:0 8px 24px rgba(0,0,0,.15);
+  z-index:2000;
+  backdrop-filter:blur(16px);
+  background:rgba(8,28,68,.84);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  box-shadow:0 8px 24px rgba(0,0,0,.12);
 }
-
 nav{
-  width:92%;
+  width:var(--container);
+  min-height:84px;
   margin:auto;
-  min-height:82px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  gap:20px;
+  justify-content:space-between;
+  gap:16px;
+  position:relative;
 }
-
-nav img{
-  height:58px;
+.logo-wrap{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.logo-wrap img{
+  height:56px;
+  width:auto;
   background:#fff;
-  padding:4px 8px;
-  border-radius:8px;
-  box-shadow:0 6px 16px rgba(0,0,0,.15);
+  border-radius:14px;
+  padding:6px 10px;
+  box-shadow:0 10px 24px rgba(0,0,0,.15);
 }
-
+.logo-text{
+  display:flex;
+  flex-direction:column;
+  color:#fff;
+}
+.logo-text strong{
+  font-size:18px;
+  line-height:1.1;
+}
+.logo-text span{
+  font-size:12px;
+  opacity:.85;
+}
 nav ul{
   list-style:none;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+nav ul li a{
+  display:block;
+  color:#fff;
+  padding:10px 14px;
+  border-radius:999px;
+  font-weight:600;
+  font-size:14px;
+  transition:.25s ease;
+}
+nav ul li a:hover{
+  background:rgba(255,255,255,.14);
+}
+.menu-toggle{
+  display:none;
+  width:48px;
+  height:48px;
+  border:none;
+  border-radius:14px;
+  background:#fff;
+  color:var(--primary);
+  font-size:26px;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:0 12px 24px rgba(0,0,0,.16);
+}
+
+.top-banner{
+  width:var(--container);
+  margin:18px auto 0;
+  background:linear-gradient(135deg,#fff8eb,#fff1f1);
+  border:1px solid rgba(229,57,53,.12);
+  border-radius:22px;
+  padding:18px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  box-shadow:var(--shadow);
+}
+.top-banner strong{color:var(--secondary)}
+.top-banner p{
+  color:#8c413f;
+  line-height:1.7;
+}
+.banner-actions{
   display:flex;
   flex-wrap:wrap;
   gap:10px;
 }
-
-nav ul li a{
+.banner-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:var(--secondary);
   color:#fff;
-  text-decoration:none;
-  padding:10px 16px;
+  padding:12px 16px;
   border-radius:999px;
-  transition:.3s ease;
-  font-weight:600;
+  font-size:14px;
+  font-weight:700;
+  transition:.28s ease;
+  white-space:nowrap;
 }
-
-nav ul li a:hover{
-  background:#ff2222;
+.banner-btn:hover{
   transform:translateY(-2px);
+  box-shadow:0 14px 24px rgba(229,57,53,.22);
 }
 
-/* HERO */
 .hero{
-  text-align:center;
-  padding:90px 20px 80px;
   position:relative;
-  background:
-    linear-gradient(135deg, #f4f8ff 0%, #e8f1ff 40%, #fff5f5 100%);
   overflow:hidden;
+  padding:54px 20px 38px;
 }
-
 .hero::before{
   content:"";
   position:absolute;
-  width:420px;
-  height:420px;
-  background:radial-gradient(circle, rgba(31,94,168,.22) 0%, rgba(31,94,168,0) 70%);
-  top:-120px;
-  left:-120px;
-  z-index:0;
+  width:500px;
+  height:500px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(15,61,145,.18), rgba(15,61,145,0) 72%);
+  top:-180px;
+  left:-130px;
 }
-
 .hero::after{
   content:"";
   position:absolute;
-  width:380px;
-  height:380px;
-  background:radial-gradient(circle, rgba(255,30,30,.20) 0%, rgba(255,30,30,0) 70%);
-  right:-100px;
-  bottom:-120px;
-  z-index:0;
+  width:440px;
+  height:440px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(229,57,53,.14), rgba(229,57,53,0) 70%);
+  bottom:-180px;
+  right:-130px;
 }
-
-.hero img{
-  width:min(320px,85%);
-  display:block;
-  margin:0 auto 30px;
-  filter:drop-shadow(0 18px 28px rgba(0,0,0,.18));
+.hero-inner{
+  width:var(--container);
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:28px;
+  align-items:center;
   position:relative;
   z-index:1;
 }
-
-.titulo-animado{
-  margin-top:10px;
-  margin-bottom:18px;
-  font-size:clamp(42px, 6vw, 74px);
+.hero-copy .badge{margin-bottom:18px}
+.hero-title{
+  font-size:clamp(38px,5vw,70px);
+  line-height:1.02;
+  color:var(--primary);
   font-weight:800;
-  line-height:1.1;
-  color:#ff1e1e;
-  letter-spacing:1px;
-  text-align:center;
-  position:relative;
-  z-index:1;
-  text-shadow:0 6px 18px rgba(255,30,30,.18);
+  margin-bottom:16px;
 }
-
-.hero p{
-  font-size:clamp(18px, 2vw, 28px);
-  max-width:900px;
-  margin:0 auto;
-  color:#1f4f91;
-  font-weight:500;
-  line-height:1.5;
-  position:relative;
-  z-index:1;
-}
-.hero-linea{
-  width:140px;
-  height:6px;
-  margin:0 auto 24px;
+.hero-title span{color:var(--secondary)}
+.hero-line{
+  width:130px;
+  height:7px;
   border-radius:999px;
-  background:linear-gradient(90deg, #1f5ea8, #ff1e1e);
-  box-shadow:0 6px 16px rgba(31,94,168,.18);
+  background:linear-gradient(90deg,var(--primary),var(--secondary));
+  margin-bottom:22px;
+}
+.hero-copy p{
+  font-size:18px;
+  line-height:1.8;
+  color:var(--text-soft);
+  max-width:700px;
+}
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:26px;
+}
+.hero-visual-card{
+  background:rgba(255,255,255,.84);
+  border:1px solid rgba(255,255,255,.65);
+  border-radius:34px;
+  padding:24px;
+  box-shadow:0 20px 60px rgba(15,61,145,.18);
+  backdrop-filter:blur(10px);
+}
+.hero-visual img{
+  width:100%;
+  max-width:470px;
+  margin:auto;
+  filter:drop-shadow(0 18px 28px rgba(0,0,0,.18));
+}
+
+.hero-panel{
+  width:var(--container);
+  margin:24px auto 0;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
   position:relative;
   z-index:1;
 }
-/* SECCIONES */
-.section{
-  padding:85px 20px;
+.panel-card{
+  background:linear-gradient(145deg,#ffffff 0%,#fbfdff 100%);
+  border:1px solid rgba(15,61,145,.08);
+  border-radius:24px;
+  padding:20px;
+  box-shadow:var(--shadow);
+  transition:.3s ease;
+}
+.panel-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-hover);
+}
+.panel-icon{
+  width:62px;
+  height:62px;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  color:#fff;
+  margin-bottom:14px;
+}
+.panel-icon.search{background:linear-gradient(135deg,#0f3d91,#3b7cff)}
+.panel-icon.promo{background:linear-gradient(135deg,#e53935,#ff7b72)}
+.panel-icon.location{background:linear-gradient(135deg,#16a34a,#48c977)}
+.panel-icon.contact{background:linear-gradient(135deg,#d97706,#f0b24a)}
+.panel-card h3{
+  color:var(--primary);
+  font-size:20px;
+  margin-bottom:8px;
+}
+.panel-card p{
+  color:var(--text-soft);
+  font-size:14px;
+  line-height:1.7;
+  margin-bottom:14px;
+}
+
+.branch-highlight{
+  width:var(--container);
+  margin:34px auto 0;
+  background:linear-gradient(145deg,#ffffff 0%,#f9fbff 100%);
+  border:1px solid rgba(15,61,145,.08);
+  border-radius:30px;
+  padding:28px;
+  box-shadow:var(--shadow);
+  display:grid;
+  grid-template-columns:1.5fr .7fr;
+  gap:20px;
+}
+.branch-highlight-left h3{
+  font-size:clamp(28px,3vw,42px);
+  color:var(--primary);
+  line-height:1.1;
+  margin:12px 0 14px;
+}
+.branch-highlight-left p{
+  color:var(--text-soft);
+  line-height:1.75;
+  margin-bottom:18px;
+}
+.location-actions{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+}
+.location-message{
+  color:var(--text-soft);
+  font-size:14px;
+  font-weight:600;
+}
+.location-btn{
+  background:linear-gradient(135deg,var(--primary),var(--primary-2));
+  color:#fff;
+  padding:13px 18px;
+  border:none;
+  border-radius:14px;
+  font-size:15px;
+  font-weight:700;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  cursor:pointer;
+  transition:.28s ease;
+}
+.location-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 24px rgba(15,61,145,.24);
+}
+.location-btn:disabled{
+  opacity:.72;
+  cursor:not-allowed;
+  transform:none;
+}
+.nearest-branches{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+}
+.nearest-card{
+  background:linear-gradient(180deg,#ffffff 0%,#f6faff 100%);
+  border:1px solid rgba(15,61,145,.08);
+  border-radius:22px;
+  padding:18px;
+  min-height:220px;
+  box-shadow:0 10px 24px rgba(15,61,145,.07);
+  transition:.3s ease;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.nearest-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-hover);
+}
+.nearest-card h4{
+  color:var(--primary);
+  font-size:20px;
+  margin-bottom:10px;
+}
+.nearest-card p{
+  color:var(--text-soft);
+  line-height:1.6;
+  font-size:14px;
+  margin-bottom:14px;
+}
+.nearest-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:14px;
+}
+.nearest-meta span{
+  background:#fff;
+  color:var(--primary);
+  padding:8px 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:700;
+  box-shadow:0 6px 14px rgba(15,61,145,.08);
+}
+.nearest-actions{
+  display:flex;
+  gap:10px;
+}
+.nearest-actions button,
+.nearest-actions a{
+  flex:1;
+  border:none;
+  border-radius:12px;
+  padding:11px 12px;
+  background:var(--primary);
+  color:#fff;
+  font-size:14px;
+  font-weight:700;
   text-align:center;
+  cursor:pointer;
+  transition:.28s ease;
 }
-
-.section h2{
-  color:#ff1e1e;
-  margin-bottom:22px;
-  font-size:56px;
+.nearest-actions button:hover,
+.nearest-actions a:hover{
+  background:var(--secondary);
+  transform:translateY(-2px);
+}
+.branch-highlight-right{
+  background:linear-gradient(145deg,#0f3d91,#1c57c4);
+  border-radius:26px;
+  padding:24px;
+  color:#fff;
+  min-height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  box-shadow:0 18px 30px rgba(15,61,145,.24);
+}
+.branch-highlight-right h4{
+  font-size:26px;
+  line-height:1.2;
+  margin-bottom:12px;
+}
+.branch-highlight-right p{
+  line-height:1.7;
+  font-size:15px;
+  opacity:.95;
+  margin-bottom:18px;
+}
+.status-pill{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:max-content;
+  padding:10px 16px;
+  border-radius:999px;
+  font-size:13px;
   font-weight:800;
-  letter-spacing:1px;
+}
+.status-open{background:#d8f8e0;color:#17753a}
+.status-closed{background:#ffe4e4;color:#b3261e}
+
+.featured-month{
+  width:var(--container);
+  margin:auto;
+  background:linear-gradient(135deg,#0d347c 0%,#1455c2 55%,#ef5350 100%);
+  border-radius:32px;
+  padding:32px;
+  color:#fff;
+  display:grid;
+  grid-template-columns:.95fr 1.05fr;
+  gap:28px;
+  align-items:center;
+  box-shadow:0 20px 60px rgba(15,61,145,.24);
+}
+.featured-month-media{
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:28px;
+  padding:18px;
+}
+.featured-month-media img{
+  width:100%;
+  max-width:420px;
+  margin:auto;
+  border-radius:20px;
+}
+.featured-month-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 15px;
+  border-radius:999px;
+  background:rgba(255,255,255,.18);
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:14px;
+}
+.featured-month h2{
+  font-size:clamp(30px,4vw,50px);
+  line-height:1.05;
+  margin-bottom:14px;
+}
+.featured-month p{
+  line-height:1.85;
+  opacity:.95;
+  margin-bottom:18px;
+}
+.featured-list{
+  display:grid;
+  gap:10px;
+  margin-bottom:22px;
+}
+.featured-list div{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:600;
+}
+.featured-list i{color:#fff}
+
+.tabs-wrap{
+  width:var(--container);
+  margin:auto;
+}
+.tabs-header{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-bottom:24px;
+}
+.tab-btn{
+  border:none;
+  padding:13px 18px;
+  border-radius:999px;
+  background:#fff;
+  color:var(--primary);
+  font-size:14px;
+  font-weight:700;
+  cursor:pointer;
+  border:1px solid var(--border);
+  box-shadow:0 8px 18px rgba(15,61,145,.06);
+  transition:.25s ease;
+}
+.tab-btn.active,
+.tab-btn:hover{
+  background:linear-gradient(135deg,var(--primary),var(--primary-2));
+  color:#fff;
+  border-color:transparent;
+}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+.product-grid,
+.best-sellers-grid,
+.compare-grid,
+.values-grid,
+.brands-gallery{
+  width:var(--container);
+  margin:auto;
+  display:grid;
+  gap:22px;
+}
+.product-grid{grid-template-columns:repeat(4,1fr)}
+.best-sellers-grid{grid-template-columns:repeat(4,1fr)}
+.compare-grid{grid-template-columns:repeat(4,1fr)}
+.values-grid{grid-template-columns:repeat(3,1fr)}
+.brands-gallery{grid-template-columns:repeat(5,1fr)}
+
+.product-card,
+.best-seller-card,
+.compare-card,
+.value-card,
+.brand-card{
+  background:linear-gradient(145deg,#ffffff 0%,#fbfdff 100%);
+  border:1px solid rgba(15,61,145,.08);
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  transition:.32s ease;
+}
+.product-card:hover,
+.best-seller-card:hover,
+.compare-card:hover,
+.value-card:hover,
+.brand-card:hover{
+  transform:translateY(-8px);
+  box-shadow:var(--shadow-hover);
 }
 
-/* SLIDER */
-.slider{
-  width:min(1050px,78%);
-  margin:25px auto 50px;
+.product-card{
   overflow:hidden;
-  border-radius:0;
-  box-shadow:none;
-  position:relative;
-  background:transparent;
+  text-align:left;
+}
+.product-image{
+  height:220px;
+  background:#eef4fb;
+  overflow:hidden;
+}
+.product-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.product-info{padding:18px}
+.product-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:10px;
+}
+.product-tag{
+  display:inline-block;
+  padding:7px 11px;
+  border-radius:999px;
+  background:var(--primary-soft);
+  color:var(--primary);
+  font-size:12px;
+  font-weight:800;
+}
+.product-badge{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  background:var(--secondary-soft);
+  color:var(--secondary);
+  font-size:11px;
+  font-weight:800;
+}
+.product-info h3{
+  color:var(--primary);
+  font-size:21px;
+  margin-bottom:8px;
+}
+.product-info p{
+  color:var(--text-soft);
+  font-size:14px;
+  line-height:1.7;
+  margin-bottom:14px;
+}
+.product-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:14px;
+}
+.product-meta span{
+  background:#fff;
+  color:var(--primary);
+  padding:7px 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:700;
+  box-shadow:0 6px 14px rgba(15,61,145,.08);
 }
 
+.best-seller-card{
+  overflow:hidden;
+  text-align:left;
+}
+.best-seller-image{
+  height:220px;
+  background:#eef4fb;
+}
+.best-seller-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.best-seller-info{padding:18px}
+.best-seller-tag{
+  display:inline-block;
+  padding:7px 11px;
+  border-radius:999px;
+  background:var(--secondary-soft);
+  color:var(--secondary);
+  font-size:12px;
+  font-weight:800;
+  margin-bottom:10px;
+}
+.best-seller-info h3{
+  color:var(--primary);
+  font-size:22px;
+  margin-bottom:8px;
+}
+.best-seller-info p{
+  color:var(--text-soft);
+  font-size:14px;
+  line-height:1.75;
+  margin-bottom:14px;
+}
+
+.compare-card{
+  padding:22px 18px;
+  text-align:left;
+}
+.compare-top{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:start;
+  margin-bottom:12px;
+}
+.compare-card h3{
+  color:var(--primary);
+  font-size:22px;
+}
+.compare-status{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px 12px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:800;
+}
+.compare-status.open{
+  background:#d8f8e0;
+  color:#17753a;
+}
+.compare-status.closed{
+  background:#ffe4e4;
+  color:#b3261e;
+}
+.compare-card p{
+  color:var(--text-soft);
+  font-size:14px;
+  line-height:1.75;
+  margin-bottom:12px;
+}
+.compare-list{
+  display:grid;
+  gap:9px;
+  margin-bottom:16px;
+}
+.compare-list div{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--text);
+  font-size:14px;
+}
+.compare-list i{
+  color:var(--primary);
+}
+
+.value-card{
+  padding:30px 24px;
+  text-align:left;
+}
+.value-icon{
+  width:70px;
+  height:70px;
+  border-radius:20px;
+  background:var(--primary-soft);
+  color:var(--primary);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+  margin-bottom:18px;
+}
+.value-card h3{
+  color:var(--primary);
+  font-size:28px;
+  margin-bottom:14px;
+}
+.value-card p{
+  color:var(--text-soft);
+  font-size:16px;
+  line-height:1.85;
+}
+
+.slider{
+  width:min(1100px,86%);
+  margin:28px auto 46px;
+  overflow:hidden;
+  border-radius:28px;
+  box-shadow:var(--shadow);
+}
 .slides{
   display:flex;
   width:400%;
-  animation:slide 16s infinite;
+  animation:slide 22s infinite;
 }
-
 .slides img{
-  width:100%;
-  height:auto;
-  max-height:560px;
-  object-fit:contain;
-  display:block;
+  width:25%;
+  flex:0 0 25%;
+  height:500px;
+  object-fit:cover;
 }
-
 @keyframes slide{
   0%,20%{transform:translateX(0)}
   25%,45%{transform:translateX(-25%)}
@@ -193,484 +869,726 @@ nav ul li a:hover{
   75%,100%{transform:translateX(-75%)}
 }
 
-/* CARDS */
-.cards{
-  display:flex;
-  justify-content:center;
-  gap:30px;
-  flex-wrap:wrap;
-  margin-top:40px;
-}
-
-.card{
-  width:260px;
-  height:320px;
-  border-radius:22px;
-  overflow:hidden;
-  position:relative;
-  cursor:pointer;
-  box-shadow:0 12px 30px rgba(0,0,0,0.18);
-  transition:transform .35s ease, box-shadow .35s ease;
-  background:#fff;
-}
-
-.card:hover{
-  transform:translateY(-12px) scale(1.03);
-  box-shadow:0 20px 40px rgba(0,0,0,0.25);
-}
-
-.card img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-  transition:transform .5s ease;
-}
-
-.card:hover img{
-  transform:scale(1.08);
-}
-
-.card-overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to top, rgba(0,0,0,.78), rgba(0,0,0,.12));
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
+.brand-card{
+  min-height:160px;
   padding:22px;
-  text-align:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.brand-card img{
+  max-width:100%;
+  max-height:90px;
+  object-fit:contain;
+  filter:drop-shadow(0 5px 12px rgba(0,0,0,.08));
 }
 
-.card-overlay h3{
-  color:#fff;
-  font-size:32px;
+.contact{
+  width:var(--container);
+  margin:auto;
+  padding:30px 20px 100px;
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:24px;
+  align-items:start;
+}
+.contact-card{
+  background:linear-gradient(145deg,#ffffff 0%,#fbfdff 100%);
+  border:1px solid rgba(15,61,145,.08);
+  border-radius:28px;
+  padding:30px 24px;
+  box-shadow:var(--shadow);
+}
+.contact-card h2{
+  color:var(--primary);
+  font-size:clamp(28px,4vw,40px);
+  margin-bottom:16px;
+}
+.contact-card p{
+  color:var(--text-soft);
+  line-height:1.8;
+  margin-bottom:12px;
+}
+.contact-email{
+  font-size:22px;
   font-weight:700;
-  margin:0;
-  text-shadow:0 4px 12px rgba(0,0,0,.35);
+  color:var(--secondary);
+}
+.contact-phone{
+  font-size:36px;
+  line-height:1.1;
+  color:var(--primary);
+  font-weight:800;
+}
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+.form-grid .full{grid-column:1/-1}
+textarea{
+  min-height:130px;
+  resize:vertical;
+}
+.form-actions{
+  margin-top:10px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+input,select,textarea{
+  width:100%;
+  padding:14px 14px;
+  border:1px solid var(--border);
+  outline:none;
+  background:#f9fbff;
+  border-radius:14px;
+  color:var(--text);
+  font-size:15px;
+  transition:.25s ease;
+}
+input:focus,select:focus,textarea:focus{
+  border-color:var(--primary);
+  background:#fff;
+  box-shadow:0 0 0 4px rgba(15,61,145,.08);
 }
 
-/* MODAL GENERAL */
 .modal{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.72);
-  backdrop-filter:blur(6px);
+  background:rgba(9,21,46,.72);
+  backdrop-filter:blur(7px);
   display:none;
   justify-content:center;
   align-items:center;
   z-index:5000;
   padding:20px;
 }
-
 .modal.show{
   display:flex;
-  animation:fadeModal .35s ease;
+  animation:fadeModal .32s ease;
 }
-
-.modal-content{
-  width:min(820px,92%);
-  max-height:85vh;
-  background:#fff;
-  border-radius:24px;
+.modal-content,
+.map-modal-content{
+  width:min(920px,95%);
+  max-height:88vh;
   overflow:hidden;
-  box-shadow:0 20px 60px rgba(0,0,0,.35);
-  animation:zoomIn .35s ease;
+  border-radius:28px;
+  background:#fff;
+  box-shadow:0 28px 70px rgba(0,0,0,.30);
+  animation:zoomIn .32s ease;
   position:relative;
 }
-
 .modal-grid{
   display:grid;
   grid-template-columns:320px 1fr;
-  align-items:center;
   gap:24px;
+  align-items:center;
   padding:28px;
 }
-
 .modal-image{
   width:100%;
-  max-height:280px;
+  max-height:300px;
   object-fit:contain;
-  display:block;
 }
-
 .modal-info{
-  padding:0;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  text-align:left;
-  max-height:70vh;
+  max-height:72vh;
   overflow-y:auto;
-  padding-right:10px;
+  padding-right:8px;
 }
-
-.modal-info h2{
-  margin:0 0 14px;
-  color:#ff1e1e;
+.modal-info h2,
+.map-info h2{
+  color:var(--primary);
   font-size:34px;
-  line-height:1.2;
+  line-height:1.15;
+  margin-bottom:14px;
 }
-
-.modal-info p{
-  margin:0;
-  color:#1f1f1f;
+.modal-info p,
+.map-info p{
+  color:var(--text-soft);
+  line-height:1.9;
   font-size:16px;
-  line-height:1.8;
-  text-align:left;
-  word-break:normal;
-  overflow-wrap:break-word;
 }
-
 .close-btn{
   position:absolute;
   top:14px;
   right:16px;
-  width:38px;
-  height:38px;
+  width:40px;
+  height:40px;
   border:none;
   border-radius:50%;
   background:#fff;
-  color:#1f5ea8;
+  color:var(--primary);
   font-size:22px;
   cursor:pointer;
-  box-shadow:0 8px 20px rgba(0,0,0,.18);
-  transition:.25s;
+  box-shadow:0 12px 24px rgba(0,0,0,.18);
+  transition:.25s ease;
   z-index:10;
 }
-
 .close-btn:hover{
-  background:#ff1e1e;
+  background:var(--secondary);
   color:#fff;
   transform:rotate(90deg);
 }
-
-@keyframes fadeModal{
-  from{opacity:0;}
-  to{opacity:1;}
-}
-
-@keyframes zoomIn{
-  from{opacity:0; transform:scale(.92) translateY(20px);}
-  to{opacity:1; transform:scale(1) translateY(0);}
-}
-
-/* MODAL MAPA */
-.map-modal-content{
-  width:min(1000px,94%);
-  max-height:88vh;
-  background:#fff;
-  border-radius:24px;
-  overflow:hidden;
-  box-shadow:0 20px 60px rgba(0,0,0,.35);
-  animation:zoomIn .35s ease;
-  position:relative;
-}
-
 .map-modal-grid{
   display:grid;
-  grid-template-columns:1fr 1.3fr;
-  gap:24px;
+  grid-template-columns:1fr 1.2fr;
+  gap:22px;
   padding:28px;
   align-items:start;
 }
-
-.map-info{
-  text-align:left;
-}
-
-.map-info h2{
-  color:#ff1e1e;
-  font-size:34px;
-  margin-bottom:14px;
-}
-
-.map-info p{
-  font-size:16px;
-  line-height:1.8;
-  color:#1f1f1f;
-  margin-bottom:18px;
-}
-
 .map-btn{
-  display:inline-block;
-  background:#1f5ea8;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:var(--primary);
   color:#fff;
-  text-decoration:none;
   padding:12px 18px;
   border-radius:12px;
-  font-weight:600;
-  transition:.3s ease;
-  box-shadow:0 8px 20px rgba(31,94,168,.22);
+  font-size:15px;
+  font-weight:700;
+  transition:.28s ease;
+  margin-top:4px;
 }
-
 .map-btn:hover{
-  background:#ff2222;
+  background:var(--secondary);
   transform:translateY(-2px);
 }
-
 .map-frame{
   width:100%;
-  height:380px;
+  height:390px;
   border:0;
   border-radius:18px;
-  box-shadow:0 10px 24px rgba(0,0,0,.12);
+  box-shadow:0 10px 24px rgba(15,61,145,.14);
 }
-
-/* INFO BOXES */
-.info-boxes{
-  width:min(1100px,92%);
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:25px;
+#estadoContainer{margin:18px 0 20px}
+#sucursalEstado{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 18px;
+  border-radius:999px;
+  font-size:14px;
+  font-weight:800;
 }
+.estado-open{background:#d8f8e0;color:#17753a}
+.estado-closed{background:#ffe5e5;color:#b42318}
 
-.info-box{
-  background:#fff;
-  border-radius:24px;
-  padding:30px 24px;
-  box-shadow:0 12px 30px rgba(0,0,0,.12);
-  transition:.35s ease;
-}
-
-.info-box:hover{
-  transform:translateY(-10px);
-  box-shadow:0 18px 36px rgba(0,0,0,.18);
-}
-
-.info-box h3{
-  color:#1f5ea8;
-  font-size:30px;
-  margin-bottom:15px;
-}
-
-.info-box p{
-  color:#4b607f;
-  font-size:18px;
-  line-height:1.7;
-}
-
-/* CONTACTO */
-.contact{
+.whatsapp-container{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:6000;
   display:flex;
-  justify-content:space-around;
-  gap:40px;
-  padding:70px 30px 90px;
-  flex-wrap:wrap;
-  align-items:flex-start;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:12px;
 }
-
-.contact > div:first-child{
+.whatsapp-options{
+  display:none;
+  flex-direction:column;
+  gap:10px;
+}
+.whatsapp-options.show{
+  display:flex;
+  animation:fadeUp .25s ease;
+}
+.whatsapp-options a{
   background:#fff;
-  padding:35px 28px;
-  border-radius:24px;
-  box-shadow:0 12px 30px rgba(0,0,0,.12);
-  min-width:290px;
+  color:var(--primary);
+  padding:12px 16px;
+  border-radius:14px;
+  font-size:14px;
+  font-weight:700;
+  min-width:250px;
+  box-shadow:0 12px 24px rgba(0,0,0,.14);
+  transition:.25s ease;
 }
-
-.contact > div:last-child{
-  width:min(520px,100%);
-  background:#fff;
-  padding:35px 28px;
-  border-radius:24px;
-  box-shadow:0 12px 30px rgba(0,0,0,.12);
-}
-
-.contact h2{
-  margin-bottom:16px;
-}
-
-.contact p,
-.contact h3{
-  margin-bottom:14px;
-}
-
-input,select,textarea{
-  width:100%;
-  padding:14px 12px;
-  margin:12px 0;
-  border:none;
-  border-bottom:2px solid #d7deea;
-  background:#f8fbff;
-  font-family:Poppins,sans-serif;
-  font-size:16px;
-  border-radius:10px 10px 0 0;
-  outline:none;
-  transition:.3s;
-}
-
-input:focus,select:focus,textarea:focus{
-  border-bottom-color:#1f5ea8;
-  background:#eef6ff;
-}
-
-textarea{
-  resize:vertical;
-  min-height:120px;
-}
-
-button{
-  background:#1f5ea8;
+.whatsapp-options a:hover{
+  background:#25D366;
   color:#fff;
-  padding:14px 26px;
+  transform:translateX(-4px);
+}
+.whatsapp-float{
+  width:64px;
+  height:64px;
   border:none;
-  border-radius:12px;
+  border-radius:50%;
+  background:#25D366;
+  color:#fff;
+  font-size:32px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   cursor:pointer;
-  transition:.3s;
-  font-size:17px;
-  font-weight:600;
-  margin-top:10px;
+  box-shadow:0 16px 30px rgba(0,0,0,.20);
+  animation:float 2s ease-in-out infinite;
+}
+.whatsapp-float:hover{transform:scale(1.06)}
+
+.mobile-bottom-bar{
+  display:none;
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:7000;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(10px);
+  border-top:1px solid rgba(15,61,145,.10);
+  box-shadow:0 -10px 24px rgba(15,61,145,.12);
+  padding:10px 8px calc(10px + env(safe-area-inset-bottom));
+}
+.mobile-bottom-nav{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+}
+.mobile-bottom-nav a{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  color:var(--primary);
+  font-size:11px;
+  font-weight:700;
+  padding:8px 4px;
+  border-radius:14px;
+  transition:.25s ease;
+}
+.mobile-bottom-nav a i{font-size:18px}
+.mobile-bottom-nav a:hover,
+.mobile-bottom-nav a.active{
+  background:var(--primary-soft);
 }
 
-button:hover{
-  background:#ff2222;
-  transform:scale(1.05);
+footer{
+  margin-top:20px;
+  background:#081c44;
+  color:#fff;
+  padding:28px 20px;
+}
+.footer-inner{
+  width:var(--container);
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.footer-inner p{
+  opacity:.9;
+  font-size:14px;
+}
+.footer-links{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.footer-links a{
+  color:#fff;
+  opacity:.9;
+  font-size:14px;
+}
+.footer-links a:hover{
+  opacity:1;
+  text-decoration:underline;
 }
 
-/* RESPONSIVE */
-@media(max-width:950px){
-  nav{
-    flex-direction:column;
-    padding:12px 0 16px;
+@keyframes fadeModal{
+  from{opacity:0}
+  to{opacity:1}
+}
+@keyframes zoomIn{
+  from{opacity:0;transform:scale(.94) translateY(20px)}
+  to{opacity:1;transform:scale(1) translateY(0)}
+}
+@keyframes float{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+  100%{transform:translateY(0)}
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@media (max-width:1180px){
+  .hero-inner,
+  .featured-month{
+    grid-template-columns:1fr;
   }
+  .hero-copy{text-align:center}
+  .hero-line{margin:0 auto 22px}
+  .hero-copy p{margin:auto}
+  .hero-actions{justify-content:center}
+  .hero-visual img{max-width:380px}
+  .hero-panel,
+  .product-grid,
+  .best-sellers-grid,
+  .compare-grid,
+  .values-grid,
+  .brands-gallery{
+    grid-template-columns:1fr 1fr;
+  }
+  .branch-highlight{grid-template-columns:1fr}
+  .contact{grid-template-columns:1fr}
+}
 
+@media (max-width:860px){
+  nav{
+    width:100%;
+    padding:14px 16px;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:12px;
+    min-height:auto;
+  }
+  .menu-toggle{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  nav ul{
+    display:none;
+    grid-column:1/-1;
+    width:100%;
+    flex-direction:column;
+    align-items:stretch;
+    gap:10px;
+    background:rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.10);
+    backdrop-filter:blur(8px);
+    border-radius:20px;
+    padding:14px;
+  }
+  nav ul.show{display:flex}
+  nav ul li a{
+    text-align:center;
+    background:rgba(255,255,255,.06);
+    padding:12px 14px;
+  }
+  .logo-text strong{font-size:16px}
+  .logo-text span{font-size:11px}
+
+  .top-banner{flex-direction:column;align-items:flex-start}
+  .hero{padding:40px 16px}
+  .hero-title{font-size:clamp(30px,8vw,48px)}
+  .hero-copy p{font-size:16px}
+  .hero-panel,
+  .nearest-branches,
+  .product-grid,
+  .best-sellers-grid,
+  .compare-grid,
+  .values-grid,
+  .brands-gallery{
+    grid-template-columns:1fr;
+  }
+  .section{padding:70px 16px}
+  .featured-month{padding:22px}
+  .slider{
+    width:100%;
+    margin:22px auto 34px;
+  }
+  .slides img{
+    height:260px;
+    object-fit:cover;
+  }
   .modal-grid,
   .map-modal-grid{
     grid-template-columns:1fr;
-    padding:20px;
+    padding:18px;
   }
-
   .modal-image{
-    max-height:220px;
+    max-height:200px;
     margin:auto;
   }
-
-  .modal-info{
-    max-height:none;
-    overflow:visible;
-    padding-right:0;
-  }
-
   .modal-info h2,
-  .map-info h2{
-    font-size:28px;
-    text-align:center;
-  }
-
+  .map-info h2{font-size:26px}
   .modal-info p,
   .map-info p{
-    font-size:15px;
-    line-height:1.7;
-    text-align:left;
+    font-size:14px;
+    line-height:1.75;
   }
-
-  .info-boxes{
-    grid-template-columns:1fr;
+  .map-frame{height:250px}
+  .contact{
+    padding:20px 16px 120px;
   }
+  .form-grid{grid-template-columns:1fr}
+  .form-grid .full{grid-column:auto}
+  .form-actions{flex-direction:column}
+  .form-actions .btn{width:100%}
+  .whatsapp-container{
+    right:16px;
+    bottom:86px;
+  }
+  .whatsapp-options a{min-width:220px}
+  .whatsapp-float{
+    width:58px;
+    height:58px;
+    font-size:28px;
+  }
+  .mobile-bottom-bar{display:block}
 }
 
-@media(max-width:768px){
-  .titulo-animado span{
-    font-size:32px;
+@media (max-width:520px){
+  .hero-visual-card{
+    padding:16px;
+    border-radius:24px;
   }
-
-  .hero p{
-    font-size:17px;
+  .branch-highlight{
+    padding:18px 14px;
+    border-radius:22px;
   }
-
-  .section h2{
-    font-size:38px;
+  .featured-month{
+    border-radius:24px;
   }
-
-  .slides img{
-    height:260px;
+  .featured-month h2{
+    font-size:30px;
   }
-
-  .card{
-    width:90%;
-    max-width:320px;
+  .contact-card{
+    padding:22px 16px;
   }
-
-  .map-frame{
-    height:280px;
-  }
-
-  .contact{
-    padding:50px 18px 70px;
-  }
+  .contact-phone{font-size:30px}
 }
 </style>
 </head>
-
 <body>
 
 <header>
   <nav>
-    <img src="logo.png" alt="Logo G&D">
-    <ul>
+    <div class="logo-wrap">
+      <img src="logo2.png" alt="Logo G&D" />
+      <div class="logo-text">
+        <strong>Distribución G&D</strong>
+        <span>Farmacia, perfumería y abarrotes</span>
+      </div>
+    </div>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+
+    <ul id="navMenu">
       <li><a href="#inicio">Inicio</a></li>
       <li><a href="#empresa">Empresa</a></li>
       <li><a href="#sucursales">Sucursales</a></li>
-      <li><a href="#farmacia">Farmacia</a></li>
-      <li><a href="#perfumeria">Perfumería</a></li>
-      <li><a href="#abarrotes">Abarrotes</a></li>
+      <li><a href="#valores-corporativos">Visión, Misión y Valores</a></li>
+      <li><a href="#explorar">Explorar</a></li>
+      <li><a href="#destacado-mes">Destacado</a></li>
+      <li><a href="#mas-buscados">Buscados</a></li>
+      <li><a href="#marcas">Marcas</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
   </nav>
 </header>
 
+<div class="top-banner reveal">
+  <div>
+    <p><strong>Distribución G&D:</strong> conoce productos destacados, categorías principales, disponibilidad por sucursal y la mejor opción para atender a tus clientes de forma rápida y confiable.</p>
+  </div>
+  <div class="banner-actions">
+    <a href="#destacado-mes" class="banner-btn"><i class="fa-solid fa-fire"></i> Producto destacado</a>
+    <a href="#explorar" class="banner-btn"><i class="fa-solid fa-boxes-stacked"></i> Explorar catálogo</a>
+  </div>
+</div>
+
 <section class="hero" id="inicio">
-  <img src="principal.png" alt="Imagen principal">
+  <div class="hero-inner">
+    <div class="hero-copy reveal">
+      <h1 class="hero-title">Bienvenidos a <span>Distribución G&amp;D</span></h1>
+      <div class="hero-line"></div>
+      <p>
+       Distribución G&amp;D transforma tu forma de comprar: acceso rápido a productos, sucursales y líneas comerciales en una sola plataforma, diseñada para brindarte eficiencia, confianza y una experiencia superior.
+      </p>
 
-  <h1 class="titulo-animado">Bienvenidos a Distribución G&amp;D</h1>
-  <div class="hero-linea"></div>
+      <div class="hero-actions">
+        <a href="#explorar" class="btn btn-primary"><i class="fa-solid fa-boxes-stacked"></i> Explorar catálogo</a>
+        <a href="#sucursales" class="btn btn-secondary"><i class="fa-solid fa-location-dot"></i> Ver sucursales</a>
+        <a href="#contacto" class="btn btn-danger"><i class="fa-solid fa-phone"></i> Solicitar atención</a>
+      </div>
+    </div>
 
-  <p>Tienda Especializada en Distribución de Farmacéuticos, Perfumería, Abarrotes y más.</p>
+    <div class="hero-visual reveal">
+      <div class="hero-visual-card">
+        <img src="principal2.png" alt="Imagen principal" />
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-panel">
+    <div class="panel-card reveal">
+      <div class="panel-icon search"><i class="fa-solid fa-magnifying-glass"></i></div>
+      <h3>Búsqueda rápida</h3>
+      <p>Accede a categorías y productos destacados desde una navegación más ágil.</p>
+      <a href="#explorar" class="btn btn-secondary">Explorar ahora</a>
+    </div>
+
+    <div class="panel-card reveal">
+      <div class="panel-icon promo"><i class="fa-solid fa-percent"></i></div>
+      <h3>Promociones visibles</h3>
+      <p>Destaca productos clave con una sección comercial más fuerte y mejor presentada.</p>
+      <a href="#destacado-mes" class="btn btn-secondary">Ver destacado</a>
+    </div>
+
+    <div class="panel-card reveal">
+      <div class="panel-icon location"><i class="fa-solid fa-location-crosshairs"></i></div>
+      <h3>Sucursales activas</h3>
+      <p>Consulta ubicación, horarios y estado actual de servicio de forma centralizada.</p>
+      <a href="#sucursales" class="btn btn-secondary">Revisar sucursales</a>
+    </div>
+
+    <div class="panel-card reveal">
+      <div class="panel-icon contact"><i class="fa-solid fa-comments"></i></div>
+      <h3>Atención directa</h3>
+      <p>Canales listos para contacto comercial, cotización o seguimiento de consulta.</p>
+      <a href="#contacto" class="btn btn-secondary">Ir a contacto</a>
+    </div>
+  </div>
+
+  <div class="branch-highlight reveal">
+    <div class="branch-highlight-left">
+      <span class="badge"><i class="fa-solid fa-location-dot"></i> Sucursales cercanas</span>
+      <h3>Ubica la mejor opción para tu atención</h3>
+      <p>Activa tu ubicación para calcular las sucursales más cercanas y consultar rápidamente su estado de servicio, horario y acceso al mapa.</p>
+
+      <div class="location-actions">
+        <button id="locationButton" type="button" class="location-btn">
+          <i class="fa-solid fa-location-crosshairs"></i> Usar mi ubicación
+        </button>
+        <span id="locationMessage" class="location-message"></span>
+      </div>
+
+      <div class="nearest-branches" id="nearestBranches"></div>
+    </div>
+
+    <div class="branch-highlight-right">
+      <h4 id="highlightRightTitle">Información de sucursal disponible</h4>
+      <p id="highlightRightText">Selecciona una sucursal recomendada para visualizar ubicación, horario y referencia directa en Google Maps.</p>
+      <span class="status-pill status-open" id="highlightStatusPill">Disponible</span>
+    </div>
+  </div>
 </section>
 
+<!-- EMPRESA DESPUÉS DE SUGERENCIA DE SUCURSAL -->
 <section id="empresa" class="section">
-  <h2>Empresa</h2>
+  <h2 class="section-title reveal">Empresa</h2>
+  <p class="section-subtitle reveal">Distribución G&amp;D consolida su presencia comercial a través de una operación enfocada en servicio, cobertura regional y una oferta integral en farmacia, perfumería y abarrotes.</p>
 
-  <div class="slider">
+  <div class="slider reveal">
     <div class="slides">
-      <img src="img1.png" alt="Imagen 1">
-      <img src="img2.png" alt="Imagen 2">
-      <img src="img3.png" alt="Imagen 3">
-      <img src="img4.png" alt="Imagen 4">
-    </div>
-  </div>
-
-  <div class="cards">
-    <div class="card" onclick="abrirModal('mision')">
-      <img src="mision.png" alt="Misión">
-      <div class="card-overlay">
-        <h3>Misión</h3>
-      </div>
-    </div>
-
-    <div class="card" onclick="abrirModal('vision')">
-      <img src="vision.png" alt="Visión">
-      <div class="card-overlay">
-        <h3>Visión</h3>
-      </div>
-    </div>
-
-    <div class="card" onclick="abrirModal('valores')">
-      <img src="valores.jpg" alt="Valores">
-      <div class="card-overlay">
-        <h3>Valores</h3>
-      </div>
+      <img src="img1.png" alt="Imagen 1" />
+      <img src="img2.png" alt="Imagen 2" />
+      <img src="img3.png" alt="Imagen 3" />
+      <img src="img4.png" alt="Imagen 4" />
     </div>
   </div>
 </section>
 
-<!-- MODAL EMPRESA -->
+<!-- SUCURSALES DESPUÉS DE EMPRESA -->
+<section id="sucursales" class="section">
+  <h2 class="section-title reveal">Sucursales</h2>
+  <p class="section-subtitle reveal">Consulta la red de sucursales de Distribución G&amp;D, su estado operativo, horario de atención y el perfil principal de servicio de cada una.</p>
+  <div class="compare-grid" id="compareSucursales"></div>
+</section>
+
+<!-- VISIÓN, MISIÓN Y VALORES DESPUÉS DE SUCURSALES -->
+<section id="valores-corporativos" class="section">
+  <h2 class="section-title reveal">Visión, Misión y Valores</h2>
+  <p class="section-subtitle reveal">Los principios que respaldan la identidad de Distribución G&amp;D y fortalecen su compromiso con el servicio y la atención comercial.</p>
+
+  <div class="values-grid">
+    <div class="value-card reveal">
+      <div class="value-icon"><i class="fa-solid fa-eye"></i></div>
+      <h3>Visión</h3>
+      <p>Somos una empresa con una ambición: seguir cuidando de tu salud apoyando tu economía. Nos caracterizamos por brindar más de una solución y seguir ofreciendo nuestra principal vocación: tu bienestar.</p>
+    </div>
+
+    <div class="value-card reveal">
+      <div class="value-icon"><i class="fa-solid fa-bullseye"></i></div>
+      <h3>Misión</h3>
+      <p>Somos una empresa enfocada en ofrecer una alternativa de salud y productos abarroteros siendo proveedores de una gran gama de productos farmacéuticos, apegados a las normas que nos brinde la secretaría de salud con responsabilidad.</p>
+    </div>
+
+    <div class="value-card reveal">
+      <div class="value-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+      <h3>Valores</h3>
+      <p>Distribuidora G&amp;D tiene muy presentes valores como responsabilidad, respeto, comunicación clara, integridad, honestidad y disciplina, buscando siempre mejorar día a día y servir mejor a clientes y aliados.</p>
+    </div>
+  </div>
+</section>
+
+<section id="explorar" class="section">
+  <h2 class="section-title reveal">Explorar catálogo por categoría</h2>
+  <p class="section-subtitle reveal">La navegación principal se organiza por categorías estratégicas para facilitar la consulta de líneas comerciales y productos más relevantes.</p>
+
+  <div class="tabs-wrap">
+    <div class="tabs-header reveal">
+      <button class="tab-btn active" data-tab="farmaciaTab">Farmacia</button>
+      <button class="tab-btn" data-tab="perfumeriaTab">Perfumería</button>
+      <button class="tab-btn" data-tab="abarrotesTab">Abarrotes</button>
+      <button class="tab-btn" data-tab="ofertasTab">Ofertas</button>
+    </div>
+
+    <div class="tab-panel active" id="farmaciaTab">
+      <div class="product-grid" id="farmaciaProductos"></div>
+    </div>
+
+    <div class="tab-panel" id="perfumeriaTab">
+      <div class="product-grid" id="perfumeriaProductos"></div>
+    </div>
+
+    <div class="tab-panel" id="abarrotesTab">
+      <div class="product-grid" id="abarrotesProductos"></div>
+    </div>
+
+    <div class="tab-panel" id="ofertasTab">
+      <div class="product-grid" id="ofertasProductos"></div>
+    </div>
+  </div>
+</section>
+
+<section id="destacado-mes" class="section" style="padding-top:10px;">
+  <div class="featured-month reveal">
+    <div class="featured-month-media">
+      <img src="pediasure anuncio.jpeg" alt="Producto destacado del mes" />
+    </div>
+    <div>
+  <span class="featured-month-badge"><i class="fa-solid fa-star"></i> Campaña principal del periodo</span>
+  <h2>PediaSure – Nutrición que impulsa su crecimiento</h2>
+  <p>
+    PediaSure es la opción ideal para complementar la alimentación de los más pequeños,
+    brindando una combinación equilibrada de proteínas, vitaminas y minerales que apoyan
+    su desarrollo diario.
+  </p>
+
+  <div class="featured-list">
+    <div><i class="fa-solid fa-check"></i> Apoya el crecimiento y desarrollo</div>
+    <div><i class="fa-solid fa-check"></i> Contiene vitaminas y minerales esenciales</div>
+    <div><i class="fa-solid fa-check"></i> Ideal como complemento nutricional diario</div>
+    <div><i class="fa-solid fa-check"></i> Sabor agradable para una mejor aceptación</div>
+  </div>
+
+  <div style="display:flex;gap:12px;flex-wrap:wrap;">
+    <a href="#mas-buscados" class="btn btn-secondary"><i class="fa-solid fa-arrow-down"></i> Ver productos relacionados</a>
+    <a href="#contacto" class="btn btn-primary"><i class="fa-solid fa-phone"></i> Solicitar información</a>
+  </div>
+</div>
+  </div>
+</section>
+
+<section id="mas-buscados" class="section">
+  <h2 class="section-title reveal">Productos con mayor interés comercial</h2>
+  <p class="section-subtitle reveal">Una vitrina enfocada en los artículos con mejor presencia visual, mayor rotación o mayor interés para los clientes.</p>
+  <div class="best-sellers-grid" id="bestSellersGrid"></div>
+</section>
+
 <div class="modal" id="modalEmpresa">
   <div class="modal-content">
     <button class="close-btn" onclick="cerrarModal()">&times;</button>
     <div class="modal-grid">
-      <img id="modalImg" class="modal-image" src="" alt="">
+      <img id="modalImg" class="modal-image" src="" alt="" />
       <div class="modal-info">
         <h2 id="modalTitulo"></h2>
         <p id="modalTexto"></p>
@@ -679,41 +1597,6 @@ button:hover{
   </div>
 </div>
 
-<section id="sucursales" class="section">
-  <h2>Sucursales</h2>
-
-  <div class="cards">
-    <div class="card" onclick="abrirSucursal('tapachula')">
-      <img src="tapachula.jpeg" alt="Sucursal Tapachula">
-      <div class="card-overlay">
-        <h3>Tapachula</h3>
-      </div>
-    </div>
-
-    <div class="card" onclick="abrirSucursal('toscana')">
-      <img src="toscana.jpeg" alt="Sucursal Toscana">
-      <div class="card-overlay">
-        <h3>Toscana</h3>
-      </div>
-    </div>
-
-    <div class="card" onclick="abrirSucursal('ciudadhidalgo')">
-      <img src="cdhidalgo.jpg" alt="Sucursal Ciudad Hidalgo">
-      <div class="card-overlay">
-        <h3>Ciudad Hidalgo</h3>
-      </div>
-    </div>
-
-    <div class="card" onclick="abrirSucursal('tuxtla')">
-      <img src="tuxtla.png" alt="Sucursal Tuxtla Gutiérrez">
-      <div class="card-overlay">
-        <h3>Tuxtla Gutiérrez</h3>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MODAL SUCURSALES -->
 <div class="modal" id="modalSucursal">
   <div class="map-modal-content">
     <button class="close-btn" onclick="cerrarSucursal()">&times;</button>
@@ -721,201 +1604,639 @@ button:hover{
       <div class="map-info">
         <h2 id="sucursalTitulo"></h2>
         <p id="sucursalDireccion"></p>
-        <a id="sucursalLink" href="#" target="_blank" class="map-btn">Abrir en Google Maps</a>
+        <p><strong>Horario:</strong> <span id="sucursalHorario"></span></p>
+        <div id="estadoContainer"><span id="sucursalEstado"></span></div>
+        <a id="sucursalLink" href="#" target="_blank" class="map-btn"><i class="fa-solid fa-map-location-dot"></i> Abrir en Google Maps</a>
       </div>
-
       <div>
-        <iframe
-          id="sucursalMapa"
-          class="map-frame"
-          loading="lazy"
-          allowfullscreen
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+        <iframe id="sucursalMapa" class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </div>
 </div>
 
-<section id="farmacia" class="section">
-  <h2>Farmacia</h2>
-  <div class="info-boxes">
-    <div class="info-box">
-      <h3>Medicamentos</h3>
-      <p>Amplia variedad de productos farmacéuticos con enfoque en calidad, confianza y disponibilidad.</p>
-    </div>
-    <div class="info-box">
-      <h3>Cuidado de la salud</h3>
-      <p>Productos esenciales para el bienestar diario, siempre pensando en la economía del cliente.</p>
-    </div>
-    <div class="info-box">
-      <h3>Atención confiable</h3>
-      <p>Servicio pensado para resolver necesidades de compra con rapidez y una experiencia agradable.</p>
-    </div>
-  </div>
-</section>
-
-<section id="perfumeria" class="section">
-  <h2>Perfumería</h2>
-  <div class="info-boxes">
-    <div class="info-box">
-      <h3>Fragancias</h3>
-      <p>Perfumes y lociones seleccionadas para ofrecer opciones atractivas y de alta rotación.</p>
-    </div>
-    <div class="info-box">
-      <h3>Cuidado personal</h3>
-      <p>Artículos de higiene y belleza para complementar la experiencia de compra del cliente.</p>
-    </div>
-    <div class="info-box">
-      <h3>Presentación moderna</h3>
-      <p>Productos ideales para venta al detalle con exhibición visual más atractiva.</p>
-    </div>
-  </div>
-</section>
-
-<section id="abarrotes" class="section">
-  <h2>Abarrotes</h2>
-  <div class="info-boxes">
-    <div class="info-box">
-      <h3>Gran surtido</h3>
-      <p>Productos de consumo diario pensados para clientes que buscan practicidad y buen precio.</p>
-    </div>
-    <div class="info-box">
-      <h3>Mayoreo y detalle</h3>
-      <p>Opciones de compra flexibles para distintos tipos de negocio y necesidades del hogar.</p>
-    </div>
-    <div class="info-box">
-      <h3>Mejor experiencia</h3>
-      <p>Una oferta más completa para que el cliente encuentre variedad en un solo lugar.</p>
-    </div>
+<section id="marcas" class="section">
+  <h2 class="section-title reveal">Marcas y líneas comerciales</h2>
+  <p class="section-subtitle reveal">Una selección visual de marcas y líneas que fortalecen el portafolio comercial de Distribución G&amp;D.</p>
+  <div class="brands-gallery">
+    <div class="brand-card reveal"><img src="bayer.png" alt="Bayer" /></div>
+    <div class="brand-card reveal"><img src="johnsons.png" alt="Johnsons" /></div>
+    <div class="brand-card reveal"><img src="electrolit.png" alt="Electrolit" /></div>
+    <div class="brand-card reveal"><img src="savile.avif" alt="Savilé" /></div>
+    <div class="brand-card reveal"><img src="ensure.png" alt="Ensure" /></div>
+    <div class="brand-card reveal"><img src="pediasure.png" alt="PediaSure" /></div>
+    <div class="brand-card reveal"><img src="pedialyte.png" alt="Pedialyte" /></div>
+    <div class="brand-card reveal"><img src="pyg.png" alt="P&G" /></div>
+    <div class="brand-card reveal"><img src="doloneurobion.png" alt="Doloneurobión" /></div>
+    <div class="brand-card reveal"><img src="neurobion.png" alt="Neurobión" /></div>
   </div>
 </section>
 
 <section id="contacto" class="contact">
-  <div>
-    <h2 style="color:#ff1e1e;">Contáctanos</h2>
-    <p style="color:#1f5ea8;font-size:22px;font-weight:600;">atnclientes@dgardi.com</p>
-    <p>O llámanos al:</p>
-    <h3 style="color:#1f5ea8;font-size:34px;">96 2286 6104</h3>
+  <div class="contact-card reveal">
+    <h2>Contacto comercial</h2>
+    <p class="contact-email">atnclientes@dgardi.com</p>
+    <p>Canales disponibles para atención comercial, seguimiento de consulta, orientación de sucursal o información general de productos.</p>
+    <p>Teléfono de atención:</p>
+    <p class="contact-phone">96 21874692</p>
+    <div class="form-actions">
+      <a class="btn btn-whatsapp" target="_blank" href="https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20general"><i class="fa-brands fa-whatsapp"></i> Iniciar contacto</a>
+    </div>
   </div>
 
-  <div>
-    <h2 style="color:#ff1e1e;">Contacto</h2>
-    <input placeholder="Nombre">
-    <input placeholder="Email">
-    <select>
-      <option>¿Está interesado en comprar?</option>
-      <option>Medicamentos</option>
-      <option>Perfumería</option>
-      <option>Abarrotes</option>
-      <option>Información general</option>
-    </select>
-    <textarea placeholder="Comentarios"></textarea>
-    <textarea placeholder="Mensaje adicional"></textarea>
-    <button>Enviar</button>
+  <div class="contact-card reveal">
+    <h2>Formulario de consulta</h2>
+    <div class="form-grid">
+      <input class="full" placeholder="Nombre" />
+      <input class="full" placeholder="Correo electrónico" />
+      <select class="full">
+        <option>Seleccione el tipo de consulta</option>
+        <option>Medicamentos</option>
+        <option>Perfumería</option>
+        <option>Abarrotes</option>
+        <option>Información general</option>
+      </select>
+      <textarea class="full" placeholder="Comentarios"></textarea>
+      <textarea class="full" placeholder="Mensaje adicional"></textarea>
+    </div>
+    <div class="form-actions">
+      <button class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Enviar consulta</button>
+      <a class="btn btn-secondary" href="#inicio"><i class="fa-solid fa-arrow-up"></i> Volver al inicio</a>
+    </div>
   </div>
 </section>
 
+<div class="whatsapp-container">
+  <div class="whatsapp-options" id="whatsappOptions">
+    <a href="https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20la%20Sucursal%20Tapachula" target="_blank">Sucursal Tapachula</a>
+    <a href="https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20la%20Sucursal%20Toscana" target="_blank">Sucursal Toscana</a>
+    <a href="https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20la%20Sucursal%20Ciudad%20Hidalgo" target="_blank">Sucursal Ciudad Hidalgo</a>
+    <a href="https://wa.me/529621874692?text=Hola,%20quiero%20informaci%C3%B3n%20de%20la%20Sucursal%20Tuxtla%20Gutierrez" target="_blank">Sucursal Tuxtla Gutiérrez</a>
+  </div>
+  <button class="whatsapp-float" id="whatsappToggle" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></button>
+</div>
+
+<div class="mobile-bottom-bar">
+  <div class="mobile-bottom-nav">
+    <a href="#inicio"><i class="fa-solid fa-house"></i><span>Inicio</span></a>
+    <a href="#empresa"><i class="fa-solid fa-building"></i><span>Empresa</span></a>
+    <a href="#sucursales"><i class="fa-solid fa-location-dot"></i><span>Sucursales</span></a>
+    <a href="#contacto"><i class="fa-solid fa-phone"></i><span>Contacto</span></a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <p>© 2026 Distribución G&amp;D. Todos los derechos reservados.</p>
+    <div class="footer-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#empresa">Empresa</a>
+      <a href="#sucursales">Sucursales</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </div>
+</footer>
+
 <script>
-function abrirModal(tipo){
+const sucursalesData = {
+  tapachula: {
+    nombre: 'Sucursal Tapachula',
+    direccion: 'Carr. a Puerto Madero km 4, Los Naranjos, Canta Ranas, 30797 Tapachula de Córdova y Ordóñez, Chis.',
+    horarioTexto: 'Lun a vie · 8:00 am a 6:00 pm · Sáb 8:00 am a 4:00 pm',
+    enfoque: 'Cobertura amplia y atención de alto flujo',
+    horarios: {
+      lunesViernes: { abre: '08:00', cierra: '18:00' },
+      sabado: { abre: '08:00', cierra: '16:00' }
+    },
+    mapa: 'https://www.google.com/maps?q=Tapachula,Chiapas,Mexico&output=embed',
+    link: 'https://maps.app.goo.gl/iCP9EMFZsKTdKKQ9A',
+    lat: 14.907038641809468,
+    lng: -92.2834320129711
+  },
+  toscana: {
+    nombre: 'Sucursal Toscana',
+    direccion: 'Plaza Toscana Libramiento Sur Oriente, 30785 Tapachula de Córdova y Ordóñez, Chis.',
+    horarioTexto: 'Lun a vie · 8:00 am a 6:00 pm · Sáb 8:00 am a 5:00 pm',
+    enfoque: 'Ubicación estratégica y acceso rápido',
+    horarios: {
+      lunesViernes: { abre: '08:00', cierra: '18:00' },
+      sabado: { abre: '08:00', cierra: '17:00' }
+    },
+    mapa: 'https://www.google.com/maps?q=Toscana,Tapachula,Chiapas,Mexico&output=embed',
+    link: 'https://maps.app.goo.gl/hv1utfDiUdBwcUieA',
+    lat: 14.85721410750208,
+    lng: -92.2782996
+  },
+  ciudadhidalgo: {
+    nombre: 'Sucursal Ciudad Hidalgo',
+    direccion: 'Tercera avenida Oriente entre Primera y Tercera Norte, Ciudad Hidalgo, 30840 Cdad. Hidalgo, Chis.',
+    horarioTexto: 'Lun a vie · 7:30 am a 5:30 pm · Sáb 7:30 am a 3:30 pm',
+    enfoque: 'Atención regional y servicio cercano',
+    horarios: {
+      lunesViernes: { abre: '07:30', cierra: '17:30' },
+      sabado: { abre: '07:30', cierra: '15:30' }
+    },
+    mapa: 'https://www.google.com/maps?q=Ciudad+Hidalgo,Chiapas,Mexico&output=embed',
+    link: 'https://maps.app.goo.gl/F6ryDvbnRQXbtqWa9',
+    lat: 14.6813187,
+    lng: -92.1494964
+  },
+  tuxtla: {
+    nombre: 'Sucursal Tuxtla Gutiérrez',
+    direccion: 'De la Octava Sur Ote. 1535-Locales 07 y 08, entre 13 y 15 Oriente, Santa Cruz, 29073 Tuxtla Gutiérrez, Chis.',
+    horarioTexto: 'Lun a vie · 8:00 am a 6:00 pm · Sáb 8:00 am a 4:00 pm',
+    enfoque: 'Cobertura urbana y atención ágil',
+    horarios: {
+      lunesViernes: { abre: '08:00', cierra: '18:00' },
+      sabado: { abre: '08:00', cierra: '16:00' }
+    },
+    mapa: 'https://www.google.com/maps?q=Tuxtla+Gutierrez,Chiapas,Mexico&output=embed',
+    link: 'https://maps.app.goo.gl/2pcGG943xgzVTg6v8',
+    lat: 16.74520249631762,
+    lng: -93.10482933216417
+  }
+};
+
+const productosCatalogo = {
+  farmacia: [
+    { nombre:'Paracetamol', descripcion:'Producto de consulta frecuente dentro de la línea farmacéutica.', imagen:'mauvicam.jpeg', badge:'Popular', meta:['Farmacia','Tapachula'] },
+    { nombre:'Vitamina C', descripcion:'Opción orientada a bienestar y temporada.', imagen:'redoxon.jpeg', badge:'Recomendado', meta:['Vitaminas','Toscana'] },
+    { nombre:'PediaSure', descripcion:'Línea con fuerte presencia visual y valor comercial.', imagen:'pediasure anuncio.jpeg', badge:'Destacado', meta:['Nutrición','Ciudad Hidalgo'] },
+    { nombre:'Pomada de la Campana', descripcion:'Artículo clásico de referencia dentro del catálogo.', imagen:'pomadadelacampana.jpeg', badge:'Clásico', meta:['Cuidado','Tuxtla'] }
+  ],
+  perfumeria: [
+    { nombre:'Caprice Naturals', descripcion:'Línea capilar con alto valor visual en exhibición.', imagen:'caprice.jpeg', badge:'Popular', meta:['Cabello','Tapachula'] },
+    { nombre:'Caprice Control Caída', descripcion:'Producto enfocado a una necesidad específica de cuidado personal.', imagen:'caprice 2.jpeg', badge:'Especial', meta:['Perfumería','Toscana'] },
+    { nombre:'Herbal Essences', descripcion:'Opción premium para destacar una línea de shampoo.', imagen:'herbal.jpeg', badge:'Premium', meta:['Cabello','Tuxtla'] },
+    { nombre:'Speed Stick', descripcion:'Producto funcional con presencia constante en la categoría.', imagen:'speed stick.jpeg', badge:'Más pedido', meta:['Higiene','Ciudad Hidalgo'] }
+  ],
+  abarrotes: [
+    { nombre:'Zote Rosa', descripcion:'Producto reconocido con aplicación en limpieza del hogar.', imagen:'zote.jpeg', badge:'Popular', meta:['Hogar','Tapachula'] },
+    { nombre:'Arroz', descripcion:'Producto esencial de consumo diario.', imagen:'img1.png', badge:'Básico', meta:['Abarrotes','Toscana'] },
+    { nombre:'Aceite', descripcion:'Referencia fundamental dentro de compras frecuentes.', imagen:'img2.png', badge:'Esencial', meta:['Cocina','Tuxtla'] },
+    { nombre:'Limpieza del hogar', descripcion:'Línea orientada a necesidades prácticas del cliente.', imagen:'img3.png', badge:'Hogar', meta:['Limpieza','Ciudad Hidalgo'] }
+  ],
+  ofertas: [
+    { nombre:'Redoxon Gotas', descripcion:'Campaña visual con enfoque estacional y alto impacto.', imagen:'redoxon.jpeg', badge:'Oferta', meta:['Temporada','Tapachula'] },
+    { nombre:'Silka Medic', descripcion:'Producto ideal para una campaña de impulso o promoción.', imagen:'silkamedic.jpeg', badge:'Promoción', meta:['Farmacia','Toscana'] },
+    { nombre:'PediaSure', descripcion:'Pieza principal para una campaña con mayor visibilidad.', imagen:'pediasure anuncio.jpeg', badge:'Fuerte', meta:['Campaña','Tuxtla'] },
+    { nombre:'Caprice Naturals', descripcion:'Producto atractivo para reforzar la línea de perfumería.', imagen:'caprice.jpeg', badge:'Impulso', meta:['Perfumería','Ciudad Hidalgo'] }
+  ]
+};
+
+const nearestBranchesEl = document.getElementById('nearestBranches');
+const locationButtonEl = document.getElementById('locationButton');
+const locationMessageEl = document.getElementById('locationMessage');
+
+function setLocationMessage(texto, color = '#5c6c84') {
+  if (!locationMessageEl) return;
+  locationMessageEl.textContent = texto;
+  locationMessageEl.style.color = color;
+}
+
+function obtenerEstadoSucursal(sucursal) {
+  const ahora = new Date();
+  const dia = ahora.getDay();
+
+  if (dia === 0) return 'Cerrado hoy';
+
+  let horarioDelDia = null;
+
+  if (dia >= 1 && dia <= 5) {
+    horarioDelDia = sucursal.horarios.lunesViernes;
+  } else if (dia === 6) {
+    horarioDelDia = sucursal.horarios.sabado;
+  }
+
+  if (!horarioDelDia) return 'Cerrado hoy';
+
+  const [abreH, abreM] = horarioDelDia.abre.split(':').map(Number);
+  const [cierraH, cierraM] = horarioDelDia.cierra.split(':').map(Number);
+
+  const minutosActuales = ahora.getHours() * 60 + ahora.getMinutes();
+  const minutosAbre = abreH * 60 + abreM;
+  const minutosCierra = cierraH * 60 + cierraM;
+
+  if (minutosActuales >= minutosAbre && minutosActuales < minutosCierra) {
+    return 'Abierto ahora';
+  }
+
+  return 'Cerrado por el momento';
+}
+
+function gradosARadianes(grados) {
+  return grados * (Math.PI / 180);
+}
+
+function calcularDistanciaKm(lat1, lng1, lat2, lng2) {
+  const radioTierra = 6371;
+  const dLat = gradosARadianes(lat2 - lat1);
+  const dLng = gradosARadianes(lng2 - lng1);
+
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(gradosARadianes(lat1)) *
+    Math.cos(gradosARadianes(lat2)) *
+    Math.sin(dLng / 2) * Math.sin(dLng / 2);
+
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return radioTierra * c;
+}
+
+function encontrarSucursalesMasCercanas(latUsuario, lngUsuario) {
+  const sucursalesOrdenadas = [];
+
+  for (const key in sucursalesData) {
+    const sucursal = sucursalesData[key];
+    const distancia = calcularDistanciaKm(latUsuario, lngUsuario, sucursal.lat, sucursal.lng);
+    sucursalesOrdenadas.push({ key, distancia });
+  }
+
+  sucursalesOrdenadas.sort((a, b) => a.distancia - b.distancia);
+  return sucursalesOrdenadas.slice(0, 2);
+}
+
+function obtenerSucursalesPorDefecto() {
+  return ['tapachula', 'toscana'].map(key => ({ key, distancia:null }));
+}
+
+function abrirModal(tipo) {
   const modal = document.getElementById('modalEmpresa');
   const titulo = document.getElementById('modalTitulo');
   const texto = document.getElementById('modalTexto');
   const imagen = document.getElementById('modalImg');
 
-  if(tipo === 'mision'){
+  if (tipo === 'mision') {
     titulo.textContent = 'Misión';
     imagen.src = 'mision.png';
     imagen.alt = 'Misión';
-    texto.textContent = 'Somos una empresa enfocada en ofrecer una alternativa de salud y productos abarroteros siendo proveedores de una gran gama de productos farmacéuticos, apegados a las normas que nos brinde la secretaria de salud con responsabilidad.';
+    texto.textContent = 'Somos una empresa enfocada en ofrecer una alternativa de salud y productos abarroteros siendo proveedores de una gran gama de productos farmacéuticos, apegados a las normas que nos brinde la secretaría de salud con responsabilidad.';
   }
 
-  if(tipo === 'vision'){
+  if (tipo === 'vision') {
     titulo.textContent = 'Visión';
     imagen.src = 'vision.png';
     imagen.alt = 'Visión';
-    texto.textContent = 'Somos una empresa con una ambición, seguir cuidando de tu salud apoyando tu economía, nos caracterizamos por brindar más de una solución y seguir ofreciendo nuestra principal vocación, TU BIENESTAR.';
+    texto.textContent = 'Somos una empresa con una ambición: seguir cuidando de tu salud apoyando tu economía. Nos caracterizamos por brindar más de una solución y seguir ofreciendo nuestra principal vocación: tu bienestar.';
   }
 
-  if(tipo === 'valores'){
+  if (tipo === 'valores') {
     titulo.textContent = 'Valores';
-    imagen.src = 'valores.jpg';
+    imagen.src = 'Valores.jpg';
     imagen.alt = 'Valores';
-    texto.textContent = 'Distribuidora G&D tenemos los valores muy recalcados nuestro compromiso con el sector salud nos exige la Responsabilidad que tenemos con nuestros clientes, el trato respetuoso que se merecen, la Comunicación interna clara y honesta con nuestros socios comerciales, somos creadores de la Integridad empresarial, estamos preparados para lidiar con estaciones sanitarias, dejando en claro NO LUCRAR con la salud de las personas a través de nuestros socios comerciales, involucramos la Honestidad y Disciplina como parte de nuestros valores para mejorar día a día siempre viendo por nuestros clientes y aliados.';
+    texto.textContent = 'Distribuidora G&D tiene muy presentes valores como responsabilidad, respeto, comunicación clara, integridad, honestidad y disciplina, buscando siempre mejorar día a día y servir mejor a clientes y aliados.';
   }
 
   modal.classList.add('show');
 }
 
-function cerrarModal(){
+function cerrarModal() {
   document.getElementById('modalEmpresa').classList.remove('show');
 }
 
-function abrirSucursal(tipo){
+function abrirSucursal(tipo) {
   const modal = document.getElementById('modalSucursal');
   const titulo = document.getElementById('sucursalTitulo');
   const direccion = document.getElementById('sucursalDireccion');
   const mapa = document.getElementById('sucursalMapa');
   const link = document.getElementById('sucursalLink');
+  const horario = document.getElementById('sucursalHorario');
+  const estado = document.getElementById('sucursalEstado');
 
-  if(tipo === 'tapachula'){
-    titulo.textContent = 'Sucursal Tapachula';
-    direccion.textContent = 'Carr. a Puerto Madero km 4, Los Naranjos, Canta Ranas, 30797 Tapachula de Córdova y Ordóñez, Chis.';
-    mapa.src = 'https://www.google.com/maps?q=Tapachula,Chiapas,Mexico&output=embed';
-    link.href = 'https://maps.app.goo.gl/iCP9EMFZsKTdKKQ9A';
-  }
+  const sucursal = sucursalesData[tipo];
+  const estadoActual = obtenerEstadoSucursal(sucursal);
 
-  if(tipo === 'toscana'){
-    titulo.textContent = 'Sucursal Toscana';
-    direccion.textContent = 'Plaza Toscana Libramiento Sur Oriente, 30785 Tapachula de Córdova y Ordóñez, Chis.';
-    mapa.src = 'https://www.google.com/maps?q=Toscana,Tapachula,Chiapas,Mexico&output=embed';
-    link.href = 'https://maps.app.goo.gl/hv1utfDiUdBwcUieA';
-  }
-
-  if(tipo === 'ciudadhidalgo'){
-    titulo.textContent = 'Sucursal Ciudad Hidalgo';
-    direccion.textContent = 'tercera avenida Oriente entre primera y tercera nte Ciudad Hidalgo, 30840 Cdad. Hidalgo, Chis.';
-    mapa.src = 'https://www.google.com/maps?q=Ciudad+Hidalgo,Chiapas,Mexico&output=embed';
-    link.href = 'https://maps.app.goo.gl/F6ryDvbnRQXbtqWa9';
-  }
-
-  if(tipo === 'tuxtla'){
-    titulo.textContent = 'Sucursal Tuxtla Gutiérrez';
-    direccion.textContent = 'De la Octava Sur Ote. 1535-Locales 07 y 08, entre 13 y 15 Oriente, Santa Cruz, 29073 Tuxtla Gutiérrez, Chis.';
-    mapa.src = 'https://www.google.com/maps?q=Tuxtla+Gutierrez,Chiapas,Mexico&output=embed';
-    link.href = 'https://maps.app.goo.gl/2pcGG943xgzVTg6v8';
-  }
+  titulo.textContent = sucursal.nombre;
+  direccion.textContent = sucursal.direccion;
+  horario.textContent = sucursal.horarioTexto;
+  estado.textContent = estadoActual;
+  estado.className = estadoActual === 'Abierto ahora' ? 'estado-open' : 'estado-closed';
+  mapa.src = sucursal.mapa;
+  link.href = sucursal.link;
 
   modal.classList.add('show');
 }
 
-function cerrarSucursal(){
+function cerrarSucursal() {
   const modal = document.getElementById('modalSucursal');
   const mapa = document.getElementById('sucursalMapa');
   modal.classList.remove('show');
   mapa.src = '';
 }
 
-window.addEventListener('click', function(e){
+function seleccionarSucursal(key) {
+  const sucursal = sucursalesData[key];
+  const estadoActual = obtenerEstadoSucursal(sucursal);
+
+  document.getElementById('highlightRightTitle').textContent = sucursal.nombre;
+  document.getElementById('highlightRightText').textContent = `${sucursal.direccion} · ${sucursal.horarioTexto}`;
+
+  const pill = document.getElementById('highlightStatusPill');
+  pill.textContent = estadoActual;
+  pill.className = estadoActual === 'Abierto ahora'
+    ? 'status-pill status-open'
+    : 'status-pill status-closed';
+
+  abrirSucursal(key);
+}
+
+function renderizarSucursalesCercanas(sucursalesCercanas, usandoUbicacionReal = false) {
+  nearestBranchesEl.innerHTML = '';
+
+  sucursalesCercanas.forEach(item => {
+    const sucursal = sucursalesData[item.key];
+    const estadoActual = obtenerEstadoSucursal(sucursal);
+
+    const distanciaHTML = item.distancia === null
+      ? '<span>📍 Distancia no disponible</span>'
+      : `<span>📍 ${item.distancia.toFixed(1)} km</span>`;
+
+    const card = document.createElement('div');
+    card.className = 'nearest-card reveal';
+    card.innerHTML = `
+      <h4>${sucursal.nombre}</h4>
+      <p>${sucursal.direccion}</p>
+      <div class="nearest-meta">
+        ${distanciaHTML}
+        <span>🕒 ${sucursal.horarioTexto}</span>
+        <span>${estadoActual === 'Abierto ahora' ? '✅ Abierto ahora' : '⏳ ' + estadoActual}</span>
+      </div>
+      <div class="nearest-actions">
+        <button onclick="seleccionarSucursal('${item.key}')">Elegir sucursal</button>
+        <a href="${sucursal.link}" target="_blank">Cómo llegar</a>
+      </div>
+    `;
+    nearestBranchesEl.appendChild(card);
+  });
+
+  if (usandoUbicacionReal && sucursalesCercanas.length > 0) {
+    const primera = sucursalesCercanas[0];
+    const sucursal = sucursalesData[primera.key];
+    const estadoActual = obtenerEstadoSucursal(sucursal);
+
+    document.getElementById('highlightRightTitle').textContent = sucursal.nombre;
+    document.getElementById('highlightRightText').textContent = `${sucursal.direccion} · ${sucursal.horarioTexto}`;
+
+    const pill = document.getElementById('highlightStatusPill');
+    pill.textContent = estadoActual;
+    pill.className = estadoActual === 'Abierto ahora'
+      ? 'status-pill status-open'
+      : 'status-pill status-closed';
+  }
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}
+
+function manejarErrorGeolocalizacion(error) {
+  let mensaje = 'No fue posible obtener la ubicación del dispositivo.';
+
+  if (error) {
+    switch (error.code) {
+      case error.PERMISSION_DENIED:
+        mensaje = 'No se otorgó permiso para acceder a la ubicación.';
+        break;
+      case error.POSITION_UNAVAILABLE:
+        mensaje = 'La ubicación no está disponible en este momento.';
+        break;
+      case error.TIMEOUT:
+        mensaje = 'La solicitud de ubicación excedió el tiempo de espera.';
+        break;
+      default:
+        mensaje = 'Ocurrió un problema al obtener la ubicación.';
+        break;
+    }
+  }
+
+  setLocationMessage(mensaje + ' Se muestran sucursales sugeridas.', '#b3261e');
+  renderizarSucursalesCercanas(obtenerSucursalesPorDefecto(), false);
+
+  if (locationButtonEl) {
+    locationButtonEl.disabled = false;
+    locationButtonEl.innerHTML = '<i class="fa-solid fa-location-crosshairs"></i> Reintentar ubicación';
+  }
+}
+
+function solicitarUbicacion() {
+  if (!navigator.geolocation) {
+    setLocationMessage('El navegador no soporta geolocalización. Se muestran sucursales sugeridas.', '#b3261e');
+    renderizarSucursalesCercanas(obtenerSucursalesPorDefecto(), false);
+    return;
+  }
+
+  setLocationMessage('Obteniendo ubicación...', '#0f3d91');
+
+  if (locationButtonEl) {
+    locationButtonEl.disabled = true;
+    locationButtonEl.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Ubicando...';
+  }
+
+  navigator.geolocation.getCurrentPosition(
+    function(posicion) {
+      const latUsuario = posicion.coords.latitude;
+      const lngUsuario = posicion.coords.longitude;
+      const precision = posicion.coords.accuracy;
+
+      const sucursalesCercanas = encontrarSucursalesMasCercanas(latUsuario, lngUsuario);
+      renderizarSucursalesCercanas(sucursalesCercanas, true);
+
+      if (precision && precision > 1000) {
+        setLocationMessage(`Ubicación aproximada obtenida (precisión aprox. ${Math.round(precision)} m).`, '#d97706');
+      } else if (precision) {
+        setLocationMessage(`Ubicación obtenida correctamente (precisión aprox. ${Math.round(precision)} m).`, '#15803d');
+      } else {
+        setLocationMessage('Ubicación obtenida correctamente.', '#15803d');
+      }
+
+      if (locationButtonEl) {
+        locationButtonEl.disabled = false;
+        locationButtonEl.innerHTML = '<i class="fa-solid fa-location-crosshairs"></i> Actualizar ubicación';
+      }
+    },
+    function(error) {
+      manejarErrorGeolocalizacion(error);
+    },
+    {
+      enableHighAccuracy: true,
+      timeout: 15000,
+      maximumAge: 0
+    }
+  );
+}
+
+function crearProductoCard(item, categoriaNombre) {
+  return `
+    <article class="product-card reveal">
+      <div class="product-image">
+        <img src="${item.imagen}" alt="${item.nombre}">
+      </div>
+      <div class="product-info">
+        <div class="product-top">
+          <span class="product-tag">${categoriaNombre}</span>
+          <span class="product-badge">${item.badge}</span>
+        </div>
+        <h3>${item.nombre}</h3>
+        <p>${item.descripcion}</p>
+        <div class="product-meta">
+          ${item.meta.map(m => `<span>${m}</span>`).join('')}
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function renderizarTabs() {
+  document.getElementById('farmaciaProductos').innerHTML = productosCatalogo.farmacia.map(item => crearProductoCard(item, 'Farmacia')).join('');
+  document.getElementById('perfumeriaProductos').innerHTML = productosCatalogo.perfumeria.map(item => crearProductoCard(item, 'Perfumería')).join('');
+  document.getElementById('abarrotesProductos').innerHTML = productosCatalogo.abarrotes.map(item => crearProductoCard(item, 'Abarrotes')).join('');
+  document.getElementById('ofertasProductos').innerHTML = productosCatalogo.ofertas.map(item => crearProductoCard(item, 'Oferta')).join('');
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}
+
+function renderizarMasBuscados() {
+  const contenedor = document.getElementById('bestSellersGrid');
+  const destacados = [
+    { nombre:'PediaSure', etiqueta:'Mayor visibilidad', descripcion:'Producto con alta presencia visual para campañas o impulso comercial.', imagen:'pediasure anuncio.jpeg' },
+    { nombre:'Paracetamol', etiqueta:'Alta rotación', descripcion:'Referencia frecuente dentro de la línea farmacéutica.', imagen:'mauvicam.jpeg' },
+    { nombre:'Caprice Naturals', etiqueta:'Recomendado', descripcion:'Línea con valor visual y buena percepción dentro de perfumería.', imagen:'caprice.jpeg' },
+    { nombre:'Zote Rosa', etiqueta:'Reconocido', descripcion:'Producto práctico y bien identificado dentro del segmento hogar.', imagen:'zote.jpeg' }
+  ];
+
+  contenedor.innerHTML = destacados.map(item => `
+    <article class="best-seller-card reveal">
+      <div class="best-seller-image">
+        <img src="${item.imagen}" alt="${item.nombre}">
+      </div>
+      <div class="best-seller-info">
+        <span class="best-seller-tag">${item.etiqueta}</span>
+        <h3>${item.nombre}</h3>
+        <p>${item.descripcion}</p>
+      </div>
+    </article>
+  `).join('');
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}
+
+function renderizarComparativaSucursales() {
+  const contenedor = document.getElementById('compareSucursales');
+  const enfoqueIconos = {
+    tapachula:'fa-solid fa-boxes-stacked',
+    toscana:'fa-solid fa-road',
+    ciudadhidalgo:'fa-solid fa-handshake',
+    tuxtla:'fa-solid fa-city'
+  };
+
+  contenedor.innerHTML = Object.keys(sucursalesData).map(key => {
+    const sucursal = sucursalesData[key];
+    const estado = obtenerEstadoSucursal(sucursal);
+    const abierta = estado === 'Abierto ahora';
+
+    return `
+      <article class="compare-card reveal">
+        <div class="compare-top">
+          <h3>${sucursal.nombre}</h3>
+          <span class="compare-status ${abierta ? 'open' : 'closed'}">${estado}</span>
+        </div>
+        <p>${sucursal.direccion}</p>
+        <div class="compare-list">
+          <div><i class="fa-regular fa-clock"></i><span>${sucursal.horarioTexto}</span></div>
+          <div><i class="${enfoqueIconos[key]}"></i><span>${sucursal.enfoque}</span></div>
+          <div><i class="fa-solid fa-map-location-dot"></i><span>Ubicación disponible en mapa</span></div>
+        </div>
+        <button class="btn btn-primary" style="width:100%;" onclick="abrirSucursal('${key}')">Ver detalle</button>
+      </article>
+    `;
+  }).join('');
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}
+
+window.addEventListener('click', function(e) {
   const modalEmpresa = document.getElementById('modalEmpresa');
   const modalSucursal = document.getElementById('modalSucursal');
-
-  if(e.target === modalEmpresa){
-    cerrarModal();
-  }
-
-  if(e.target === modalSucursal){
-    cerrarSucursal();
-  }
+  if (e.target === modalEmpresa) cerrarModal();
+  if (e.target === modalSucursal) cerrarSucursal();
 });
 
-document.addEventListener('keydown', function(e){
-  if(e.key === 'Escape'){
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
     cerrarModal();
     cerrarSucursal();
   }
 });
+
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.getElementById('navMenu');
+const navLinks = document.querySelectorAll('#navMenu a');
+
+menuToggle.addEventListener('click', function() {
+  navMenu.classList.toggle('show');
+  menuToggle.textContent = navMenu.classList.contains('show') ? '✕' : '☰';
+});
+
+navLinks.forEach(link => {
+  link.addEventListener('click', function() {
+    if (window.innerWidth <= 860) {
+      navMenu.classList.remove('show');
+      menuToggle.textContent = '☰';
+    }
+  });
+});
+
+window.addEventListener('resize', function() {
+  if (window.innerWidth > 860) {
+    navMenu.classList.remove('show');
+    menuToggle.textContent = '☰';
+  }
+});
+
+const whatsappToggle = document.getElementById('whatsappToggle');
+const whatsappOptions = document.getElementById('whatsappOptions');
+
+whatsappToggle.addEventListener('click', function() {
+  whatsappOptions.classList.toggle('show');
+});
+
+document.addEventListener('click', function(e) {
+  const container = document.querySelector('.whatsapp-container');
+  if (container && !container.contains(e.target)) {
+    whatsappOptions.classList.remove('show');
+  }
+});
+
+if (locationButtonEl) {
+  locationButtonEl.addEventListener('click', solicitarUbicacion);
+}
+
+const tabButtons = document.querySelectorAll('.tab-btn');
+const tabPanels = document.querySelectorAll('.tab-panel');
+
+tabButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.getAttribute('data-tab');
+
+    tabButtons.forEach(b => b.classList.remove('active'));
+    tabPanels.forEach(p => p.classList.remove('active'));
+
+    btn.classList.add('active');
+    document.getElementById(target).classList.add('active');
+  });
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.14 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+renderizarTabs();
+renderizarMasBuscados();
+renderizarComparativaSucursales();
+renderizarSucursalesCercanas(obtenerSucursalesPorDefecto(), false);
+setLocationMessage('Pulsa "Usar mi ubicación" para calcular sucursales cercanas.');
 </script>
-
 </body>
 </html>
