@@ -1,0 +1,148 @@
+@media (max-width:1180px){
+  .hero-inner,
+  .featured-month{
+    grid-template-columns:1fr;
+  }
+  .hero-copy{text-align:center}
+  .hero-line{margin:0 auto 22px}
+  .hero-copy p{margin:auto}
+  .hero-actions{justify-content:center}
+  .hero-visual img{max-width:380px}
+  .hero-panel,
+  .product-grid,
+  .best-sellers-grid,
+  .compare-grid,
+  .values-grid,
+  .brands-gallery{
+    grid-template-columns:1fr 1fr;
+  }
+  .branch-highlight{grid-template-columns:1fr}
+  .contact{grid-template-columns:1fr}
+}
+
+@media (max-width:860px){
+  nav{
+    width:100%;
+    padding:14px 16px;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:12px;
+    min-height:auto;
+  }
+  .menu-toggle{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  nav ul{
+    display:none;
+    grid-column:1/-1;
+    width:100%;
+    flex-direction:column;
+    align-items:stretch;
+    gap:10px;
+    background:rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.10);
+    backdrop-filter:blur(8px);
+    border-radius:20px;
+    padding:14px;
+  }
+  nav ul.show{display:flex}
+  nav ul li a{
+    text-align:center;
+    background:rgba(255,255,255,.06);
+    padding:12px 14px;
+  }
+  .logo-text strong{font-size:16px}
+  .logo-text span{font-size:11px}
+
+  .top-banner{flex-direction:column;align-items:flex-start}
+  .hero{padding:40px 16px}
+  .hero-title{font-size:clamp(30px,8vw,48px)}
+  .hero-copy p{font-size:16px}
+  .hero-panel,
+  .nearest-branches,
+  .product-grid,
+  .best-sellers-grid,
+  .compare-grid,
+  .values-grid,
+  .brands-gallery{
+    grid-template-columns:1fr;
+  }
+  .section{padding:70px 16px}
+  .featured-month{padding:22px}
+  .slider{
+    width:100%;
+    margin:22px auto 34px;
+  }
+  .slides img{
+    height:260px;
+    object-fit:cover;
+  }
+  .modal-grid,
+  .map-modal-grid{
+    grid-template-columns:1fr;
+    padding:18px;
+  }
+  .modal-image{
+    max-height:200px;
+    margin:auto;
+  }
+  .modal-info h2,
+  .map-info h2{font-size:26px}
+  .modal-info p,
+  .map-info p{
+    font-size:14px;
+    line-height:1.75;
+  }
+  .map-frame{height:250px}
+  .contact{
+    padding:20px 16px 120px;
+  }
+  .form-grid{grid-template-columns:1fr}
+  .form-grid .full{grid-column:auto}
+  .form-actions{flex-direction:column}
+  .form-actions .btn{width:100%}
+  .whatsapp-container{
+    right:16px;
+    bottom:86px;
+  }
+  .whatsapp-options a{min-width:220px}
+  .whatsapp-float{
+    width:58px;
+    height:58px;
+    font-size:28px;
+  }
+  .mobile-bottom-bar{display:block}
+}
+
+@media (max-width:520px){
+  .hero-visual-card{
+    padding:16px;
+    border-radius:24px;
+  }
+  .branch-highlight{
+    padding:18px 14px;
+    border-radius:22px;
+  }
+  .featured-month{
+    border-radius:24px;
+  }
+  .featured-month h2{
+    font-size:30px;
+  }
+  .contact-card{
+    padding:22px 16px;
+  }
+  .contact-phone{font-size:30px}
+}
+.empresa-video{
+  width:100%;
+  max-width:1100px;
+  height:auto;
+  border-radius:24px;
+  display:block;
+  margin:auto;
+  object-fit:cover;
+  box-shadow:0 15px 40px rgba(0,0,0,.2);
+}
